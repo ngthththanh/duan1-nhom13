@@ -4,20 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
         <title>Techmarket HTML</title>
-        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-grid.min.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-reboot.min.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/font-techmarket.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/slick.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/techmarket-font-awesome.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/slick-style.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/animate.min.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/style.css" media="all" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/colors/blue.css" media="all" />
-        
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-grid.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-reboot.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/font-techmarket.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/slick.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/techmarket-font-awesome.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/slick-style.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/animate.min.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="assets/css/colors/blue.css" media="all" />
+
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
-        <link rel="shortcut icon" href="../assets/images/fav-icon.png">
+        <link rel="shortcut icon" href="assets/images/fav-icon.png">
     </head>
     <body class="woocommerce-active page-template-template-homepage-v10">
         <div id="page" class="hfeed site">
@@ -69,7 +69,7 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children animate-dropdown dropdown">
                                         <a title="Mother`s Day" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">Mother`s Day <span class="caret"></span></a>
-                                        <ul role="menu" class=" dropdown-menu">
+                                        <!-- <ul role="menu" class=" dropdown-menu">
                                             <li class="menu-item animate-dropdown">
                                                 <a title="Wishlist" href="wishlist.html">Wishlist</a>
                                             </li>
@@ -82,7 +82,7 @@
                                             <li class="menu-item animate-dropdown">
                                                 <a title="Track Order" href="track-your-order.html">Track Order</a>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                         <!-- .dropdown-menu -->
                                     </li>
                                     <li class="yamm-fw menu-item menu-item-has-children animate-dropdown dropdown">

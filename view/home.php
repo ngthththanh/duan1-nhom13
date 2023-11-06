@@ -4,8 +4,8 @@
                         <div id="primary" class="content-area">
                             <main id="main" class="site-main">
                                 <div class="home-v10-slider home-slider">
-                                    <div class="slider-1" style="background-image: url(../assets/images/banner/home-v10-background.jpg);">
-                                        <img src="../assets/images/banner/home-v10-img-1.png" alt="">
+                                    <div class="slider-1" style="background-image: url(assets/images/banner/home-v10-background.jpg);">
+                                        <img src="assets/images/banner/home-v10-img-1.png" alt="">
                                         <div class="caption">
                                             <div class="pre-title">ONLY IN 4.04-10.04</div>
                                             <div class="title">WEEKEND SALE</div>
@@ -20,7 +20,7 @@
                                     <div class="row">
                                         <div class="banner large-banner text-in-center">
                                             <a href="shop.html">
-                                                <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-1.jpg ); height: 546px;" class="banner-bg">
+                                                <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/10-1.jpg ); height: 546px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
                                                             <h3 class="title">Women</h3>
@@ -36,7 +36,7 @@
                                         <!-- .banner -->
                                         <div class="banner small-banner text-in-center">
                                             <a href="shop.html">
-                                                <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-2.jpg ); height: 262px;" class="banner-bg">
+                                                <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/10-2.jpg ); height: 262px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
                                                             <h3 class="title">Babys</h3>
@@ -52,7 +52,7 @@
                                         <!-- .banner -->
                                         <div class="banner small-banner text-in-center">
                                             <a href="shop.html">
-                                                <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-3.jpg ); height: 262px;" class="banner-bg">
+                                                <div style="background-size: cover; background-position: center center; background-image: url(assets/images/banner/10-3.jpg ); height: 262px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
                                                             <h3 class="title">Kids &amp; Young</h3>
@@ -68,7 +68,7 @@
                                         <!-- .banner -->
                                         <div class="banner large-banner text-in-center">
                                             <a href="shop.html">
-                                                <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-4.jpg ); height: 546px;" class="banner-bg">
+                                                <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/10-4.jpg ); height: 546px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
                                                             <h3 class="title">Men</h3>
@@ -106,7 +106,7 @@
                                                             <div class="products">
                                                                 <div class="product">
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="../assets/images/shoes/2.jpg" class="wp-post-image" alt="">
+                                                                        <img src="assets/images/shoes/2.jpg" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount"></span>
@@ -496,7 +496,7 @@
                                                             <div class="products">
                                                                 <div class="product">
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="../assets/images/shoes/2.jpg" class="wp-post-image" alt="">
+                                                                        <img src="assets/images/shoes/2.jpg" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount"> </span>
@@ -691,7 +691,7 @@
                                                             <div class="products">
                                                                 <div class="product">
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="../assets/images/shoes/6.jpg" class="wp-post-image" alt="">
+                                                                        <img src="assets/images/shoes/6.jpg" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount"> 789.95</span>
@@ -1090,7 +1090,7 @@
                                 <div class="home-v10-banner-with-products-carousel row stretch-full-width">
                                     <div class="banner column-1">
                                         <a href="shop.html">
-                                            <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-5.jpg ); height: 724px;" class="banner-bg">
+                                            <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/10-5.jpg ); height: 724px;" class="banner-bg">
                                                 <div class="caption">
                                                     <div class="banner-info">
                                                         <h3 class="title">
@@ -3059,7 +3059,7 @@
                                 <div class="banners techmarket-banner techmarket-grid-banner-2">
                                     <div class="row">
                                         <div class="banner large-banner text-in-center">
-                                            <a href="shop.html">
+                                            <a href="index.php">
                                                 <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-6.jpg ); height: 539px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
@@ -3093,7 +3093,7 @@
                                         </div>
                                         <!-- .banner -->
                                         <div class="banner small-banner text-in-center">
-                                            <a href="shop.html">
+                                            <a href="index.php">
                                                 <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-8.jpg ); height: 273px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
@@ -3108,7 +3108,7 @@
                                         </div>
                                         <!-- .banner -->
                                         <div class="banner large-banner text-in-center">
-                                            <a href="shop.html">
+                                            <a href="index.php">
                                                 <div style="background-size: cover; background-position: center center; background-image: url( ../assets/images/banner/10-9.jpg ); height: 544px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
@@ -3131,7 +3131,7 @@
                                     <div class="col-full" data-ride="tm-slick-carousel" data-wrap=".brands" data-slick="{&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;responsive&quot;:[{&quot;breakpoint&quot;:400,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:800,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
                                         <div class="brands">
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3139,13 +3139,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="apple" src="../assets/images/brands/1.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="apple" src="assets/images/brands/1.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3153,13 +3153,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="bosch" src="../assets/images/brands/2.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="bosch" src="assets/images/brands/2.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3167,13 +3167,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="cannon" src="../assets/images/brands/3.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="cannon" src="assets/images/brands/3.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3181,13 +3181,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="connect" src="../assets/images/brands/4.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="connect" src="assets/images/brands/4.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3195,13 +3195,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="galaxy" src="../assets/images/brands/5.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="galaxy" src="assets/images/brands/5.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3209,13 +3209,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="gopro" src="../assets/images/brands/6.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="gopro" src="assets/images/brands/6.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3223,13 +3223,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="handspot" src="../assets/images/brands/7.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="handspot" src="assets/images/brands/7.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3237,13 +3237,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="kinova" src="../assets/images/brands/8.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="kinova" src="assets/images/brands/8.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3251,13 +3251,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="nespresso" src="../assets/images/brands/9.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="nespresso" src="assets/images/brands/9.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3265,13 +3265,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="samsung" src="../assets/images/brands/10.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="samsung" src="assets/images/brands/10.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3279,13 +3279,13 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="speedway" src="../assets/images/brands/11.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="speedway" src="assets/images/brands/11.png">
                                                     </figure>
                                                 </a>
                                             </div>
                                             <!-- .item -->
                                             <div class="item">
-                                                <a href="shop.html">
+                                                <a href="index.php">
                                                     <figure>
                                                         <figcaption class="text-overlay">
                                                             <div class="info">
@@ -3293,7 +3293,7 @@
                                                             </div>
                                                             <!-- /.info -->
                                                         </figcaption>
-                                                        <img width="145" height="50" class="img-responsive desaturate" alt="yoko" src="../assets/images/brands/12.png">
+                                                        <img width="145" height="50" class="img-responsive desaturate" alt="yoko" src="assets/images/brands/12.png">
                                                     </figure>
                                                 </a>
                                             </div>
