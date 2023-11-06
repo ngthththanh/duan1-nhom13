@@ -124,16 +124,16 @@
                                                 <div class="footer-payment-icons">
                                                     <ul class="list-payment-icons nav">
                                                         <li class="nav-item">
-                                                            <img class="payment-icon-image" src="assets/images/credit-cards/mastercard.svg" alt="mastercard" />
+                                                            <img class="payment-icon-image" src="../assets/images/credit-cards/mastercard.svg" alt="mastercard" />
                                                         </li>
                                                         <li class="nav-item">
-                                                            <img class="payment-icon-image" src="assets/images/credit-cards/visa.svg" alt="visa" />
+                                                            <img class="payment-icon-image" src="../assets/images/credit-cards/visa.svg" alt="visa" />
                                                         </li>
                                                         <li class="nav-item">
-                                                            <img class="payment-icon-image" src="assets/images/credit-cards/paypal.svg" alt="paypal" />
+                                                            <img class="payment-icon-image" src="../assets/images/credit-cards/paypal.svg" alt="paypal" />
                                                         </li>
                                                         <li class="nav-item">
-                                                            <img class="payment-icon-image" src="assets/images/credit-cards/maestro.svg" alt="maestro" />
+                                                            <img class="payment-icon-image" src="../assets/images/credit-cards/maestro.svg" alt="maestro" />
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -142,10 +142,10 @@
                                                     <h6 class="footer-secured-by-title">Secured by:</h6>
                                                     <ul class="footer-secured-by-icons">
                                                         <li class="nav-item">
-                                                            <img class="secure-icons-image" src="assets/images/secured-by/norton.svg" alt="norton" />
+                                                            <img class="secure-icons-image" src="../assets/images/secured-by/norton.svg" alt="norton" />
                                                         </li>
                                                         <li class="nav-item">
-                                                            <img class="secure-icons-image" src="assets/images/secured-by/mcafee.svg" alt="mcafee" />
+                                                            <img class="secure-icons-image" src="../assets/images/secured-by/mcafee.svg" alt="mcafee" />
                                                         </li>
                                                     </ul>
                                                 </div>
