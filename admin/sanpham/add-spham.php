@@ -9,7 +9,6 @@
                <div class="card-body">
                     <form action="index.php?act=add-sp" method="post" enctype="multipart/form-data">
                          <div class="mb-3">
-                              <label for="exampleInputText" class="form-label">Danh Mục</label>
                               <select class="form-select" aria-label="Default select example" name="iddm">
                                    <option value="0">Danh Mục Sản Phẩm</option>
                                    <?php foreach ($listdanhmuc as $danhmuc){
@@ -39,12 +38,17 @@
                               <input type="number" class="form-control" id="exampleInputText" min="0" name="soluong"> 
                          </div>
                          <div class="mb-3">
-                              <label for="exampleInputText" class="form-label">Mô Tả Sản Phẩm</label>
-                              <input type="text" class="form-control" id="exampleInputText" name="mota">
-                         </div> 
+                              <label for="exampleFormControlTextarea1" class="form-label">Mô Tả Sản Phẩm</label>
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota"></textarea>
+                         </div>
                          <button type="submit" class="btn btn-primary" name="themmoi">Submit</button>
                     </form>
                </div>
+               <?php
+               if(isset($thongbao) && ($thongbao != "")) {
+                   echo '<div class="alert alert-success" role="alert">' . $thongbao . '</div>';
+               }
+               ?>
           </div>
           <!-- <div style="height: 100vh"></div>
           <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div> -->

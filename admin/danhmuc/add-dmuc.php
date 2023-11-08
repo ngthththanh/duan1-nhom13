@@ -20,6 +20,11 @@
                          <button type="submit" class="btn btn-primary"name="themmoi">Submit</button>
                     </form>
                </div>
+               <?php
+               if(isset($thongbao) && ($thongbao != "")) {
+                   echo '<div class="alert alert-success" role="alert">' . $thongbao . '</div>';
+               }
+               ?>
           </div>
           <!-- <div style="height: 100vh"></div>
           <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div> -->

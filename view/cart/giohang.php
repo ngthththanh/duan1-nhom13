@@ -65,80 +65,8 @@
                                                        <a title="Remove this item" class="remove" href="#">×</a>
                                                   </td>
                                              </tr>
-                                             <tr>
-                                                  <td class="product-remove">
-                                                       <a class="remove" href="#">×</a>
-                                                  </td>
-                                                  <td class="product-thumbnail">
-                                                       <a href="single-product-fullwidth.html">
-                                                            <img width="180" height="180" alt="" class="wp-post-image" src="single-product-fullwidth.html">
-                                                       </a>
-                                                  </td>
-                                                  <td data-title="Product" class="product-name">
-                                                       <div class="media cart-item-product-detail">
-                                                            <a href="single-product-fullwidth.html">
-                                                                 <img width="180" height="180" alt="" class="wp-post-image" src="assets/images/products/cart-2.jpg">
-                                                            </a>
-                                                            <div class="media-body align-self-center">
-                                                                 <a href="single-product-fullwidth.html">4K Action Cam GPS</a>
-                                                            </div>
-                                                       </div>
-                                                  </td>
-                                                  <td data-title="Price" class="product-price">
-                                                       <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>627.99
-                                                       </span>
-                                                  </td>
-                                                  <td class="product-quantity" data-title="Quantity">
-                                                       <div class="quantity">
-                                                            <label for="quantity-input-2">Quantity</label>
-                                                            <input id="quantity-input-2" type="number" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="1" title="Qty" class="input-text qty text" size="4">
-                                                       </div>
-                                                  </td>
-                                                  <td data-title="Total" class="product-subtotal">
-                                                       <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>627.99
-                                                       </span>
-                                                       <a title="Remove this item" class="remove" href="#">×</a>
-                                                  </td>
-                                             </tr>
-                                             <tr>
-                                                  <td class="product-remove">
-                                                       <a class="remove" href="#">×</a>
-                                                  </td>
-                                                  <td class="product-thumbnail">
-                                                       <a href="single-product-fullwidth.html">
-                                                            <img width="180" height="180" alt="" class="wp-post-image" src="single-product-fullwidth.html">
-                                                       </a>
-                                                  </td>
-                                                  <td data-title="Product" class="product-name">
-                                                       <div class="media cart-item-product-detail">
-                                                            <a href="single-product-fullwidth.html">
-                                                                 <img width="180" height="180" alt="" class="wp-post-image" src="assets/images/products/cart-3.jpg">
-                                                            </a>
-                                                            <div class="media-body align-self-center">
-                                                                 <a href="single-product-fullwidth.html">Bluetooth on-ear PureBass Headphones</a>
-                                                            </div>
-                                                       </div>
-                                                  </td>
-                                                  <td data-title="Price" class="product-price">
-                                                       <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>627.99
-                                                       </span>
-                                                  </td>
-                                                  <td class="product-quantity" data-title="Quantity">
-                                                       <div class="quantity">
-                                                            <label for="quantity-input-3">Quantity</label>
-                                                            <input id="quantity-input-3" type="number" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="1" title="Qty" class="input-text qty text" size="4">
-                                                       </div>
-                                                  </td>
-                                                  <td data-title="Total" class="product-subtotal">
-                                                       <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-currencySymbol">£</span>627.99
-                                                       </span>
-                                                       <a title="Remove this item" class="remove" href="#">×</a>
-                                                  </td>
-                                             </tr>
+                                       
+                                          
                                              <tr>
                                                   <td class="actions" colspan="6">
                                                        <div class="coupon">
@@ -265,7 +193,7 @@
                                              <!-- .wc-proceed-to-checkout -->
                                              <a class="checkout-button button alt wc-forward" href="checkout.html">
      Proceed to checkout</a>
-                                             <a class="back-to-shopping" href="shop.html">Back to Shopping</a>
+                                             <a class="back-to-shopping" href="index.php">Back to Shopping</a>
                                              </div>
                                              <!-- .wc-proceed-to-checkout -->
                                         </div>

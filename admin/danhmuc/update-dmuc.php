@@ -1,4 +1,3 @@
-
 <?php if(is_array($danhmuc)){
           extract($danhmuc);
 }?>
@@ -11,7 +10,7 @@
           </ol>
           <div class="card mb-4">
                <div class="card-body">
-                    <form action="index.php?act=sua-dm" method="POST">
+                    <form action="index.php?act=update-dm" method="POST">
                          <div class="mb-3">
                               <label for="exampleInputText" class="form-label">ID Danh Mục</label>
                               <input type="text" class="form-control" id="exampleInputText" disabled>   

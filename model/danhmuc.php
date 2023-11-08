@@ -18,13 +18,13 @@ function loadone_danhmuc($id){
     return $dm;
 }
 function update_danhmuc($id,$tendm){
-    $sql="UPDATE danhmuc SET name='".$tendm."'WHERE id_dm=".$id;
+    $sql = "UPDATE danhmuc SET ten_dm = '" . $tendm . "' WHERE id_dm = " . $id;
     pdo_execute($sql);
 }
 
 function load_ten_dm($iddm){
     if($iddm>0){
-        $sql="SELECT * FROM danhmuc WHERE id_dm=".$iddm;
+        $sql="SELECT * FROM danhmuc WHERE id_dm =".$iddm;
         $dm=pdo_query_one($sql);
         extract($dm);
         return $ten_dm;

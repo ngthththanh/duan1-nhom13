@@ -55,7 +55,7 @@
                                         <td>'.$email.' </td>
                                         <td>'.$pass.' </td>
                                         <td>'.$diachi.' </td>
-                                        <td>'.$vaitro.' </td>
+                                        <td>'.$phanquyen.' </td>
                                         <td> <a href="'.$xoatk.' "><button type="button" class="btn btn-primary">Xóa</button></a></td>
                                     </tr>';
                             }?>   
