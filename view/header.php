@@ -19,7 +19,7 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
         <link rel="shortcut icon" href="assets/images/fav-icon.png">
     </head>
-    <body class="woocommerce-active page-template-template-homepage-v10">
+    <body class="woocommerce-active page-template-template-homepage-v10  single-product full-width extended">
         <div id="page" class="hfeed site">
         <div class="top-bar top-bar-v2">
                 <div class="col-full">

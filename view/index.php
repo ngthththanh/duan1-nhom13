@@ -19,8 +19,20 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                include "home.php";
                break;
           case "chitietsp":
-               include "chitietsp.php";
-               break;
+               // if(isset($_POST['guibinhluan'])){
+               //      insert_binhluan($_POST['id_pro'], $_POST['noidung']);
+               //  }
+                if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
+                    $onesanpham = loadone_sanpham($_GET['idsp']);
+                    extract($onesanpham);
+                    // $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dmuc']);
+                    // $binhluan = loadall_binhluan($_GET['idsp']);
+                    $id_sp = $_GET['idsp'];
+                    include "view/chitietsp.php";
+                }else{
+                    include "shared/404.php";            
+                }
+                break;
           case "gioithieu":
                include "gioithieu.php";
                break;

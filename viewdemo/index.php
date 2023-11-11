@@ -48,9 +48,9 @@
                     $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dmuc']);
                     $binhluan = loadall_binhluan($_GET['idsp']);
                     $id_pro = $_GET['idsp'];
-                    include "view/sanphamct.php";
+                    include "viewdemo/sanphamct.php";
                 }else{
-                    include "view/home.php";            
+                    include "home.php";            
                 }
                 break;
                 // case 'xoabl';

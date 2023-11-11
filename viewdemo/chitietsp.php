@@ -1,4 +1,4 @@
-	<main>
+<?php include "header.php";?>	<main>
 	    <div class="container margin_30">
 	        <!-- <div class="countdown_inner">-20% This offer ends in <div data-countdown="2019/05/15" class="countdown"></div> -->
 	        </div>
@@ -408,4 +408,4 @@
 		<!--/feat-->
 	</main>
 	<!-- /main -->
-	
+	<?php include "footer.php";?>	
