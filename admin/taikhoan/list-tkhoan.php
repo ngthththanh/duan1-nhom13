@@ -19,27 +19,13 @@
                                 <th></th>
                                 <th>ID Tài Khoản</th>
                                 <th>Tên Tài Khoản</th>
-                                <th>Số Điện Thoại</th>
                                 <th>Email</th>
-                                <th>Mật Khẩu</th>
+                                <th>Pass</th>
                                 <th>Địa Chỉ</th>
                                 <th>Vai Trò</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>ID Tài Khoản</th>
-                                <th>Tên Tài Khoản</th>
-                                <th>Số Điện Thoại</th>
-                                <th>Email</th>
-                                <th>Mật Khẩu</th>
-                                <th>Địa Chỉ</th>
-                                <th>Vai Trò</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
                         <tbody>
                             <?php foreach ($listtaikhoan as $taikhoan) {
                                 extract($taikhoan);
@@ -50,8 +36,7 @@
                                     '<tr>
                                         <td> <input type="checkbox" name="" id=""></td>
                                         <td>'.$id_tk.'</td>
-                                        <td>'.$ten_tk.' </td>                  
-                                        <td>'.$sdt.' </td>
+                                        <td>'.$user.' </td>                  
                                         <td>'.$email.' </td>
                                         <td>'.$pass.' </td>
                                         <td>'.$diachi.' </td>

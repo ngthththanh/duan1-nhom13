@@ -86,18 +86,3 @@
                                     <!-- .row -->
                                 </div>
                                 <!-- .banners -->
-
-
-                                
-                                <section class="section-products-carousel-tabs tab-wrap carousel-tab-wrap">
-                                    <div class="section-products-carousel-tabs-wrap">
-                                        <header class="section-header">
-                                            <h2 class="section-title">Shop New Arrivals 2017</h2>
-                                            <ul role="tablist" class="nav justify-content-center">
-                                                <li class="nav-item"><a class="nav-link active" href="#tab-59f89f0ac71c90" data-toggle="tab">All Shoes</a></li>
-                                                <li class="nav-item"><a class="nav-link " href="#tab-59f89f0ac71c91" data-toggle="tab">Men</a></li>
-                                                <li class="nav-item"><a class="nav-link " href="#tab-59f89f0ac71c92" data-toggle="tab">Women</a></li>
-                                                <!-- <li class="nav-item"><a class="nav-link " href="#tab-59f89f0ac71c93" data-toggle="tab">Boys</a></li>
-                                                <li class="nav-item"><a class="nav-link " href="#tab-59f89f0ac71c94" data-toggle="tab">Girls</a></li> -->
-                                            </ul>
-                                        </header>

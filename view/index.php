@@ -6,8 +6,8 @@
     include "../model/taikhoan.php";
     include "../model/cart.php"; 
     include "header.php";
-
-    include "global.php";
+    include "../global.php";
+    
     $sphome = loadall_sanpham_home();
     $dsdm = loadall_danhmuc();
     $allsp = loadall_sanpham();
@@ -18,6 +18,24 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
           case "home":
                include "home.php";
                break;
+           case 'sanpham':
+                    if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
+                    $kyw=$_POST['kyw'];
+                    }else{
+                        $kyw="";
+                    }
+                    if(isset($_GET['id_dm'])&&($_GET['id_dm']>0)){
+                        $iddm=$_GET['id_dm'];
+                    
+                    }
+                    else{
+                        $iddm=0;
+                    }
+                    $dssp=loadall_sanpham($kyw,$id_dm);
+                    $tendm=load_ten_dm($id_dm);
+                        include "shop.php";
+                    break; 
+    // tìm kiếm sp
           case "chitietsp":
                // if(isset($_POST['guibinhluan'])){
                //      insert_binhluan($_POST['id_pro'], $_POST['noidung']);
@@ -25,31 +43,85 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                 if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
                     $onesanpham = loadone_sanpham($_GET['idsp']);
                     extract($onesanpham);
-                    // $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dmuc']);
+                    $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dm']);
                     // $binhluan = loadall_binhluan($_GET['idsp']);
                     $id_sp = $_GET['idsp'];
-                    include "view/chitietsp.php";
+                    include "chitietsp.php";
                 }else{
                     include "shared/404.php";            
                 }
-                break;
+               break;
+          case 'dangki':
+                    if (isset($_POST['register']) && ($_POST['register'])) {
+                         $user = $_POST['username'];
+                         $hoten = $_POST['hoten'];
+                         $pass = $_POST['password'];
+                         $email = $_POST['email'];
+                         insert_taikhoan($user, $hoten, $pass, $email);
+                         $thongbao = '<script>
+                         var thongbao = new Object();
+                         thongbao.name = "Bạn đã đăng kí thành công.";
+                    
+                         thongbao.intro = function() {
+                         alert("Bạn đã đăng kí thành công");
+                         }     
+                         thongbao.intro();
+                         </script>';
+                    }
+                    include "login/dangki.php";
+                    break;
+          case 'updatetk':
+               if (isset($_POST['register']) && ($_POST['register'])) {
+                    $user = $_POST['username'];
+                    $hoten = $_POST['hoten'];
+                    $pass = $_POST['password'];
+                    $email = $_POST['email'];
+                    insert_taikhoan($user, $hoten, $pass, $email);
+                    $thongbao = '<script>
+                    var thongbao = new Object();
+                    thongbao.name = "Bạn đã đăng kí thành công.";
+               
+                    thongbao.intro = function() {
+                    alert("Bạn đã đăng kí thành công");
+                    }     
+                    thongbao.intro();
+                    </script>';
+               }
+               include "login/updatetk.php";
+               break;
+           case "login":
+               if (isset($_POST['login'])) {
+                    $user = $_POST['username'];
+                    $pass = $_POST['password'];
+                    $checkuser = checkuser($user, $pass);
+                    if (is_array($checkuser)) {
+                         $_SESSION['username'] = $checkuser;
+                         echo '<script>alert("Chúc mừng đăng nhập thành công");</script>';
+                         // header('location:index.php');
+                         include "home.php";
+                    } else {
+                         echo '<script>alert("Tài khoản không tồn tại");</script>';
+                    }
+               }
+               include "./login/login.php";
+               break;
+          case "thoat":
+               if (isset($_SESSION['username'])) {
+                    unset($_SESSION['username']);
+               }
+               break;
+          case "shop":
+               include "shop.php";
+               break;
           case "gioithieu":
-               include "gioithieu.php";
+               include "shared/gioithieu.php";
                break;
           case "lienhe":
-               include "lienhe.php";
+               include "shared/lienhe.php";
                break;
           case "yeuthich":
                include "danhsachyeuthich.php";
-          break;
-
-          case "login":
-               include "./login/login.php";
-               break;
-
-          case "product-category":
-               include "product-category.php";
-               break;
+          break;      
           case "giohang":
                include "./cart/giohang.php";
                break;

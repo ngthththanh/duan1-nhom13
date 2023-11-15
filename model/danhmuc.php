@@ -22,9 +22,9 @@ function update_danhmuc($id,$tendm){
     pdo_execute($sql);
 }
 
-function load_ten_dm($iddm){
-    if($iddm>0){
-        $sql="SELECT * FROM danhmuc WHERE id_dm =".$iddm;
+function load_ten_dm($id_dm){
+    if($id_dm>0){
+        $sql="SELECT * FROM danhmuc WHERE id_dm =".$id_dm;
         $dm=pdo_query_one($sql);
         extract($dm);
         return $ten_dm;

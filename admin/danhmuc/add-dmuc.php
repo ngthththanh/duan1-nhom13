@@ -10,11 +10,11 @@
                     <form action="index.php?act=add-dm" method="POST">
                          <div class="mb-3">
                               <label for="exampleInputText" class="form-label">ID Danh Mục</label>
-                              <input type="text" class="form-control" id="exampleInputText" disabled>   
+                              <input type="text" class="form-control" id="exampleInputText" disabled required>   
                          </div>
                          <div class="mb-3">
                               <label for="exampleInputText" class="form-label">Tên Danh Mục</label>
-                              <input type="text" class="form-control" id="exampleInputText" name="tendm">
+                              <input type="text" class="form-control" id="exampleInputText" name="tendm" required>
                          </div>
                     
                          <button type="submit" class="btn btn-primary"name="themmoi">Submit</button>

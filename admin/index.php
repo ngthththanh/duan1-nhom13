@@ -10,6 +10,10 @@ include "../model/binhluan.php";
 if(isset($_GET['act'])&&($_GET['act']!="")){
      $act=$_GET['act'];
      switch($act){
+          case "home":
+               $listdanhmuc=loadall_danhmuc();
+               include "home.php";
+               break;
           case "add-dm":
                if (isset($_POST['themmoi'])) {
                     $tendm = $_POST['tendm'];
@@ -46,46 +50,41 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                include "danhmuc/update-dmuc.php";
           break;
           case'update-dm':
-               if(isset($_POST['capnhat'])){
-                    $tendm=$_POST['tendm'];
-                    $id=$_POST['id'];
-                    update_danhmuc($id,$tendm);
+               if (isset($_POST['capnhat'])) {
+                   $tendm = $_POST['tendm'];
+                   $id = $_POST['id'];
+                   update_danhmuc($id, $tendm);
+                   echo '<script>alert("Bạn đã cập nhật danh mục thành công.");</script>';
                }
-               $listdanhmuc=loadall_danhmuc();
+
+               $listdanhmuc = loadall_danhmuc();
                include "danhmuc/list-dmuc.php";
                break;
 
           case "add-sp":
                $listdanhmuc = loadall_danhmuc();
                include "sanpham/add-spham.php";
-               if(isset($_POST['themmoi'])){
-                    $iddm=$_POST['iddm'];
-                    $tensp=$_POST['tensp'];
-                    $giasp=$_POST['giasp'];
-                    $size = $_POST['size'];
-                    $soluong = $_POST['soluong'];
-                    $mota=$_POST['mota'];
-                    $hinh = $_FILES['hinh']['name'];
-                    $target_dir = "../uploads/";
-                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)){
-                    // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
-                    } else {
-                    // echo "Sorry, there was an error uploading your file.";
-                    };
-                    insert_sanpham($tensp,$giasp,$hinh,$size, $soluong,$mota,$iddm);
-                    $thongbao = '<script>
-                    var thongbao = new Object();
-                    thongbao.name = "Bạn đã thêm sản phẩm thành công.";
-        
-                    thongbao.intro = function() {
-                        alert("Bạn đã thêm sản phẩm thành công.");
-                    }
-                    thongbao.intro();
-                </script>';
-                    // header("Location: index.php?act=list-sp");
-                    // echo "<script>window.location.href='index.php?act=list-sp';</script>";
-               }  
+
+               if (isset($_POST['themmoi'])) {
+               $iddm = $_POST['iddm'];
+               $tensp = $_POST['tensp'];
+               $giasp = $_POST['giasp'];
+               $size = $_POST['size'];
+               $soluong = $_POST['soluong'];
+               $mota = $_POST['mota'];
+               $hinh = $_FILES['hinh']['name'];
+               $target_dir = "../uploads/";
+               $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+
+               if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    // File uploaded successfully
+                    insert_sanpham($tensp, $giasp, $hinh, $size, $soluong, $mota, $iddm);
+                    echo '<script>alert("Bạn đã thêm sản phẩm thành công.");</script>';
+               } else {
+                    // Error uploading file
+                    echo '<script>alert("Sorry, there was an error uploading your file.");</script>';
+               }
+               }
           break;
           case'list-sp':
                if(isset($_POST['listok'])&&($_POST['listok'])){
@@ -132,8 +131,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                    } else {
                    }
                    $listsanpham = update_sanpham($id, $tensp, $iddm, $giasp, $size, $soluong, $mota, $hinh);
-                   echo $listsanpham;
-
+                   echo '<script>alert("Bạn đã cập nhật danh mục thành công.");</script>';
                }
                $listdanhmuc = loadall_danhmuc();
                $listsanpham=loadall_sanpham();
@@ -149,7 +147,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     delete_taikhoan($_GET['id']);
                }
                $listkhachhang=loadall_taikhoan("",0);
-               include "khachhang/list.php";
+               include "taikhoan/list-tkhoan.php";
                break;
           case 'suatk':
           if(isset($_GET['id'])&&($_GET['id']>0)){
@@ -178,9 +176,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
           case "home":
              include "home.php";
              break;
-     
           }
-     
 }else{
      include "home.php";
 }

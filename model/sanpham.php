@@ -1,18 +1,18 @@
 <?php
 function loadall_sanpham_home(){
-    $sql="SELECT * FROM sanpham WHERE 1 ORDER BY id_sp desc limit 0,20";
+    $sql="SELECT * FROM sanpham WHERE 1 ORDER BY id_sp desc limit 0,10";
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
 
-function loadall_sanpham($kyw="",$iddm=0){
+function loadall_sanpham($kyw="",$id_dm=0){
     $sql = "SELECT sanpham.*, COUNT(binhluan.id_bl) as soBinhLuan
     FROM sanpham LEFT JOIN binhluan ON binhluan.id_sp = sanpham.id_sp WHERE 1";
     if ($kyw != "") {
     $sql .= " AND sanpham.ten_sp LIKE '%" . $kyw . "%'";
     }
-    if ($iddm > 0) {
-    $sql .= " AND sanpham.id_dm = '" . $iddm . "'";
+    if ($id_dm > 0) {
+    $sql .= " AND sanpham.id_dm = '" . $id_dm . "'";
     }
     $sql .= " GROUP BY sanpham.id_sp
         ORDER BY sanpham.id_sp DESC";
