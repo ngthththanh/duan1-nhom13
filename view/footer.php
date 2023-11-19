@@ -167,24 +167,14 @@
                                             <h4 class="widget-title">Find it Fast</h4>
                                             <div class="menu-footer-menu-1-container">
                                                 <ul id="menu-footer-menu-1" class="menu">
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Computers &#038; Laptops</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Cameras &#038; Photography</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Smart Phones &#038; Tablets</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Video Games &#038; Consoles</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">TV</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Car Electronic &#038; GPS</a>
-                                                    </li>
+                                                <?php
+                                                        foreach($dmft as $dm){
+                                                            extract($dm);
+                                                            // $linkdm="index.php?act=sanpham&iddm=".$iddm;
+                                                            echo '<li class="menu-item"><a href="">'.$ten_dm.'</a></li>';
+
+                                                        }
+                                                    ?>
                                                 </ul>
                                             </div>
                                             <!-- .menu-footer-menu-1-container -->
@@ -200,24 +190,14 @@
                                             <h4 class="widget-title">&nbsp;</h4>
                                             <div class="menu-footer-menu-2-container">
                                                 <ul id="menu-footer-menu-2" class="menu">
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Printers &#038; Ink</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Audio &amp; Music</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Home Theaters</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">PC Components</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Ultrabooks</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="shop.html">Smartwatches</a>
-                                                    </li>
+                                                <?php
+                                                        foreach($dmft as $dm){
+                                                            extract($dm);
+                                                            // $linkdm="index.php?act=sanpham&iddm=".$iddm;
+                                                            echo '<li class="menu-item"><a href="">'.$ten_dm.'</a></li>';
+
+                                                        }
+                                                    ?>
                                                 </ul>
                                             </div>
                                             <!-- .menu-footer-menu-2-container -->

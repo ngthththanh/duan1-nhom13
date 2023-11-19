@@ -18,15 +18,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                if (isset($_POST['themmoi'])) {
                     $tendm = $_POST['tendm'];
                     insert_danhmuc($tendm);
-                    $thongbao='<script>
-                    var thongbao = new Object();
-                    thongbao.name = "Bạn đã thêm danh mục thành công.";
-               
-                    thongbao.intro = function() {
-                    alert("Bạn đã thêm danh mục thành công");
-                    }     
-                    thongbao.intro();
-                    </script>';
+                    echo '<script>alert("Bạn đã thêm danh mục thành công.");</script>';
                // echo "<script>window.location.href='index.php?act=list-dm';</script>";
                }
                include "danhmuc/add-dmuc.php";
@@ -94,8 +86,8 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     $kyw ='';
                     $iddm = 0;
                }
+               $listsanpham = loadall_sanpham();
                $listdanhmuc = loadall_danhmuc();
-               $listsanpham=loadall_sanpham($kyw, $iddm);
                include "sanpham/list-spham.php";
                break;
 
@@ -118,17 +110,21 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
           case 'update-sp':
                if (isset($_POST['capnhat'])) {
                    $iddm = $_POST['iddm'];
-                   $tensp = $_POST['tensp'];
+                   $tensp = $_POST['tensp'];              
                    $hinh = $_FILES['hinh']['name'];
                    $giasp = $_POST['giasp'];
                    $size = $_POST['size'];
                    $soluong = $_POST['soluong'];
                    $mota = $_POST['mota'];
                    $id = $_POST['id'];
+                   $oldImagePath = oldimg($id);
                    $target_dir = "../uploads/";
                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                   } else {
+                    if ($oldImagePath && file_exists($oldImagePath)) {
+                         unlink($oldImagePath);
+                     }
+               } else {
                    }
                    $listsanpham = update_sanpham($id, $tensp, $iddm, $giasp, $size, $soluong, $mota, $hinh);
                    echo '<script>alert("Bạn đã cập nhật danh mục thành công.");</script>';
@@ -145,7 +141,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
           case 'xoatk':
                if(isset($_GET['id'])&&($_GET['id']>0)){
                     delete_taikhoan($_GET['id']);
-               }
+               }           
                $listkhachhang=loadall_taikhoan("",0);
                include "taikhoan/list-tkhoan.php";
                break;

@@ -66,9 +66,9 @@
                                         <a href="' . $suasp . '">
                                             <button type="button" class="btn">Sửa</button>
                                         </a>
-                                        <a href="' . $xoasp . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
+                                       <a href="' . $xoasp . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
                                             <button type="button" class="btn">Xóa</button>
-                                        </a>
+                                        </a> 
                                     </td>                                    </tr>';
                                 }?>
                             </tbody>
