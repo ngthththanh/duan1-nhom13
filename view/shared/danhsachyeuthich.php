@@ -3,11 +3,11 @@
                 <div class="col-full">
                     <div class="row">
                         <nav class="woocommerce-breadcrumb">
-                            <a href="home-v1.html">Home</a>
+                            <a href="index.php">Home</a>
                             <span class="delimiter">
                                 <i class="tm tm-breadcrumbs-arrow-right"></i>
                             </span>
-                            Wishlist
+                            Danh sách yêu thích
                         </nav>
                         <!-- .woocommerce-breadcrumb -->
                         <div id="primary" class="content-area">
@@ -15,7 +15,7 @@
                                 <div class="type-page hentry">
                                     <header class="entry-header">
                                         <div class="page-header-caption">
-                                            <h1 class="entry-title">Wishlist</h1>
+                                            <h1 class="entry-title">Danh sách yêu thích</h1>
                                         </div>
                                     </header>
                                     <!-- .entry-header -->

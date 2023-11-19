@@ -18,6 +18,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../view/assets/css/slick-style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="../view/assets/css/animate.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="../view/assets/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../view/assets/css/css.css" media="all" />
     <link rel="stylesheet" type="text/css" href="../view/assets/css/colors/blue.css" media="all" />
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
@@ -30,79 +31,66 @@ session_start();
             <div class="col-full">
                 <?php
                 if (isset($_SESSION['username'])) {
-                    extract($_SESSION['username']);
-                ?>
-                    <ul id="menu-top-bar-left" class="nav menu-top-bar-left">
-                        <li class="menu-item animate-dropdown">
-                            <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
-                        </li>
-                        <li class="menu-item animate-dropdown">
-                            <a title="Quality Guarantee of products" href="shop.html">Quality Guarantee of products</a>
-                        </li>
-                        <li class="menu-item animate-dropdown">
-                            <a title="Fast returnings program" href="track-your-order.html">Fast returnings program</a>
-                        </li>
-                        <li class="menu-item animate-dropdown">
-                            <a title="No additional fees" href="contact-v2.html">No additional fees</a>
-                        </li>
-                    </ul>
+                    extract($_SESSION['username']);?>
+                <ul id="menu-top-bar-left" class="nav menu-top-bar-left">
+                    <li class="menu-item animate-dropdown">
+                        <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
+                    </li>
+                    <li class="menu-item animate-dropdown">
+                        <a title="Quality Guarantee of products" href="shop.html">Quality Guarantee of products</a>
+                    </li>
+                    <li class="menu-item animate-dropdown">
+                        <a title="Fast returnings program" href="track-your-order.html">Fast returnings program</a>
+                    </li>
+                    <li class="menu-item animate-dropdown">
+                        <a title="No additional fees" href="contact-v2.html">No additional fees</a>
+                    </li>
+                </ul>
                     <!-- .nav -->
                     <ul id="menu-top-bar-right" class="nav menu-top-bar-right">
                         <li class="hidden-sm-down menu-item animate-dropdown">
                             <a title="Track Your Order" href="track-your-order.html">
                                 <i class="tm tm-order-tracking"></i>Track Your Order</a>
                         </li>
-                        <?php
-                            if (isset($_SESSION['user'])) {
-                            ?>
-                            <li class="dropdown"><a href="#"><span>Tài khoản</span> <i class="bi bi-chevron-down"></i></a>
-                                <ul>
-                                    <li><a href="#">Xin chào <?php echo $_SESSION['user']['fullname'] ?></a></li>
-
-                                    <li><a href="?act=updatetk">Thông tin cá nhân</a></li>
-                                    <?php
-                                    if ($_SESSION['user']['role'] == "1") {
-                                        echo " <li><a href='../admin/index.php'>Đăng nhập Admin</a></li>";
-                                    }
-                                    ?>
-
-                                    <li><a href="#">Quên mật khẩu</a></li>
-                                    <li class="hidden-sm-down menu-item animate-dropdown">
-                                        <a title="Track Your Order" href="javascript:void(0);" onclick="logout()">Đăng Xuất</a>
-                                        <script>
-                                            function logout() {
-                                                if (confirm('Bạn có chắc muốn đăng xuất?')) {
-                                                    var xhr = new XMLHttpRequest();
-                                                    xhr.open('GET', 'index.php?act=thoat', true);
-                                                    xhr.onreadystatechange = function() {
-                                                        if (xhr.readyState == 4 && xhr.status == 200) {
-                                                            window.location.href = 'index.php';
-                                                        }
-                                                    };
-                                                    xhr.send();
+                        <?php if (isset($_SESSION['username'])) {?>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-487 animate-dropdown dropdown">
+                            <a title="Dollar (US)" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">
+                                <i class="tm tm-login-register"></i>Xin chào <?php echo $_SESSION['username']['hoten'] ?>
+                                <span class="caret"></span>
+                            </a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-491 animate-dropdown">
+                                    <a href="?act=updatetk">Thông tin cá nhân</a>
+                                </li>
+                                <?php if( $phanquyen==1){
+                                    echo '<li class="hidden-sm-down menu-item animate-dropdown">
+                                    <a  href="../admin/index.php">Đăng Nhập Admin</a></li>';
+                                }?>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-490 animate-dropdown">
+                                    <a title="" href="javascript:void(0);" onclick="logout()">Đăng Xuất</a>
+                                    <script>
+                                    function logout() {
+                                        if (confirm('Bạn có chắc muốn đăng xuất?')) {
+                                            var xhr = new XMLHttpRequest();
+                                            xhr.open('GET', 'index.php?act=thoat', true);
+                                            xhr.onreadystatechange = function() {
+                                                if (xhr.readyState == 4 && xhr.status == 200) {
+                                                    window.location.href = 'index.php';
                                                 }
-                                            }
-                                        </script>
-                                    </li>
-                                </ul>
-                            </li>
-                            
-
-                            <?php
-                            } else {
-                            ?>
-                            <li><a class="nav-link scrollto" href="?act=login">Đăng nhập</a></li>
-                            <?php
-                            }
-                            ?>
-
+                                            };
+                                            xhr.send();
+                                        }
+                                    }
+                                    </script>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- .dropdown-menu -->
+                        <?php } ?>
                             <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                             <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
-                    
                     </ul>
-                <?php
-                } else {
-                ?>
+                    <?php } else { ?>
                     <ul id="menu-top-bar-left" class="nav menu-top-bar-left">
                         <li class="menu-item animate-dropdown">
                             <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
@@ -121,23 +109,19 @@ session_start();
                     <ul id="menu-top-bar-right" class="nav menu-top-bar-right">
                         <li class="hidden-sm-down menu-item animate-dropdown">
                             <a title="Track Your Order" href="track-your-order.html">
-                                <i class="tm tm-order-tracking"></i>Track Your Order</a>
+                                <i class="tm tm-order-tracking"></i>Kiểm tra đơn hàng</a>
                         </li>
                         <li class="menu-item">
                             <a title="My Account" href="index.php?act=dangki">
-                                <i class="tm tm-login-registe"></i>Register
+                                <i class="tm tm-login-registe"></i>Đăng ký
                             </a>
                         </li>
                         <li class="menu-item">
                             <a title="My Account" href="index.php?act=login">
-                                <i class="tm tm-login-registe"></i> Sign in</a>
+                                <i class="tm tm-login-registe"></i>Đăng nhập</a>
                         </li>
                     </ul>
                 <?php } ?>
-
-
-
-                <!-- .nav -->
             </div>
             <!-- .col-full -->
         </div>
@@ -190,11 +174,16 @@ session_start();
                                     <a title="Mother`s Day" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">Danh Mục<span class="caret"></span></a>
                                     <ul role="menu" class=" dropdown-menu">
                                         <li class="menu-item animate-dropdown">
-                                            <a title="Wishlist" href="wishlist.html">Danh Mục</a>
+                                            <a title="Wishlist" href="">Danh Mục</a>
                                         </li>
-                                        <!-- <li class="menu-item animate-dropdown">
-                                                <a title="Add to compare" href="compare.html">Add to compare</a>
-                                            </li>
+                                        <?php
+                                        foreach($dsdm as $dm){
+                                            extract($dm);
+                                            // $linkdm="index.php?act=sanpham&iddm=".$iddm;
+                                            echo '<li class="menu-item animate-dropdown">
+                                            <a href="">'.$ten_dm.'</a></li>';
+                                    }?>
+                                        <!-- 
                                             <li class="menu-item animate-dropdown">
                                                 <a title="About Us" href="about.html">About Us</a>
                                             </li>
@@ -211,12 +200,11 @@ session_start();
                                     <a title="Logitech Sale" href="?act=lienhe">Liên Hệ</a>
                                 </li>
                                 <li class="menu-item animate-dropdown">
-                                    <a title="Headphones Sale" href="product-category.html">Headphones Sale</a>
+                                    <a title="Headphones Sale" href="product-category.html">Khác</a>
                                 </li>
                                 <li class="techmarket-flex-more-menu-item dropdown">
                                     <a title="..." href="#" data-toggle="dropdown" class="dropdown-toggle">...</a>
                                     <ul class="overflow-items dropdown-menu"></ul>
-                                    <!-- . -->
                                 </li>
                             </ul>
                             <!-- .nav -->
@@ -226,7 +214,6 @@ session_start();
                 </div>
                 <p></p>
                 <!-- .techmarket-sticky-wrap -->
-              <?php  $listdanhmuc = loadall_danhmuc(); ?>
                 <div class="row align-items-center">
                     <div id="departments-menu" class="dropdown departments-menu">
                         <button class="btn dropdown-toggle btn-block" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -234,37 +221,28 @@ session_start();
                             <span>Danh Mục</span>
                         </button>
                         <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
-                            <?php foreach ($listdanhmuc as $danhmuc) {
-                                extract($danhmuc);
-                                $linkdm="index.php?act=sanpham&id_dm=".$id_dm;
-                                echo ' <li class="highlight menu-item animate-dropdown">
-                                <a title="Value of the Day" href="'.$linkdm.'">' . $danhmuc['ten_dm'] . '</a>
-                            </li>';
-                            } ?>      
+                            <?php
+                                foreach($dsdm as $dm){
+                                    extract($dm);
+                                    $linkdm="index.php?act=sanpham&iddm=".$id_dm;
+                                    echo '<li><a href="'.$linkdm.'">'.$ten_dm.'</a></li>';
+
+                                }
+                            ?>
+                        </ul>      
                     </div>
-                    <?php
-                    $listdanhmuc = loadall_danhmuc();
-                    ?>
                     <!-- .departments-menu -->
                     <form class="navbar-search" method="post" action="index.php?act=sanpham">
-                        <label class="sr-only screen-reader-text" for="search">Search for:</label>
+                        <label class="sr-only screen-reader-text" for="search" name="kyw">Tìm kiếm:</label>
                         <div class="input-group">
-                            <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="kyw" placeholder="Search for products" />
-                            <div class="input-group-addon search-categories popover-header">
-                                <select name="id_dm" id='product_cat' class='postform resizeselect'>
-                                    <option value="0">Danh Mục Sản Phẩm</option>
-                                    <?php foreach ($listdanhmuc as $danhmuc) {
-                                        extract($danhmuc);
-                                        echo '<option value="' . $danhmuc['id_dm'] . '">"' . $danhmuc['ten_dm'] . '"</option>  ';
-                                    } ?>
-                                </select>
-                            </div>
+                            <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="kyw" placeholder="Tìm kiếm: " />
+                          
                             <!-- .input-group-addon -->
                             <div class="input-group-btn input-group-append">
-                                <input type="hidden" id="search-param" name="post_type" value="product" />
+                                <input type="hidden" id="search-param" value="product" />
                                 <button type="submit" class="btn btn-primary" name="timkiem">
                                     <i class="fa fa-search"></i>
-                                    <span class="search-btn">Search</span>
+                                    <span class="search-btn">Tìm kiếm</span>
                                 </button>
                             </div>
                             <!-- .input-group-btn -->
@@ -296,13 +274,14 @@ session_start();
                                 <i class="tm tm-shopping-bag"></i>
                                 <span class="count">2</span>
                                 <span class="amount">
-                                    <span class="price-label"><?php
-                                                                if (isset($_SESSION['username'])) {
-                                                                    echo $user;
-                                                                } else {
-                                                                    echo '<a href="index.php?act=login">Login</a> <br>';
-                                                                }
-                                                                ?></span>&#036;136.99</span>
+                                    <span class="price-label">
+                                    <?php
+                                        if (isset($_SESSION['username'])) {
+                                            echo $user;
+                                        } else {
+                                            echo '<a href="index.php?act=login">Login</a> <br>';
+                                        }
+                                    ?></span>&#036;136.99</span>
                             </a>
 
                             <ul class="dropdown-menu dropdown-menu-mini-cart">

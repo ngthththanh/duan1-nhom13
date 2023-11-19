@@ -1,20 +1,28 @@
 <?php 
     function loadall_binhluan($id){
-        $sql = " SELECT binhluan.id, binhluan.noidung, taikhoan.user_name, binhluan.ngaybinhluan, sanpham.pro_name FROM `binhluan` 
-            LEFT JOIN taikhoan ON binhluan.user_id = taikhoan.user_id
-            LEFT JOIN sanpham ON binhluan.pro_id = sanpham.pro_id
-            WHERE  sanpham.pro_id = $id";     
-            $sql .= " GROUP BY binhluan.id
-                    ORDER BY binhluan.id DESC";
+        $sql = " SELECT binhluan.id_bl, binhluan.noidung, taikhoan.user, binhluan.ngaybinhluan, sanpham.ten_sp FROM `binhluan` 
+            LEFT JOIN taikhoan ON binhluan.id_tk = taikhoan.id_tk
+            LEFT JOIN sanpham ON binhluan.id_sp = sanpham.id_sp
+            WHERE  sanpham.id_sp = $id";     
+            $sql .= " GROUP BY binhluan.id_bl
+                    ORDER BY binhluan.id_bl DESC";
             
         $listbinhluan =  pdo_query($sql);
         return $listbinhluan;
     }
-    function insert_binhluan($idpro, $noidung){
-        $date = date('Y-m-d');
-        $id_user = $_SESSION['user_name']['user_id'];
-        $sql = " INSERT INTO `binhluan`(`noidung`, `user_id`, `pro_id`, `ngaybinhluan`) 
-            VALUES ('$noidung','$id_user','$idpro','$date');
+    function sobl($idbl) {
+        $sql = "SELECT COUNT(binhluan.id_bl) as soBinhLuan
+                FROM binhluan
+                WHERE binhluan.id_sp = $idbl";
+        $result =pdo_query($sql);
+        return $result;
+    }
+    
+    function insert_binhluan($idsp, $noidung){
+        $ngaybinhluan = date('Y-m-d');
+        $id_tk = $_SESSION['username']['id_tk'];
+        $sql = " INSERT INTO `binhluan`(`noidung`, `id_tk`, `id_sp`, `ngaybinhluan`) 
+            VALUES ('$noidung','$id_tk','$idsp','$ngaybinhluan');
         ";
         
         pdo_execute($sql);
@@ -24,12 +32,12 @@
         pdo_execute($sql);
     }
     function load_binhluan(){
-        $sql = " SELECT binhluan.id, binhluan.noidung, taikhoan.user_name, binhluan.ngaybinhluan, sanpham.pro_name FROM `binhluan` 
-            LEFT JOIN taikhoan ON binhluan.user_id = taikhoan.user_id
-            LEFT JOIN sanpham ON binhluan.pro_id = sanpham.pro_id
+        $sql = " SELECT binhluan.id_bl, binhluan.noidung, taikhoan.user, binhluan.ngaybinhluan, sanpham.ten_sp FROM `binhluan` 
+            LEFT JOIN taikhoan ON binhluan.id_tk = taikhoan.id_tk
+            LEFT JOIN sanpham ON binhluan.id_sp = sanpham.id_sp
             WHERE  1";     
-            $sql .= " GROUP BY binhluan.id
-                    ORDER BY binhluan.id DESC";
+            $sql .= " GROUP BY binhluan.id_bl
+                    ORDER BY binhluan.id_bl DESC";
             
         $listbinhluan =  pdo_query($sql);
         return $listbinhluan;

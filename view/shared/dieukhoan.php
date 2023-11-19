@@ -3,11 +3,11 @@
                 <div class="col-full">
                     <div class="row">
                         <nav class="woocommerce-breadcrumb">
-                            <a href="home-v1.html">Home</a>
+                            <a href="index.php">Home</a>
                             <span class="delimiter">
                                 <i class="tm tm-breadcrumbs-arrow-right"></i>
                             </span>
-                            Terms and Conditions
+                            Điều khoản à chính sách
                         </nav>
                         <!-- .woocommerce-breadcrumb -->
                         <div id="primary" class="content-area">
@@ -15,7 +15,7 @@
                                 <div class="type-page hentry">
                                     <header class="entry-header">
                                         <div class="page-header-caption">
-                                            <h1 class="entry-title">Terms and Conditions</h1>
+                                            <h1 class="entry-title">Điều khoản à chính sách</h1>
                                             <p class="entry-subtitle">This Agreement was last modified on 18 February 2016.</p>
                                         </div>
                                     </header>

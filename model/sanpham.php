@@ -5,14 +5,14 @@ function loadall_sanpham_home(){
     return  $listsanpham;
 }
 
-function loadall_sanpham($kyw="",$id_dm=0){
+function loadall_sanpham($kyw="",$iddm=0){
     $sql = "SELECT sanpham.*, COUNT(binhluan.id_bl) as soBinhLuan
     FROM sanpham LEFT JOIN binhluan ON binhluan.id_sp = sanpham.id_sp WHERE 1";
     if ($kyw != "") {
     $sql .= " AND sanpham.ten_sp LIKE '%" . $kyw . "%'";
     }
-    if ($id_dm > 0) {
-    $sql .= " AND sanpham.id_dm = '" . $id_dm . "'";
+    if ($iddm > 0) {
+    $sql .= " AND sanpham.id_dm = '" . $iddm . "'";
     }
     $sql .= " GROUP BY sanpham.id_sp
         ORDER BY sanpham.id_sp DESC";
@@ -61,6 +61,17 @@ function danhsach_sanpham(){
     $sql = "SELECT * FROM  sanpham";
     $result = pdo_query($sql);
     return $result;
+}
+function oldimg($id)
+{
+    $sql = "SELECT hinh FROM sanpham WHERE id_sp =" . $id;
+    $result = pdo_query_one($sql);
+
+    if ($result && isset($result['hinh'])) {
+        return "../uploads/" . $result['hinh'];
+    }
+
+    return null; 
 }
 
 function add_sanpham($tendm){

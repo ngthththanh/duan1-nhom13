@@ -3,11 +3,11 @@
     <div class="col-full">
         <div class="row">
             <nav class="woocommerce-breadcrumb">
-                <a href="home-v1.html">Home</a>
+                <a href="index.php">Home</a>
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
                 </span>
-                About Us
+                Giới thiệu
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
@@ -19,7 +19,7 @@
                             </div>
                             <!-- .page-featured-image -->
                             <div class="page-header-caption">
-                                <h1 class="entry-title">About Us</h1>
+                                <h1 class="entry-title">Giới thiệu</h1>
                                 <p class="entry-subtitle">Passion may be a friendly or eager interest in or admiration for a proposal,
                                     <br> cause, discovery, or activity or love to a feeling of unusual excitement. </p>
                             </div>
