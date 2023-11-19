@@ -84,7 +84,7 @@
                                                             <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="'.$hinhpath.'">
                                                             <span class="price">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol">$</span>'.$gia_sp.'</span>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span>' .number_format($gia_sp). 'VND</span>
                                                             </span>
                                                             <h2 class="woocommerce-loop-product__title">'.$ten_sp.'</h2>
                                                         </a>
@@ -116,7 +116,7 @@
                                     </form>
                                     <!-- .form-techmarket-wc-ppp -->
                                     <p class="woocommerce-result-count">
-                                        Showing 1&ndash;15 of 73 results
+                                        <!-- Showing 1&ndash;15 of 73 results -->
                                     </p>
                                     <!-- .woocommerce-result-count -->
                                     <nav class="woocommerce-pagination">
