@@ -17,6 +17,7 @@
                                 <th></th>
                                 <th>ID</th>
                                 <th>Tên Danh Mục</th>
+                                <th>Số sản phẩm</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -25,6 +26,7 @@
                                 <th></th>
                                 <th>ID</th>
                                 <th>Tên Danh Mục</th>
+                                <th>Số sản phẩm</th>
                                 <th></th>
                             </tr>
                         </tfoot>
@@ -38,6 +40,7 @@
                                     <td><input type="checkbox" name="" id=""></td>
                                     <td>' . $id_dm . '</td>
                                     <td>' . $ten_dm . '</td>
+                                    <td>'.$soLuongSanPham.'</td>
                                     <td>
                                         <a href="' . $suadm . '">
                                             <button type="button" class="btn btn-primary">Sửa</button>

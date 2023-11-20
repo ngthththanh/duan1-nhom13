@@ -20,7 +20,7 @@
                                         </button>
                                     </div>
                                     <!-- .handheld-sidebar-toggle -->
-                                    <h1 class="woocommerce-products-header__title page-title"><?$tendm?></strong></h1>
+                                    <h1 class="woocommerce-products-header__title page-title"><?=$ten_dm?></strong></h1>
                                     <!-- .shop-view-switcher -->
                                     <form class="form-techmarket-wc-ppp" method="POST">
                                         <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
@@ -91,7 +91,7 @@
                                                         <!-- .woocommerce-LoopProduct-link -->
                                                         <div class="hover-area">
                                                             <a class="button" href="cart.html">Add to cart</a>
-                                                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
+                                                            <a class="add-to-compare-link" href="">Add to compare</a>
                                                         </div>
                                                         <!-- .hover-area -->
                                                     </div>';

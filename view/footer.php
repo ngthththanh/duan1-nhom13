@@ -32,24 +32,24 @@
                             <div class="footer-social-icons">
                                 <ul class="social-icons nav">
                                     <li class="nav-item">
-                                        <a class="sm-icon-label-link nav-link" href="#">
+                                        <a class="sm-icon-label-link nav-link" href="https://www.facebook.com/">
                                             <i class="fa fa-facebook"></i> Facebook</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="sm-icon-label-link nav-link" href="#">
+                                        <a class="sm-icon-label-link nav-link" href="https://twitter.com/">
                                             <i class="fa fa-twitter"></i> Twitter</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="sm-icon-label-link nav-link" href="#">
+                                        <a class="sm-icon-label-link nav-link" href="https://www.google.com.vn/?hl=vi">
                                             <i class="fa fa-google-plus"></i> Google+</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="sm-icon-label-link nav-link" href="#">
-                                            <i class="fa fa-vimeo-square"></i> Vimeo</a>
+                                        <a class="sm-icon-label-link nav-link" href="https://www.pinterest.com/">
+                                            <i class="fa fa-pinterest"></i>Pinterest</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="sm-icon-label-link nav-link" href="#">
-                                            <i class="fa fa-rss"></i> RSS</a>
+                                        <a class="sm-icon-label-link nav-link" href="https://www.instagram.com/">
+                                            <i class="fa fa-instagram"></i>Instagram</a>
                                     </li>
                                 </ul>
                             </div>
@@ -62,7 +62,7 @@
                         <div class="row">
                             <div class="footer-contact">
                                 <div class="footer-logo">
-                                    <a href="home-v1.html" class="custom-logo-link" rel="home">
+                                    <a href="index.php" class="custom-logo-link" rel="home">
                                         <svg data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162.34 26.64">
                                             <defs>
                                                 <style>

@@ -19,7 +19,7 @@
                                 <div class="banners techmarket-banner techmarket-grid-banner-1">
                                     <div class="row">
                                         <div class="banner large-banner text-in-center">
-                                            <a href="shop.html">
+                                            <a href="index.php">
                                                 <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/10-1.jpg ); height: 546px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
@@ -35,7 +35,7 @@
                                         </div>
                                         <!-- .banner -->
                                         <div class="banner small-banner text-in-center">
-                                            <a href="shop.html">
+                                            <a href="index.php">
                                                 <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/10-2.jpg ); height: 262px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
@@ -51,7 +51,7 @@
                                         </div>
                                         <!-- .banner -->
                                         <div class="banner small-banner text-in-center">
-                                            <a href="shop.html">
+                                            <a href="index.php">
                                                 <div style="background-size: cover; background-position: center center; background-image: url(assets/images/banner/10-3.jpg ); height: 262px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">
@@ -67,7 +67,7 @@
                                         </div>
                                         <!-- .banner -->
                                         <div class="banner large-banner text-in-center">
-                                            <a href="shop.html">
+                                            <a href="index.php">
                                                 <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/10-4.jpg ); height: 546px;" class="banner-bg">
                                                     <div class="caption">
                                                         <div class="banner-info">

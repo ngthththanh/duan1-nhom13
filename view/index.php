@@ -34,7 +34,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                }
                
                $dssp = loadall_sanpham($kyw, $iddm);
-               $tendm = load_ten_dm($iddm);
+               $ten_dm = load_ten_dm($iddm);
                
                include "sanpham.php";
                
@@ -152,7 +152,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                include "shared/lienhe.php";
                break;
           case "yeuthich":
-               include "danhsachyeuthich.php";
+               include "shared/danhsachyeuthich.php";
           break;      
           case "giohang":
                include "./cart/giohang.php";

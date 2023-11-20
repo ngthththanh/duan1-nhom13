@@ -284,7 +284,6 @@
                                                 <span class="amount">' .number_format($gia_sp). 'VND</span>
                                             </ins>
                                         </span>
-                                            <!-- /.price -->
                                         <h2 class="woocommerce-loop-product__title">' . $ten_sp . 'VND</h2>
                                     </a>
                                     

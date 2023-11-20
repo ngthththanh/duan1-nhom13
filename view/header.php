@@ -176,20 +176,13 @@ session_start();
                                         <li class="menu-item animate-dropdown">
                                             <a title="Wishlist" href="">Danh Mục</a>
                                         </li>
-                                        <?php
+                                    <?php
                                         foreach($dsdm as $dm){
-                                            extract($dm);
-                                            // $linkdm="index.php?act=sanpham&iddm=".$iddm;
-                                            echo '<li class="menu-item animate-dropdown">
-                                            <a href="">'.$ten_dm.'</a></li>';
+                                        extract($dm);
+                                        $linkdm="index.php?act=sanpham&iddm=".$id_dm;
+                                        echo '<li  class="menu-item animate-dropdown"><a href="'.$linkdm.'">'.$ten_dm.'</a></li>';
+    
                                     }?>
-                                        <!-- 
-                                            <li class="menu-item animate-dropdown">
-                                                <a title="About Us" href="about.html">About Us</a>
-                                            </li>
-                                            <li class="menu-item animate-dropdown">
-                                                <a title="Track Order" href="track-your-order.html">Track Order</a>
-                                            </li> -->
                                     </ul>
                                     <!-- .dropdown-menu -->
                                 </li>
@@ -225,7 +218,7 @@ session_start();
                                 foreach($dsdm as $dm){
                                     extract($dm);
                                     $linkdm="index.php?act=sanpham&iddm=".$id_dm;
-                                    echo '<li><a href="'.$linkdm.'">'.$ten_dm.'</a></li>';
+                                    echo '<li><a href="'.$linkdm.'">'.$ten_dm.'('.$soLuongSanPham.')</a></li>';
 
                                 }
                             ?>

@@ -8,7 +8,11 @@ function delete_danhmuc($id){
     pdo_execute($sql);
 }
 function loadall_danhmuc(){
-    $sql="SELECT * FROM danhmuc ORDER BY id_dm desc";
+    $sql="SELECT danhmuc.*, COUNT(sanpham.id_sp) AS soLuongSanPham
+    FROM danhmuc
+    LEFT JOIN sanpham ON danhmuc.id_dm = sanpham.id_dm
+    GROUP BY danhmuc.id_dm
+    ORDER BY danhmuc.id_dm DESC";
     $listdanhmuc=pdo_query($sql);
     return $listdanhmuc;
 }
@@ -36,12 +40,5 @@ function load_ten_dm($iddm){
     }else{
         return "";
     }
-}
-function sodanhmuc($iddm){
-    $sql = "SELECT danhmuc.id_dm, danhmuc.ten_dm, COUNT(sanpham.id_dm) AS sodm FROM danhmuc
-    LEFT JOIN sanpham ON sanpham.id_dm = danhmuc.id_dm 
-    GROUP BY danhmuc.id_dm ORDER BY danhmuc.id_dm WHERE danhmuc.id_dm = $iddm";
-      $sodm=pdo_query($sql);
-      return $sodm;
 }
 ?>

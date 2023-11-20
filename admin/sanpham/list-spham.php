@@ -5,7 +5,6 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="?act=add-sp">Thêm sản phẩm</a></li>
             </ol>
-
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>Danh sách sản phẩm
@@ -58,18 +57,13 @@
                                         <td>'.$id_sp.'</td>
                                         <td>'.$ten_sp.' </td>
                                         <td>'.$hinhsp.'</td>
-                                        <td>'.$gia_sp.'</td>
+                                        <td>'.number_format($gia_sp).'VND</td>
                                         <td>'.$size.'</td>
                                         <td>'.$soluong.'</td>                                
                                         <td>'.$mota.'</td>
-                                        <td>
-                                        <a href="' . $suasp . '">
-                                            <button type="button" class="btn">Sửa</button>
-                                        </a>
-                                       <a href="' . $xoasp . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
-                                            <button type="button" class="btn">Xóa</button>
-                                        </a> 
-                                    </td>                                    </tr>';
+                                        <td><a href="'.$suasp.'"><button type="button" class="btn">Sửa</button></a>
+                                        <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');"><button type="button" class="btn">Xóa</button></a></td>
+                                    </tr>';
                                 }?>
                             </tbody>
                         </table>
