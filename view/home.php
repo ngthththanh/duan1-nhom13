@@ -14,8 +14,9 @@
                 <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:766,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
                     <div class="container-fluid">
                         <div class="woocommerce columns-5">
+                           
                             <div class="products">
-                            <?php
+                                <?php
                                 $i = 0;
                                 foreach ($sphome as $sp) {
                                     extract($sp);
@@ -62,7 +63,7 @@
                     <div class="container-fluid">
                         <div class="woocommerce columns-5">
                             <div class="products">
-                            <?php
+                                <?php
                                 $i = 0;
                                 foreach ($sphome as $sp) {
                                     extract($sp);
@@ -93,7 +94,7 @@
                                     </div>
                                     </form>';
                                     $i+=1;
-                                }?>                   
+                                }?>                    
                             </div>
                         </div>
                         <!-- .woocommerce -->
@@ -115,12 +116,13 @@
                                     $hinhpath ="../uploads/".$hinh;
                                     $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                                     echo '
+                                    <form action="index.php?act=addcart" method="post">
                                     <div class="product">
                                     <a href="' . $linksp . '" class="woocommerce-LoopProduct-link">
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' .number_format($gia_sp). 'VND</span>
+                                                <span class="amount">' . $gia_sp . '</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -135,7 +137,8 @@
                                         <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
-                                    </div>';
+                                    </div>
+                                    </form>';
                                     $i+=1;
                                 }?>      
                             </div>
@@ -159,12 +162,13 @@
                                     $hinhpath ="../uploads/".$hinh;
                                     $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                                     echo '
+                                    <form action="index.php?act=addcart" method="post">
                                     <div class="product">
                                     <a href="' . $linksp . '" class="woocommerce-LoopProduct-link">
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' .number_format($gia_sp). 'VND</span>
+                                                <span class="amount">' . $gia_sp . '</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -179,7 +183,8 @@
                                         <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
-                                    </div>';
+                                    </div>
+                                    </form>';
                                     $i+=1;
                                 }?>
                             </div>
@@ -220,7 +225,7 @@
             <div class="container-fluid">
                 <div class="woocommerce columns-2">
                     <div class="products">
-                    <?php
+                        <?php
                         $i = 0;
                         foreach ($dstop10 as $sp) {
                             extract($sp);
@@ -251,7 +256,7 @@
                             </div>
                             </form>';
                             $i+=1;
-                        }?>                                     
+                        }?>                              
                     </div>
                 </div>
             </div>
@@ -276,7 +281,7 @@
                     <div class="container-fluid">
                         <div class="woocommerce columns-7">
                             <div class="products">  
-                            <?php
+                                <?php
                                 $i = 0;
                                 foreach ($dstop10 as $sp) {
                                     extract($sp);
