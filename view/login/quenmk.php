@@ -27,12 +27,11 @@
                                                                 <span class="form-message <?=$message_true != '' ? 'text-success' : 'text-danger';?>"><?=$message_true;?><?=$message_false;?></span>
                                                             </p>
                                                             <p class="form-row">
-                                                                <input class="woocommerce-Button button" type="submit" value="Gửi" name="quenmk">
+                                                                <input class="woocommerce-Button button" type="submit" value="Gửi" name="guiemail">
                                                                 <label for="rememberme" class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
                                                                     <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> Remember me
                                                                 </label>
-                                                            </p>
-                                                       
+                                                            </p>    
                                                         </form>
                                                         <!-- .woocommerce-form-login -->
                                                     </div>

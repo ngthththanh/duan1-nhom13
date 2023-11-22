@@ -30,19 +30,12 @@ function checkuser($user, $pass)
     return $taikhoan;
 }
 
-
-
 function update_taikhoan($id, $user,$hoten,$email, $pass, $sdt, $diachi)
 {
     $sql = "UPDATE taikhoan SET user='" . $user . "', hoten = '".$hoten."', pass='" . $pass . "', email='" . $email . "', sdt='" . $sdt . "', diachi='" . $diachi . "' WHERE  id_tk=" . $id;
     pdo_execute($sql);
 }
-function checkemail($email)
-{
-    $sql = "SELECT * FROM taikhoan WHERE email = '" . $email . "'";
-    $taikhoan = pdo_query_one($sql);
-    return $taikhoan;
-}
+
 function loadall_taikhoan()
 {
     $sql = "SELECT * FROM taikhoan ORDER BY id_tk desc";
@@ -60,15 +53,19 @@ function loadone_khachhang($id)
     $dm = pdo_query_one($sql);
     return $dm;
 }
-
+function checkemail($email)
+{
+    $sql = "SELECT * FROM taikhoan WHERE email = '" . $email . "'";
+    $taikhoan = pdo_query_one($sql);
+    return $taikhoan;
+}
 
 function sendMailPass($email, $user, $pass) {
-    require '../../PHPMailer/src/Exception.php';
-    require '../../PHPMailer/src/PHPMailer.php';
-    require '../../PHPMailer/src/SMTP.php';
+    require '../PHPMailer/src/Exception.php';
+    require '../PHPMailer/src/PHPMailer.php';
+    require '../PHPMailer/src/SMTP.php';
 
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);
-
     try {
         //Server settings
         $mail->SMTPDebug = PHPMailer\PHPMailer\SMTP::DEBUG_OFF;                      //Enable verbose debug output
@@ -79,16 +76,13 @@ function sendMailPass($email, $user, $pass) {
         $mail->Password   = 'ngthththanh';                    //SMTP password
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
         //Recipients
         $mail->setFrom('ngthththanh2003@gmail.com', 'Shop Shose');
         $mail->addAddress($email, $user);     //Add a recipient
-
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'New password';
-        $mail->Body    = 'Your new password is: ' .$pass;
-
+        $mail->Subject = 'Mật khẩu mới';
+        $mail->Body    = 'Mật khảu của bạn là:: ' .$pass;
         $mail->send();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

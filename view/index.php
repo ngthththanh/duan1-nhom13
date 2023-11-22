@@ -105,11 +105,11 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     $taikhoan = loadall_taikhoan('', $_SESSION['username']);
                     header('location:index.php');
                     exit; // Add exit to stop further execution
-                }
-                $message_true = '';
-                $message_false = '';
+               }
+               $message_true = '';
+               $message_false = '';
                 
-                if (isset($_POST['quenmk']) && ($_POST['quenmk'])) {
+               if (isset($_POST['guiemail']) && ($_POST['guiemail'])) {
                     $email = $_POST['email'];
                     $check = checkemail($email);
                 
@@ -118,8 +118,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     } else {
                         $message_false = "Email không tồn tại";
                     }
-                }
-                
+               }
                include "login/quenmk.php";
                break;
           case 'updatetk':
@@ -133,7 +132,8 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     $diachi = $_POST['diachi'];
                     $taikhoan = update_taikhoan($id, $user,$hoten,$email, $pass, $sdt, $diachi);
                     echo '<script>alert("Cập nhật thành công vui lòng đăng nhập lại");</script>';
-                    unset($_SESSION['username']);
+                    // unset($_SESSION['username']);
+                    // echo "<script>window.location.href='index.php?act=login';</script>";
                }
                include "login/updatetk.php";
                break;
