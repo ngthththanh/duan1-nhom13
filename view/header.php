@@ -111,11 +111,11 @@ session_start();
                             <a title="Track Your Order" href="track-your-order.html">
                                 <i class="tm tm-order-tracking"></i>Kiểm tra đơn hàng</a>
                         </li>
-                        <li class="menu-item">
-                            <a title="My Account" href="index.php?act=dangki">
+                        <!-- <li class="menu-item">
+                            <a title="My Account" href="index.php?act=">
                                 <i class="tm tm-login-registe"></i>Đăng ký
                             </a>
-                        </li>
+                        </li> -->
                         <li class="menu-item">
                             <a title="My Account" href="index.php?act=login">
                                 <i class="tm tm-login-registe"></i>Đăng nhập</a>
