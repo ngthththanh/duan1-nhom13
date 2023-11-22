@@ -15,19 +15,20 @@
                     <div class="container-fluid">
                         <div class="woocommerce columns-5">
                             <div class="products">
-                                <?php
+                            <?php
                                 $i = 0;
                                 foreach ($sphome as $sp) {
                                     extract($sp);
                                     $hinhpath ="../uploads/".$hinh;
                                     $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                                     echo '
+                                    <form action="index.php?act=addcart" method="post">
                                     <div class="product">
                                     <a href="' . $linksp . '" class="woocommerce-LoopProduct-link">
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' .number_format($gia_sp). 'VND</span>
+                                                <span class="amount">' . $gia_sp . '</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -35,14 +36,16 @@
                                     </a>
                                     
                                     <div class="hover-area">
-                                        <input type="hidden" name="id" value="'.$id_sp.'">
-                                        <input type="hidden" name="name" value="'.$ten_sp.'">
-                                        <input type="hidden" name="img" value="'.$hinhpath.'">
-                                        <input type="hidden" name="price" value="'.$gia_sp.'">
-                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
+                                        <input type="hidden" name="id" value="'.$sp['id_sp'].'">
+                                        <input type="hidden" name="name" value="'.$sp['ten_sp'].'">
+                                        <input type="hidden" name="img" value="'.$sp['hinh'].'">
+                                        <input type="hidden" name="price" value="'.$sp['gia_sp'].'">
+                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
-                                    </div>';
+                                    </div>
+                                    </form>
+                                    ';
                                     $i+=1;
                                 }?>
                             </div>
@@ -59,19 +62,20 @@
                     <div class="container-fluid">
                         <div class="woocommerce columns-5">
                             <div class="products">
-                                <?php
+                            <?php
                                 $i = 0;
                                 foreach ($sphome as $sp) {
                                     extract($sp);
                                     $hinhpath ="../uploads/".$hinh;
                                     $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                                     echo '
+                                    <form action="index.php?act=addcart" method="post">
                                     <div class="product">
                                     <a href="' . $linksp . '" class="woocommerce-LoopProduct-link">
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' .number_format($gia_sp). 'VND</span>
+                                                <span class="amount">' . $gia_sp . '</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -83,12 +87,13 @@
                                         <input type="hidden" name="name" value="'.$ten_sp.'">
                                         <input type="hidden" name="img" value="'.$hinhpath.'">
                                         <input type="hidden" name="price" value="'.$gia_sp.'">
-                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
+                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
-                                    </div>';
+                                    </div>
+                                    </form>';
                                     $i+=1;
-                                }?>                    
+                                }?>                   
                             </div>
                         </div>
                         <!-- .woocommerce -->
@@ -215,19 +220,20 @@
             <div class="container-fluid">
                 <div class="woocommerce columns-2">
                     <div class="products">
-                        <?php
+                    <?php
                         $i = 0;
                         foreach ($dstop10 as $sp) {
                             extract($sp);
                             $hinhpath ="../uploads/".$hinh;
                             $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                             echo '
+                            <form action="index.php?act=addcart" method="post">
                             <div class="product">
                             <a href="' . $linksp . '" class="woocommerce-LoopProduct-link">
                                 <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                 <span class="price">
                                     <ins>
-                                        <span class="amount">' .number_format($gia_sp).'VND</span>
+                                        <span class="amount">' . $gia_sp . '</span>
                                     </ins>
                                 </span>
                                     <!-- /.price -->
@@ -242,9 +248,10 @@
                                 <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
                                 <a class="add-to-compare-link" href="compare.html">So sánh</a>
                             </div>
-                            </div>';
+                            </div>
+                            </form>';
                             $i+=1;
-                        }?>                              
+                        }?>                                     
                     </div>
                 </div>
             </div>
@@ -269,22 +276,24 @@
                     <div class="container-fluid">
                         <div class="woocommerce columns-7">
                             <div class="products">  
-                                <?php
+                            <?php
                                 $i = 0;
                                 foreach ($dstop10 as $sp) {
                                     extract($sp);
                                     $hinhpath ="../uploads/".$hinh;
                                     $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                                     echo '
+                                    <form action="index.php?act=addcart" method="post">
                                     <div class="product">
                                     <a href="' . $linksp . '" class="woocommerce-LoopProduct-link">
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' .number_format($gia_sp). 'VND</span>
+                                                <span class="amount">' . $gia_sp . '</span>
                                             </ins>
                                         </span>
-                                        <h2 class="woocommerce-loop-product__title">' . $ten_sp . 'VND</h2>
+                                            <!-- /.price -->
+                                        <h2 class="woocommerce-loop-product__title">' . $ten_sp . '</h2>
                                     </a>
                                     
                                     <div class="hover-area">
@@ -295,7 +304,8 @@
                                         <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
-                                    </div>';
+                                    </div>
+                                    </form>';
                                     $i+=1;
                                 }?>
 
