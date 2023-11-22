@@ -52,39 +52,49 @@ function loadone_khachhang($id)
     $sql = "SELECT * FROM taikhoan WHERE id_tk=" . $id;
     $dm = pdo_query_one($sql);
     return $dm;
-}
-function checkemail($email)
-{
-    $sql = "SELECT * FROM taikhoan WHERE email = '" . $email . "'";
-    $taikhoan = pdo_query_one($sql);
-    return $taikhoan;
-}
+}function sendMail($email) {
+        $sql="SELECT * FROM taikhoan WHERE email='$email'";
+        $taikhoan = pdo_query_one($sql);
 
-function sendMailPass($email, $user, $pass) {
-    require '../PHPMailer/src/Exception.php';
-    require '../PHPMailer/src/PHPMailer.php';
-    require '../PHPMailer/src/SMTP.php';
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
-    try {
-        //Server settings
-        $mail->SMTPDebug = PHPMailer\PHPMailer\SMTP::DEBUG_OFF;                      //Enable verbose debug output
-        $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'ngthththanh2003@gmail.com';                     //SMTP username
-        $mail->Password   = 'ngthththanh';                    //SMTP password
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
-        $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-        //Recipients
-        $mail->setFrom('ngthththanh2003@gmail.com', 'Shop Shose');
-        $mail->addAddress($email, $user);     //Add a recipient
-        //Content
-        $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Mật khẩu mới';
-        $mail->Body    = 'Mật khảu của bạn là:: ' .$pass;
-        $mail->send();
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        if ($taikhoan != false) {
+            sendMailPass($email, $taikhoan['user'], $taikhoan['pass']);
+            
+            return "gui email thanh cong";
+        } else {
+            return "Email bạn nhập ko có trong hệ thống";
+        }
     }
-}
+
+    function sendMailPass($email, $username, $pass) {
+        require '../PHPMailer/src/Exception.php';
+        require '../PHPMailer/src/PHPMailer.php';
+        require '../PHPMailer/src/SMTP.php';
+
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+
+        try {
+            //Server settings
+            $mail->SMTPDebug = PHPMailer\PHPMailer\SMTP::DEBUG_OFF;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'sandbox.smtp.mailtrap.io';                                      //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = '8e09add39ff510';                     //SMTP username
+            $mail->Password   = 'b1fb76b89919fb';                               //SMTP password
+            $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+            $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+            //Recipients
+            $mail->setFrom('duanmau@example.com', 'DuAnMau');
+            $mail->addAddress($email, $username);     //Add a recipient
+
+            //Content
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = 'Nguoi dung quen mat khau';
+            $mail->Body    = 'Mau khau cua ban la: ' .$pass;
+
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+?>

@@ -100,25 +100,11 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                }
                include "login/login.php";
                break;
-          case 'quenmk':
-               if (isset($_SESSION['username']) && ($_SESSION['username'])) {
-                    $taikhoan = loadall_taikhoan('', $_SESSION['username']);
-                    header('location:index.php');
-                    exit; // Add exit to stop further execution
-               }
-               $message_true = '';
-               $message_false = '';
-                
-               if (isset($_POST['guiemail']) && ($_POST['guiemail'])) {
-                    $email = $_POST['email'];
-                    $check = checkemail($email);
-                
-                    if ($check) {
-                        $message_true = "Email đã được gửi";
-                    } else {
-                        $message_false = "Email không tồn tại";
+               case "quenmk":
+                    if (isset($_POST['guiemail'])) {
+                        $email = $_POST['email'];
+                        $sendMailMess = sendMail($email);
                     }
-               }
                include "login/quenmk.php";
                break;
           case 'updatetk':

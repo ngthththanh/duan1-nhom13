@@ -24,8 +24,9 @@
                                                                     <span class="required">*</span>
                                                                 </label>
                                                                 <input type="email" class="input-text" name="email" id="username" value="" required />
-                                                                <span class="form-message <?=$message_true != '' ? 'text-success' : 'text-danger';?>"><?=$message_true;?><?=$message_false;?></span>
-                                                            </p>
+                                                                <?php if (isset($sendMailMess) && $sendMailMess != '') {
+                                                                        echo $sendMailMess;
+                                                                } ?>                                                            </p>
                                                             <p class="form-row">
                                                                 <input class="woocommerce-Button button" type="submit" value="Gửi" name="guiemail">
                                                                 <label for="rememberme" class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
