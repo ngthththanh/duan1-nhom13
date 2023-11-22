@@ -5,7 +5,7 @@
                 <a href="index.php">Home</a>
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
-                </span>Thjoong tin tài khoản
+                </span>Thông tin tin tài khoản
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
