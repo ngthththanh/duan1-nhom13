@@ -81,7 +81,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     echo "<script>window.location.href='index.php?act=login';</script>";
                     }
                }
-               include "login/dangki.php";
+               include "login/login-and-register.php";
                break;
           
           case "login":
@@ -98,14 +98,14 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                          echo '<script>alert("Tài khoản không tồn tại");</script>';
                     }
                }
-               include "login/login.php";
+               include "login/login-and-register.php";
                break;
                case "quenmk":
                     if (isset($_POST['guiemail'])) {
                         $email = $_POST['email'];
                         $sendMailMess = sendMail($email);
                     }
-               include "login/quenmk.php";
+                    include "login/login-and-register.php";
                break;
           case 'updatetk':
                if(isset($_POST['capnhat']) && ($_POST['capnhat'])) {
