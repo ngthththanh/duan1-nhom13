@@ -166,8 +166,16 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
           }
           include "khachhang/list.php";
           break;
-          case "chart":
-               include "chart.php";
+          case "binhluan":
+               $listbinhluan = load_binhluan(0);
+               include "binhluan/list-bluan.php";
+               break;
+               case 'xoabl';
+               if(isset($_GET['id'])&&($_GET['id']>0)){
+                   delete_binhluan($_GET['id']);
+               }
+               $listbinhluan=load_binhluan(0);
+               include "binhluan/list-bluan.php";
                break;
           case "home":
              include "home.php";

@@ -28,7 +28,7 @@
         pdo_execute($sql);
     }
     function delete_binhluan($id){
-        $sql="DELETE FROM binhluan WHERE id=".$id;
+        $sql="DELETE FROM binhluan WHERE id_bl=".$id;
         pdo_execute($sql);
     }
     function load_binhluan(){
