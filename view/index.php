@@ -146,6 +146,70 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     unset($_SESSION['username']);
                }
                break;
+          case "addcart":
+               if(isset($_SESSION['username']) ){
+                    if(isset($_POST['addtocart']) && ($_POST['addtocart'])){
+                         $id_sp=$_POST['id'];
+                         $ten_sp=$_POST['name'];
+                         $hinh=$_POST['img'];
+                         $gia_sp=$_POST['price'];
+                         if(isset($_POST['soluong'])){
+                              $sl=$_POST['soluong'];
+                         }else{
+                              $sl=1;
+                         }
+                         $fg=0;
+                         $i=0;
+                         foreach ( $_SESSION['giohang'] as $item) {
+                              if($item[1]==$ten_sp){
+                                   $slnew=$sl+$item[4];
+                                   $_SESSION['giohang'][$i][4]=$slnew;
+                                   $fg=1;
+                                   break;
+                              }
+                              $i++;
+                         }
+                         if($fg==0){
+                              $item=array($id_sp,$ten_sp,$hinh,$gia_sp,$sl);
+                              $_SESSION['giohang'][]=$item;
+                         }
+                         // Khởi tạo 1 mảng con trước khi đưa vào giỏ hàng
+                         
+                         header('location:index.php?act=giohang');
+                    }
+                         include "cart/giohang.php";
+               }else{
+                    echo '<script>alert("Vui lòng đăng nhập");</script>';
+                  
+               }
+            include "home.php";
+                    break;
+               case "delcart":
+               if(isset($_GET['i'])&&($_GET['i']>0)){
+                    if(isset($_SESSION['giohang']) && (count($_SESSION['giohang'])>0))
+                    array_splice($_SESSION['giohang'],$_GET['i'],1);
+               }
+               else{
+                    if(isset($_SESSION['giohang'])) unset($_SESSION['giohang']);
+               }
+               if(isset($_SESSION['giohang']) && (count($_SESSION['giohang'])>0)){
+                    header('location:index.php?act=giohang');
+               }else{
+                    header('location:index.php');
+               }
+                    break;
+          case "thanhtoan":
+               if((isset($_POST['thanhtoan'])) && ($_POST['thanhtoan'])){
+                    $tongdonhang=$_POST['tongdonhang'];
+                    $hoten=$_POST['hoten'];
+                    $address =$_POST['address'];
+                    $email=$_POST['email'];
+                    $tel=$_POST['tel'];
+                    $pttt=$_POST['ptt'];
+                    $madh="B";
+               }
+               include "shop.php";
+               break;
           case "shop":
                include "shop.php";
                break;

@@ -75,10 +75,10 @@
                                     <!-- .additional-info -->
                                     <p class="price">
                                         <span class="woocommerce-Price-amount amount">
-                                            <span class="woocommerce-Price-currencySymbol"></span><?php echo number_format($gia_sp) ?>VND</span>
+                                            <span class="woocommerce-Price-currencySymbol"></span><?php echo "$gia_sp" ?>VND</span>
                                     </p>
                                     <!-- .price -->
-                                    <form class="variations_form cart">
+                                    <form class="variations_form cart" action="index.php?act=addcart" method="post" >
                                         <table class="variations">
                                             <tbody>
                                                 <tr>
@@ -100,10 +100,14 @@
                                             <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-disabled">
                                                 <div class="quantity">
                                                     <label for="quantity-input">Quantity</label>
-                                                    <input id="quantity-input" type="number" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
+                                                    <input id="quantity-input" type="number" name="soluong" value="1" title="Qty" class="input-text qty text" size="4">
+                                                    <input type="hidden" name="id" value="<?=$id_sp?>">
+                                                    <input type="hidden" name="name" value="<?=$ten_sp?>">
+                                                    <input type="hidden" name="img" value="'<?=$hinhsp?>">
+                                                    <input type="hidden" name="price" value="<?=$gia_sp?>">
                                                 </div>
-                                                <button class="single_add_to_cart_button button alt wc-variation-selection-needed" type="submit">Add to cart</button>
-                                                <input type="hidden" value="2471" name="add-to-cart">
+                                                <a class="button add_to_cart_button" href="#" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addcart"></a>
+                                                <input type="hidden" value="2471" name="addtocart">
                                                 <input type="hidden" value="2471" name="product_id">
                                                 <input type="hidden" value="0" class="variation_id" name="variation_id">
                                             </div>
