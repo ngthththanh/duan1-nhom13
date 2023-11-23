@@ -241,34 +241,43 @@
                                     <!-- /.advanced-review -->
                                 
                                         <div id="comments">
-                                            <?php foreach($binhluan as $value): 
-                                                extract($value);
+                                            <?php foreach($listbinhluan as $binhluan): 
+                                                extract($binhluan );
+                                                $xoabl="index.php?act=xoabl&id=".$id_bl;
                                             ?>
                                             <ol class="commentlist">
-                                                <li id="li-comment-83" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
-                                                    <div class="comment_container" id="comment-83">
-                                                        <div class="comment-text">
-                                                            <div class="star-rating">
-                                                                <span>
-                                                                    Rated <strong class="rating"></strong> out of 5
-                                                                </span>
-                                                            </div>
-                                                            <p class="meta">
-                                                                <strong itemprop="author" class="woocommerce-review__author"><?=$user?></strong>
-                                                                <span class="woocommerce-review__dash">&ndash;</span>
-                                                                <time datetime="2017-06-21T08:05:40+00:00" itemprop="datePublished" class="woocommerce-review__published-date"><?=$ngaybinhluan?></time>
-                                                            </p>
-                                                            <div class="description">
-                                                                <p><?=$noidung?></p>
-                                                            </div>
-                                                            <!-- /.description -->
-                                                        </div>
-                                                        <!-- /.comment-text -->
-                                                    </div>   
-                                                    <!-- /.comment_container -->
-                                                </li>
-                                                <!-- /.comment -->
-                                            </ol>
+    <li id="li-comment-83" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
+        <div class="comment_container" id="comment-83">
+            <div class="comment-text">
+                <div class="star-rating">
+                    <span>
+                        Rated <strong class="rating"></strong> out of 5
+                    </span>
+                </div>
+                <p class="meta">
+                    <strong itemprop="author" class="woocommerce-review__author">
+                        <?=$user?>
+                        <span class="edit-delete-buttons">
+                            <button class="edit-button">Edit</button>
+                            <?php echo ' <a href="' . $xoabl . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');"><button type="button" class="btn btn-primary">Xóa</button></a>'?>                       </span>
+                    </strong>
+                    <span class="woocommerce-review__dash">&ndash;</span>
+                    <time datetime="2017-06-21T08:05:40+00:00" itemprop="datePublished" class="woocommerce-review__published-date">
+                        <?=$ngaybinhluan?>
+                    </time>
+                </p>
+                <div class="description">
+                    <p><?=$noidung?></p>
+                </div>
+                <!-- /.description -->
+            </div>
+            <!-- /.comment-text -->
+        </div>
+        <!-- /.comment_container -->
+    </li>
+    <!-- /.comment -->
+</ol>
+
                                             <?php endforeach; ?>
                                             <!-- /.commentlist -->
                                         </div>

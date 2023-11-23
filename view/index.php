@@ -39,22 +39,40 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                include "sanpham.php";
                
                break; 
-          case "chitietsp":         
-               if(isset($_POST['guibinhluan'])){
-                    insert_binhluan($_POST['id_sp'], $_POST['noidung']);
-                }
-                if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
-                    $onesanpham = loadone_sanpham($_GET['idsp']);
-                    extract($onesanpham);
-                    $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dm']);
-                    $binhluan = loadall_binhluan($_GET['idsp']);
-                    $sobinhluan = sobl($_GET['idsp']);
-                    $id_sp = $_GET['idsp'];
+               case "chitietsp":
+                    if (isset($_POST['guibinhluan'])) {
+                        insert_binhluan($_POST['id_sp'], $_POST['noidung']);
+                    }
+                
+                    if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
+                        $onesanpham = loadone_sanpham($_GET['idsp']);
+                
+                        // Kiểm tra xem có dữ liệu sản phẩm và không phải là null hay không
+                        if ($onesanpham !== null && is_array($onesanpham)) {
+                            extract($onesanpham);
+                            $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dm']);
+                            $listbinhluan = loadall_binhluan($_GET['idsp']);
+                            $sobinhluan = sobl($_GET['idsp']);
+                            $id_sp = $_GET['idsp'];
+                            include "chitietsp.php";
+                        } else {
+                            include "shared/404.php";
+                        }
+                    } else {
+                        include "shared/404.php";
+                    }
+                    break;
+                
+                
+                
+                case 'xoabl':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                        delete_binhluan($_GET['id']);
+                    }
+                    $listbinhluan = load_binhluan(0);
                     include "chitietsp.php";
-                }else{
-                    include "shared/404.php";            
-                }
-               break;
+                    break;
+                
           case 'dangki':
                if (isset($_POST['register']) && ($_POST['register'])) {
                     $user = $_POST['username'];
