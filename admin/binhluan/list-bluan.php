@@ -70,7 +70,7 @@
                                             <button type="button" class="btn btn-primary">Xóa</button>
                                         </a>
                                     </td>                                    </tr>';
-                                }?>
+}?>
                             </tbody>
                         </table>
                     </div>
