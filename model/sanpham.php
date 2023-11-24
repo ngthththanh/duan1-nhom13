@@ -4,22 +4,35 @@ function loadall_sanpham_home(){
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
 }
-
-function loadall_sanpham($kyw="",$iddm=0){
+function loadall_sanpham($kyw = "", $iddm = 0, $minPrice = null, $maxPrice = null)
+{
     $sql = "SELECT sanpham.*, COUNT(binhluan.id_bl) as soBinhLuan
-    FROM sanpham LEFT JOIN binhluan ON binhluan.id_sp = sanpham.id_sp WHERE 1";
+            FROM sanpham LEFT JOIN binhluan ON binhluan.id_sp = sanpham.id_sp WHERE 1";
+
     if ($kyw != "") {
-    $sql .= " AND sanpham.ten_sp LIKE '%" . $kyw . "%'";
+        $sql .= " AND sanpham.ten_sp LIKE '%" . $kyw . "%'";
     }
+
     if ($iddm > 0) {
-    $sql .= " AND sanpham.id_dm = '" . $iddm . "'";
+        $sql .= " AND sanpham.id_dm = '" . $iddm . "'";
     }
+
+    // Thêm điều kiện lọc theo giá
+    if ($minPrice !== null) {
+        $sql .= " AND sanpham.gia >= " . $minPrice;
+    }
+
+    if ($maxPrice !== null) {
+        $sql .= " AND sanpham.gia <= " . $maxPrice;
+    }
+
     $sql .= " GROUP BY sanpham.id_sp
-        ORDER BY sanpham.id_sp DESC";
+            ORDER BY sanpham.id_sp DESC";
+
     $listsanpham = pdo_query($sql);
     return $listsanpham;
-
 }
+
 function insert_sanpham($tensp, $giasp, $hinh,$size,$soluong, $mota,$iddm){
     $sql="INSERT INTO sanpham(ten_sp, gia_sp, hinh, size, soluong,mota, id_dm) VALUES ('$tensp','$giasp', '$hinh', '$size', '$soluong','$mota','$iddm')";
     pdo_execute($sql);

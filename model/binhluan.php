@@ -22,9 +22,7 @@
         $ngaybinhluan = date('Y-m-d');
         $id_tk = $_SESSION['username']['id_tk'];
         $sql = " INSERT INTO `binhluan`(`noidung`, `id_tk`, `id_sp`, `ngaybinhluan`) 
-            VALUES ('$noidung','$id_tk','$idsp','$ngaybinhluan');
-        ";
-        
+                 VALUES ('$noidung','$id_tk','$idsp','$ngaybinhluan');";       
         pdo_execute($sql);
     }
     function delete_binhluan($id){
