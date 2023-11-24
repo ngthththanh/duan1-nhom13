@@ -194,18 +194,18 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     header('location:index.php');
                }
                     break;
-          case "thanhtoan":
-               if((isset($_POST['thanhtoan'])) && ($_POST['thanhtoan'])){
-                    $tongdonhang=$_POST['tongdonhang'];
-                    $hoten=$_POST['hoten'];
-                    $address =$_POST['address'];
-                    $email=$_POST['email'];
-                    $tel=$_POST['tel'];
-                    $pttt=$_POST['ptt'];
-                    $madh="B";
-                    $thanhtoan = thanhtoan($tongdonhang,$hoten,$address,$email,$tel,$pttt);
+          // case "thanhtoan":
+          //      if((isset($_POST['thanhtoan'])) && ($_POST['thanhtoan'])){
+          //           $tongdonhang=$_POST['tongdonhang'];
+          //           $hoten=$_POST['hoten'];
+          //           $address =$_POST['address'];
+          //           $email=$_POST['email'];
+          //           $tel=$_POST['tel'];
+          //           $pttt=$_POST['ptt'];
+          //           $madh="B";
+          //           $thanhtoan = thanhtoan($tongdonhang,$hoten,$address,$email,$tel,$pttt);
 
-               }
+          //      }
                
                include "shop.php";
                break;
