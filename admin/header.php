@@ -117,7 +117,7 @@
                             </a>
                             <a class="nav-link" href="?act=binhluan">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Bình Luận
                             </a>
                         </div>
                     </div>
