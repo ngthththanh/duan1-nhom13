@@ -18,11 +18,9 @@
                                     <th>ID</th>
                                     <th>Tên </th>
                                     <th>Hình</th>
-                                    <th>Giá</th>
-                                    <th>Size</th>
-                                    <th>Sô Lượng</th>                     
+                                    <th>Giá</th>                
                                     <th>Mô tả</th>
-                                
+                                    <th>Thêm biến thể</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -33,10 +31,8 @@
                                     <th>Tên</th>
                                     <th>Hình</th>
                                     <th>Giá</th>
-                                    <th>Size</th>
-                                    <th>Sô Lượng</th>
                                     <th>Mô Tả</th>
-                            
+                                    <th>Thêm biến thể</th>
                                     <th></th>
                                 </tr>
                             </tfoot>
@@ -45,6 +41,7 @@
                                     extract($sanpham);
                                     $suasp="index.php?act=sua-sp&id=".$id_sp;
                                     $xoasp="index.php?act=xoa-sp&id=".$id_sp;
+                                    $addkt="index.php?act=add-kthuoc&id=".$id_sp;
                                     $hinhpath ="../uploads/".$hinh;
                                     if (is_file($hinhpath)) {
                                         $hinhsp = "<img src='".$hinhpath."' width=80px'>";
@@ -57,10 +54,9 @@
                                         <td>'.$id_sp.'</td>
                                         <td>'.$ten_sp.' </td>
                                         <td>'.$hinhsp.'</td>
-                                        <td>'.number_format($gia_sp).'VND</td>
-                                        <td>'.$size.'</td>
-                                        <td>'.$soluong.'</td>                                
+                                        <td>'.number_format($gia_sp).'VND</td>        
                                         <td>'.$mota.'</td>
+                                        <td><a href="'.$addkt.'"><button type="button" class="btn">Thêm kích thước</button></a></td>
                                         <td><a href="'.$suasp.'"><button type="button" class="btn">Sửa</button></a>
                                         <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');"><button type="button" class="btn">Xóa</button></a></td>
                                     </tr>';

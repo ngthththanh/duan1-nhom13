@@ -5,14 +5,15 @@
     include "../model/binhluan.php";
     include "../model/taikhoan.php";
     include "../model/cart.php";
+    include "../model/kthuoc.php";
     include "../model/donhang.php";
     $dsdm = loadall_danhmuc(); 
     include "header.php";
-    include "../global.php";
-    
+    include "../global.php"; 
     $sphome = loadall_sanpham_home();
     $dsdm = loadall_danhmuc();
     $dmft = loadall_danhmuc_footer();
+    $dmft2 = loadall_danhmuc_footer2();
     $allsp = loadall_sanpham();
     $dstop10 = loadall_sanpham_top10();
 if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -32,30 +33,41 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                    $iddm = $_GET['iddm'];
                } else {
                    $iddm = 0;
-               }
+               }   
+               $minPrice = isset($_GET['min_price']) ? (int)$_GET['min_price'] : null;
+               $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
                
-               $dssp = loadall_sanpham($kyw, $iddm);
+               $dssp = loadall_sanpham($kyw, $iddm, $minPrice, $maxPrice);
+               
                $ten_dm = load_ten_dm($iddm);
                
                include "sanpham.php";
                
                break; 
-          case "chitietsp":         
-               if(isset($_POST['guibinhluan'])){
-                    insert_binhluan($_POST['id_sp'], $_POST['noidung']);
-                }
-                if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
-                    $onesanpham = loadone_sanpham($_GET['idsp']);
-                    extract($onesanpham);
-                    $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dm']);
-                    $binhluan = loadall_binhluan($_GET['idsp']);
-                    $sobinhluan = sobl($_GET['idsp']);
-                    $id_sp = $_GET['idsp'];
-                    include "chitietsp.php";
-                }else{
-                    include "shared/404.php";            
-                }
-               break;
+               case "chitietsp":
+                    if (isset($_POST['guibinhluan'])) {
+                        insert_binhluan($_POST['id_sp'], $_POST['noidung']);
+                    }
+                
+                    if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
+                        $onesanpham = loadone_sanpham($_GET['idsp']);
+                        // Kiểm tra xem có dữ liệu sản phẩm và không phải là null hay không
+                        if ($onesanpham !== null && is_array($onesanpham)) {
+                            extract($onesanpham);
+                            $sanphamcl = load_sanpham_cungloai($_GET['idsp'], $onesanpham['id_dm']);
+                            $listbinhluan = loadall_binhluan($_GET['idsp']);
+                            $sobinhluan = sobl($_GET['idsp']);
+                            $id_sp = $_GET['idsp'];
+                            $listkthuoc = loadkthuoc_sp($id_sp);
+                            include "chitietsp.php";
+                        } else {
+                            include "shared/404.php";
+                        }
+                    } else {
+                        include "shared/404.php";
+                    }
+                    break;
+                
           case 'dangki':
                if (isset($_POST['register']) && ($_POST['register'])) {
                     $user = $_POST['username'];
@@ -185,17 +197,15 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     break;
           case "thanhtoan":
                if((isset($_POST['thanhtoan'])) && ($_POST['thanhtoan'])){
+                    $tongdonhang=$_POST['tongdonhang'];
                     $hoten=$_POST['hoten'];
                     $address =$_POST['address'];
                     $email=$_POST['email'];
                     $tel=$_POST['tel'];
                     $pttt=$_POST['ptt'];
-                    $madh="BAHOZONE".rand(0,999999);
-                    $iddh=taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tel);
-                    
-
+                    $madh="B";
                }
-               include "cart/hoadon.php";
+               include "shop.php";
                break;
           case "shop":
                include "shop.php";

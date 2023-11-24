@@ -21,6 +21,11 @@ function loadall_danhmuc_footer(){
     $listdanhmuc=pdo_query($sql);
     return $listdanhmuc;
 }
+    function loadall_danhmuc_footer2(){
+        $sql="SELECT * FROM danhmuc  ORDER BY id_dm desc limit 5,10";
+        $listdanhmuc=pdo_query($sql);
+        return $listdanhmuc;
+    }
 function loadone_danhmuc($id){
     $sql="SELECT * FROM danhmuc WHERE id_dm=".$id;
     $dm=pdo_query_one($sql);
