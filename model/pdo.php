@@ -31,6 +31,7 @@ function pdo_query($sql) {
     try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
+        // var_dump($sql);
         $stmt->execute($sql_args);
         $rows = $stmt->fetchAll();
         return $rows;

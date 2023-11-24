@@ -18,9 +18,7 @@
                                     <th>ID</th>
                                     <th>Tên </th>
                                     <th>Hình</th>
-                                    <th>Giá</th>
-                                    <th>Size</th>
-                                    <th>Sô Lượng</th>                     
+                                    <th>Giá</th>                
                                     <th>Mô tả</th>
                                 
                                     <th></th>
@@ -33,8 +31,6 @@
                                     <th>Tên</th>
                                     <th>Hình</th>
                                     <th>Giá</th>
-                                    <th>Size</th>
-                                    <th>Sô Lượng</th>
                                     <th>Mô Tả</th>
                             
                                     <th></th>
@@ -58,8 +54,7 @@
                                         <td>'.$ten_sp.' </td>
                                         <td>'.$hinhsp.'</td>
                                         <td>'.number_format($gia_sp).'VND</td>
-                                        <td>'.$size.'</td>
-                                        <td>'.$soluong.'</td>                                
+                                                                 
                                         <td>'.$mota.'</td>
                                         <td><a href="'.$suasp.'"><button type="button" class="btn">Sửa</button></a>
                                         <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');"><button type="button" class="btn">Xóa</button></a></td>

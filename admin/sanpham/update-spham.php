@@ -38,14 +38,14 @@ $hinhsp = (is_file($hinhpath)) ? $hinhpath : "Không có hình";
                             <input type="file" class="form-control" id="exampleInputText" name="hinh" onchange="previewImage(this)">
                             <img id="imagePreview" src="<?=$hinhsp?>" alt="Image Preview" style="max-width: 100%; max-height: 200px; margin-top: 10px;">
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                               <label for="exampleInputText" class="form-label">Kích Cỡ Sản Phẩm</label>
                               <input type="number" class="form-control" id="exampleInputText" min="35" max="42" name="size" value="<?=$size?>">
                          </div>
                          <div class="mb-3">
                               <label for="exampleInputText" class="form-label">Số Lượng Sản Phẩm</label>
                               <input type="number" class="form-control" id="exampleInputText" min="0" name="soluong"  value="<?=$soluong?>"> 
-                         </div>
+                         </div> -->
                          <div class="mb-3">
                               <label for="exampleFormControlTextarea1" class="form-label">Mô Tả Sản Phẩm</label>
                               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota"><?=$mota?></textarea>

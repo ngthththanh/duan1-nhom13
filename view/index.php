@@ -5,13 +5,14 @@
     include "../model/binhluan.php";
     include "../model/taikhoan.php";
     include "../model/cart.php";
+    include "../model/kthuoc.php";
     $dsdm = loadall_danhmuc(); 
     include "header.php";
-    include "../global.php";
-    
+    include "../global.php"; 
     $sphome = loadall_sanpham_home();
-    $dsdm = loadall_danhmuc();
+//     $dsdm = loadall_danhmuc();
     $dmft = loadall_danhmuc_footer();
+    $dmft2 = loadall_danhmuc_footer();
     $allsp = loadall_sanpham();
     $dstop10 = loadall_sanpham_top10();
 if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -31,9 +32,12 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                    $iddm = $_GET['iddm'];
                } else {
                    $iddm = 0;
-               }
+               }   
+               $minPrice = isset($_GET['min_price']) ? (int)$_GET['min_price'] : null;
+               $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
                
-               $dssp = loadall_sanpham($kyw, $iddm);
+               $dssp = loadall_sanpham($kyw, $iddm, $minPrice, $maxPrice);
+               
                $ten_dm = load_ten_dm($iddm);
                
                include "sanpham.php";
@@ -54,6 +58,8 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                             $listbinhluan = loadall_binhluan($_GET['idsp']);
                             $sobinhluan = sobl($_GET['idsp']);
                             $id_sp = $_GET['idsp'];
+                            $listkthuoc = loadkthuoc_sp($id_sp);
+                            
                             include "chitietsp.php";
                         } else {
                             include "shared/404.php";
@@ -61,16 +67,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     } else {
                         include "shared/404.php";
                     }
-                    break;
-                
-                
-                
-                case 'xoabl':
-                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                        delete_binhluan($_GET['id']);
-                    }
-                    $listbinhluan = load_binhluan(0);
-                    include "chitietsp.php";
                     break;
                 
           case 'dangki':
@@ -207,7 +203,10 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     $tel=$_POST['tel'];
                     $pttt=$_POST['ptt'];
                     $madh="B";
+                    $thanhtoan = thanhtoan($tongdonhang,$hoten,$address,$email,$tel,$pttt);
+
                }
+               
                include "shop.php";
                break;
           case "shop":
