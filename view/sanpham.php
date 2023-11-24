@@ -69,6 +69,7 @@
                                     <div id="grid" class="tab-pane active" role="tabpanel">
                                         <div class="woocommerce columns-7">
                                             <div class="products">
+                                            
                                                 <?php
                                                     $i = 0;
                                                     foreach ($dssp as $sp) {
@@ -90,14 +91,21 @@
                                                             <h2 class="woocommerce-loop-product__title">'.$ten_sp.'</h2>
                                                         </a>
                                                         <!-- .woocommerce-LoopProduct-link -->
+                                                     
                                                         <div class="hover-area">
-                                                            <a class="button" href="cart.html">Add to cart</a>
-                                                            <a class="add-to-compare-link" href="">Add to compare</a>
+                                                        <input type="hidden" name="id" value="'.$id_sp.'">
+                                                        <input type="hidden" name="name" value="'.$ten_sp.'">
+                                                        <input type="hidden" name="img" value="'.$hinhpath.'">
+                                                        <input type="hidden" name="price" value="'.$gia_sp.'">
+                                                        <a class="button add_to_cart_button" href="index.php?act=addcart" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                        <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                                         </div>
-                                                        <!-- .hover-area -->
-                                                    </div>';
+                                                        <!-- .hover-area --> 
+                                                    </div>
+                                                    ';
                                                         $i+=1;
-                                                    }?>                   
+                                                    }?>  
+                                                                  
                                             </div>
                                             <!-- .products -->
                                         </div>
