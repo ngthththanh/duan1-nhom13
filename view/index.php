@@ -10,9 +10,9 @@
     include "header.php";
     include "../global.php"; 
     $sphome = loadall_sanpham_home();
-//     $dsdm = loadall_danhmuc();
+    $dsdm = loadall_danhmuc();
     $dmft = loadall_danhmuc_footer();
-    $dmft2 = loadall_danhmuc_footer();
+    $dmft2 = loadall_danhmuc_footer2();
     $allsp = loadall_sanpham();
     $dstop10 = loadall_sanpham_top10();
 if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -50,7 +50,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                 
                     if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                         $onesanpham = loadone_sanpham($_GET['idsp']);
-                
                         // Kiểm tra xem có dữ liệu sản phẩm và không phải là null hay không
                         if ($onesanpham !== null && is_array($onesanpham)) {
                             extract($onesanpham);
@@ -59,7 +58,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                             $sobinhluan = sobl($_GET['idsp']);
                             $id_sp = $_GET['idsp'];
                             $listkthuoc = loadkthuoc_sp($id_sp);
-                            
                             include "chitietsp.php";
                         } else {
                             include "shared/404.php";

@@ -29,7 +29,7 @@
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' . $gia_sp . '</span>
+                                                <span class="amount">'.number_format($gia_sp). 'VND</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -76,7 +76,7 @@
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' . $gia_sp . '</span>
+                                                <span class="amount">'.number_format($gia_sp). 'VND</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -122,7 +122,7 @@
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' . $gia_sp . '</span>
+                                                <span class="amount">'.number_format($gia_sp). 'VND</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -168,7 +168,7 @@
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' . $gia_sp . '</span>
+                                                <span class="amount">'.number_format($gia_sp). 'VND</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
@@ -238,7 +238,7 @@
                                 <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                 <span class="price">
                                     <ins>
-                                        <span class="amount">' . $gia_sp . '</span>
+                                        <span class="amount">'.number_format($gia_sp). 'VND</span>
                                     </ins>
                                 </span>
                                     <!-- /.price -->
@@ -294,7 +294,7 @@
                                         <img src="' . $hinhpath. '" class="wp-post-image" width="300" height="300" alt="ko co anh">
                                         <span class="price">
                                             <ins>
-                                                <span class="amount">' . $gia_sp . '</span>
+                                                <span class="amount">'.number_format($gia_sp). 'VND</span>
                                             </ins>
                                         </span>
                                             <!-- /.price -->
