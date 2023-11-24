@@ -142,7 +142,6 @@
                                         <input type="hidden" value="right-sidebar" name="shop_layout">
                                         <input type="hidden" value="<?php echo isset($_POST['page']) ? $_POST['page'] : 1; ?>" name="page">
                                     </form>
-
                                     <!-- .form-techmarket-wc-ppp -->
                                     <p class="woocommerce-result-count">
                                         <!-- Showing 1&ndash;15 of 73 results -->
