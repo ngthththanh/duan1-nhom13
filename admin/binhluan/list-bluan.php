@@ -62,8 +62,9 @@
                                         <a href="' . $xoasp . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
                                             <button type="button" class="btn btn-primary">Xóa</button>
                                         </a>
-                                    </td>                                    </tr>';
-}?>
+                                        </td>                                    
+                                    </tr>';
+                                }?>
                             </tbody>
                         </table>
                     </div>

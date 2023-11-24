@@ -10,7 +10,7 @@
     include "header.php";
     include "../global.php"; 
     $sphome = loadall_sanpham_home();
-//     $dsdm = loadall_danhmuc();
+    $dsdm = loadall_danhmuc();
     $dmft = loadall_danhmuc_footer();
     $dmft2 = loadall_danhmuc_footer();
     $allsp = loadall_sanpham();
