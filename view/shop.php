@@ -110,7 +110,7 @@
                                                             <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="'.$hinhpath.'">
                                                             <span class="price">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol"></span> '.number_format($gia_sp). 'VND</span>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span>'.number_format($gia_sp). 'VND</span>
                                                             </span>
                                                             <h2 class="woocommerce-loop-product__title">'.$ten_sp.'</h2>
                                                         </a>
@@ -140,7 +140,9 @@
                                         <input type="hidden" value="5" name="shop_columns">
                                         <input type="hidden" value="15" name="shop_per_page">
                                         <input type="hidden" value="right-sidebar" name="shop_layout">
+                                        <input type="hidden" value="<?php echo isset($_POST['page']) ? $_POST['page'] : 1; ?>" name="page">
                                     </form>
+
                                     <!-- .form-techmarket-wc-ppp -->
                                     <p class="woocommerce-result-count">
                                         <!-- Showing 1&ndash;15 of 73 results -->

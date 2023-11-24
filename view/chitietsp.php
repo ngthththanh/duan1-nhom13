@@ -7,9 +7,9 @@
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
                 </span><a href="?act=shop">Shop
-                    <span class="delimiter">
-                        <i class="tm tm-breadcrumbs-arrow-right"></i>
-                    </span><?php echo "$ten_sp" ?>
+                <span class="delimiter">
+                    <i class="tm tm-breadcrumbs-arrow-right"></i>
+                </span><?php echo "$ten_sp" ?>
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
@@ -95,7 +95,18 @@
                                                                 echo '<option value="' . $so_luong . '">' . $ten . '</option>';
                                                             } ?>
                                                         </select>
-
+                                                    </td>
+                                                    <td class="label">
+                                                        <label for="pa_screen-size">Màu Sắc</label>
+                                                    </td>
+                                                    <td class="value">
+                                                        <select onchange="soLuong1()" id="kichThuoc" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="attribute_pa_screen-size" class="" id="pa_screen-size">
+                                                            <option value="">Chọn màu sắc</option>
+                                                            <?php foreach ($listmsac as $msac) {
+                                                                extract($msac);
+                                                                echo '<option value="' . $so_luong . '">' . $ten . '</option>';
+                                                            } ?>
+                                                        </select>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -231,7 +242,6 @@
                                                                     </div>
                                                                 <?php } ?>
                                                             </form>
-
                                                             <!-- /.comment-form -->
                                                         </div>
                                                         <!-- /.comment-respond -->
@@ -243,11 +253,9 @@
                                             <!-- /.advanced-review-comment -->
                                         </div>
                                         <!-- /.advanced-review -->
-
                                         <div id="comments">
                                             <?php foreach ($listbinhluan as $binhluan) :
                                                 extract($binhluan);
-
                                             ?>
                                                 <ol class="commentlist">
                                                     <li id="li-comment-83" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
