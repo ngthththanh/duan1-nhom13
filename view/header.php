@@ -264,7 +264,7 @@ ob_start();
                     <!-- .header-wishlist -->
                     <ul id="site-header-cart" class="site-header-cart menu">
                         <li class="animate-dropdown dropdown ">
-                            <a class="cart-contents" href="cart.html" data-toggle="dropdown" title="View your shopping cart">
+                            <a class="cart-contents" href="index.php?act=addcart" data-toggle="dropdown" title="View your shopping cart">
                                 <i class="tm tm-shopping-bag"></i>
                                 <span class="count">2</span>
                                 <span class="amount">
@@ -275,7 +275,7 @@ ob_start();
                                         } else {
                                             echo '<a href="index.php?act=login">Login</a> <br>';
                                         }
-                                    ?></span>&#036;136.99</span>
+                                    ?>
                             </a>
 
                             <ul class="dropdown-menu dropdown-menu-mini-cart">

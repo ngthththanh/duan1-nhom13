@@ -5,6 +5,7 @@
     include "../model/binhluan.php";
     include "../model/taikhoan.php";
     include "../model/cart.php";
+    include "../model/donhang.php";
     $dsdm = loadall_danhmuc(); 
     include "header.php";
     include "../global.php";
@@ -124,24 +125,26 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                include "login/updatetk.php";
                break;
           case "thoat":
+              session_unset();
                if (isset($_SESSION['username'])) {
                     unset($_SESSION['username']);
                }
                break;
           case "addcart":
+               
                if(isset($_SESSION['username']) ){
                     if(isset($_POST['addtocart']) && ($_POST['addtocart'])){
                          $id_sp=$_POST['id'];
                          $ten_sp=$_POST['name'];
                          $hinh=$_POST['img'];
-                         $gia_sp=$_POST['price'];
-                         if(isset($_POST['soluong'])){
+                          if(isset($_POST['soluong'])){
                               $sl=$_POST['soluong'];
                          }else{
                               $sl=1;
                          }
                          $fg=0;
-                         $i=0;
+                         $i=0;$gia_sp=$_POST['price'];
+                        
                          foreach ( $_SESSION['giohang'] as $item) {
                               if($item[1]==$ten_sp){
                                    $slnew=$sl+$item[4];
@@ -182,15 +185,17 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     break;
           case "thanhtoan":
                if((isset($_POST['thanhtoan'])) && ($_POST['thanhtoan'])){
-                    $tongdonhang=$_POST['tongdonhang'];
                     $hoten=$_POST['hoten'];
                     $address =$_POST['address'];
                     $email=$_POST['email'];
                     $tel=$_POST['tel'];
                     $pttt=$_POST['ptt'];
-                    $madh="B";
+                    $madh="BAHOZONE".rand(0,999999);
+                    $iddh=taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tel);
+                    
+
                }
-               include "shop.php";
+               include "cart/hoadon.php";
                break;
           case "shop":
                include "shop.php";

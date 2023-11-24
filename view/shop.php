@@ -91,7 +91,7 @@
                                 </div>
                                 <!-- .shop-control-bar -->
                                 <div class="tab-content">
-                                    <div id="grid" class="tab-pane active" role="tabpanel">
+                                    <div id="grid" class="tab-pane active" role="tabpanel">   
                                         <div class="woocommerce columns-7">
                                             <div class="products">
                                                 <?php
@@ -116,20 +116,24 @@
                                                         </a>
                                                         <!-- .woocommerce-LoopProduct-link -->
                                                         <div class="hover-area">
-                                                            <a class="button" href="cart.html">Thêm vào giỏ hàng</a>
-                                                            <a class="add-to-compare-link" href="compare.html">Thêm vào để so sánh</a>
-                                                        </div>
+                                                        <input type="hidden" name="id" value="'.$id_sp.'">
+                                                        <input type="hidden" name="name" value="'.$ten_sp.'">
+                                                        <input type="hidden" name="img" value="'.$hinhpath.'">
+                                                        <input type="hidden" name="price" value="'.$gia_sp.'">
+                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                        <a class="add-to-compare-link" href="compare.html">So sánh</a>
+                                                            </div>
                                                         <!-- .hover-area -->
-                                                    </div>';
+                                                    </div>   ';
                                                         $i+=1;
-                                                    }?>                   
+                                                    }?> 
+                                                                  
                                             </div>
                                             <!-- .products -->
                                         </div>
-                                        <!-- .woocommerce -->
+                                        <!-- .woocommerce -->   
                                     </div>
-                                    <!-- .tab-pane -->
-                                    
+                                    <!-- .tab-pane -->    
                                 <div class="shop-control-bar-bottom">
                                     <form class="form-techmarket-wc-ppp" method="POST">
                                         <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">

@@ -103,9 +103,9 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Tài khoản
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="?act=list-bluan">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Bình luận
                             </a>
                         </div>
                     </div>
