@@ -5,7 +5,7 @@
     include "../model/binhluan.php";
     include "../model/taikhoan.php";
     include "../model/cart.php";
-    include "../model/kthuoc.php";
+    include "../model/bienthe.php";
     include "../model/donhang.php";
     $dsdm = loadall_danhmuc(); 
     include "header.php";
