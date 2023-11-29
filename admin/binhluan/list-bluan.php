@@ -1,14 +1,12 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Danh sách sản phẩm</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="?act=add-sp">Thêm sản phẩm</a></li>
-            </ol>
+            <h1 class="mt-4">Danh sách bình luận</h1>
+           
 
             <div class="card mb-4">
                 <div class="card-header">
-                    <i class="fas fa-table me-1"></i>Danh sách sản phẩm
+                    <i class="fas fa-table me-1"></i>Danh sách bình luận
                 </div>
                 <form action="#" method="post">
                     <div class="card-body">
@@ -17,13 +15,10 @@
                                 <tr>
                                     <th></th>
                                     <th>ID</th>
-                                    <th>Tên </th>
-                                    <th>Hình</th>
-                                    <th>Giá</th>
-                                    <th>Size</th>
-                                    <th>Sô Lượng</th>                     
-                                    <th>Mô tả</th>
-                                
+                                    <th>Sản phẩm</th>
+                                    <th>Tài khoản</th>
+                                    <th>Nội dung bình luận</th>
+                                    <th>Ngày bình luận</th>                     
                                     <th></th>
                                 </tr>
                             </thead>
@@ -31,45 +26,39 @@
                                 <tr>
                                     <th></th>
                                     <th>ID</th>
-                                    <th>Tên</th>
-                                    <th>Hình</th>
-                                    <th>Giá</th>
-                                    <th>Size</th>
-                                    <th>Sô Lượng</th>
-                                    <th>Mô Tả</th>
-                            
+                                    <th>Sản phẩm </th>
+                                    <th>Tài khoản</th>
+                                    <th>Nội dung bình luận</th>
+                                    <th>Ngày bình luận</th>                     
                                     <th></th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php foreach ($listsanpham as $sanpham) {
-                                    extract($sanpham);
-                                    $suasp="index.php?act=sua-sp&id=".$id_sp;
-                                    $xoasp="index.php?act=xoa-sp&id=".$id_sp;
-                                    $hinhpath ="../uploads/".$hinh;
-                                    if (is_file($hinhpath)) {
-                                        $hinhsp = "<img src='".$hinhpath."' width=80px'>";
-                                    } else {
-                                        $hinhsp = "Không có hình";
-                                    }
+                                <?php foreach ($listbinhluan as $binhluan) {
+                                    extract($binhluan);
+                                    
+                                    $xoabl="index.php?act=xoabl&id=".$id_bl;
+
+                                    // $hinhpath ="../uploads/".$hinh;
+                                    // if (is_file($hinhpath)) {
+                                    //     $hinhsp = "<img src='".$hinhpath."' width=80px'>";
+                                    // } else {
+                                    //     $hinhsp = "Không có hình";
+                                    // }
                                     echo 
                                     '<tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>'.$id_sp.'</td>
+                                        <td>'.$id_bl.'</td>
                                         <td>'.$ten_sp.' </td>
-                                        <td>'.$hinhsp.'</td>
-                                        <td>'.$gia_sp.'</td>
-                                        <td>'.$size.'</td>
-                                        <td>'.$soluong.'</td>                                
-                                        <td>'.$mota.'</td>
+                                        <td>'.$user.'</td>
+                                        <td>'.$noidung.'</td>
+                                        <td>'.$ngaybinhluan.'</td>
                                         <td>
-                                        <a href="' . $suasp . '">
-                                            <button type="button" class="btn btn-primary">Sửa</button>
-                                        </a>
-                                        <a href="' . $xoasp . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
+                                        <a href="' .  $xoabl . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
                                             <button type="button" class="btn btn-primary">Xóa</button>
                                         </a>
-                                    </td>                                    </tr>';
+                                        </td>                                    
+                                    </tr>';
                                 }?>
                             </tbody>
                         </table>

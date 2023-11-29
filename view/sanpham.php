@@ -52,7 +52,8 @@
                                         <label for="max_price">Max Price:</label>
                                         <input type="text" id="max_price" name="max_price" value="<?php echo isset($_GET['max_price']) ? $_GET['max_price'] : ''; ?>" placeholder="Max Price">
 
-                                        <button type="submit">Apply Filters</button>
+                                        <button type="button" onclick="applyFilters()">Apply Filters</button>
+</form>
                                     </form>
 
                                     <!-- .woocommerce-ordering -->
@@ -153,3 +154,29 @@
                 <!-- .col-full -->
             </div>
             <!-- #content -->
+            
+<script>
+    function applyFilters() {
+        var form = document.getElementById('filterForm');
+        var minPrice = document.getElementById('min_price').value;
+        var maxPrice = document.getElementById('max_price').value;
+
+        // Here, you can add validation for minPrice and maxPrice if needed
+
+        // Use AJAX to send the form data to the server
+        var xhr = new XMLHttpRequest();
+        var url = form.action + '?' + 'min_price=' + minPrice + '&max_price=' + maxPrice;
+
+        xhr.open('GET', url, true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Handle the response if needed
+                console.log(xhr.responseText);
+                // You can update the page content or perform other actions based on the response
+            }
+        };
+
+        xhr.send();
+    }
+</script>

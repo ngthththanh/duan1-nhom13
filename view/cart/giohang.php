@@ -41,7 +41,7 @@
                                                   echo ' <tbody>
                                                   <tr>
                                                   <td>'.($i+1).'</td>
-                                                  <td>   <img src="../uploads/'.$item[2].'" alt=""></td>
+                                                  <td>   <img src="../uploads/'.$item[2].'" alt="" width="80"></td>
 
                                                        <td class="product-remove">
                                                             <a class="remove" href="index.php?act=delcart&i='.$i.'">×</a>

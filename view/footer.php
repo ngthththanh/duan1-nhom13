@@ -170,9 +170,8 @@
                                                 <?php
                                                         foreach($dmft as $dm){
                                                             extract($dm);
-                                                            // $linkdm="index.php?act=sanpham&iddm=".$iddm;
-                                                            echo '<li class="menu-item"><a href="">'.$ten_dm.'</a></li>';
-
+                                                            $linkdm="index.php?act=sanpham&iddm=".$id_dm;
+                                                            echo '<li class="menu-item"><a href="'.$linkdm.'">'.$ten_dm.'</a></li>';
                                                         }
                                                     ?>
                                                 </ul>
@@ -191,12 +190,11 @@
                                             <div class="menu-footer-menu-2-container">
                                                 <ul id="menu-footer-menu-2" class="menu">
                                                 <?php
-                                                        foreach($dmft as $dm){
-                                                            extract($dm);
-                                                            // $linkdm="index.php?act=sanpham&iddm=".$iddm;
-                                                            echo '<li class="menu-item"><a href="">'.$ten_dm.'</a></li>';
-
-                                                        }
+                                                       foreach($dmft2 as $dm){
+                                                        extract($dm);
+                                                        $linkdm="index.php?act=sanpham&iddm=".$id_dm;
+                                                        echo '<li class="menu-item"><a href="'.$linkdm.'">'.$ten_dm.'</a></li>';
+                                                    }
                                                     ?>
                                                 </ul>
                                             </div>

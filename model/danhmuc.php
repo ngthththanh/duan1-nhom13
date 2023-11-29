@@ -7,6 +7,12 @@ function delete_danhmuc($id){
     $sql="DELETE FROM danhmuc WHERE id_dm=".$id;
     pdo_execute($sql);
 }
+function sodm(){
+    $sql = "SELECT COUNT(id_dm) as soDanhmuc
+            FROM danhmuc";
+    $listdanhmuc =pdo_query($sql);
+    return $listdanhmuc;
+}
 function loadall_danhmuc(){
     $sql="SELECT danhmuc.*, COUNT(sanpham.id_sp) AS soLuongSanPham
     FROM danhmuc
@@ -14,6 +20,7 @@ function loadall_danhmuc(){
     GROUP BY danhmuc.id_dm
     ORDER BY danhmuc.id_dm DESC";
     $listdanhmuc=pdo_query($sql);
+    
     return $listdanhmuc;
 }
 function loadall_danhmuc_footer(){
@@ -21,6 +28,11 @@ function loadall_danhmuc_footer(){
     $listdanhmuc=pdo_query($sql);
     return $listdanhmuc;
 }
+    function loadall_danhmuc_footer2(){
+        $sql="SELECT * FROM danhmuc  ORDER BY id_dm desc limit 5,10";
+        $listdanhmuc=pdo_query($sql);
+        return $listdanhmuc;
+    }
 function loadone_danhmuc($id){
     $sql="SELECT * FROM danhmuc WHERE id_dm=".$id;
     $dm=pdo_query_one($sql);
