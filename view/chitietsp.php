@@ -25,6 +25,7 @@
                                                     <a href="#" tabindex="0">
                                                         <?php 
                                                             $hinhsp = $img_path . $hinh;
+                                                            $hinhpath ="../uploads/".$hinh;
                                                             echo '<img width="600" height="600" src="'.$hinhsp.'" class="attachment-shop_single size-shop_single wp-post-image" alt="">;'
                                                         ?>  
                                                     </a>
@@ -103,13 +104,11 @@
                                                     <input id="quantity-input" type="number" name="soluong" value="1" title="Qty" class="input-text qty text" size="4">
                                                     <input type="hidden" name="id" value="<?=$id_sp?>">
                                                     <input type="hidden" name="name" value="<?=$ten_sp?>">
-                                                    <input type="hidden" name="img" value="'<?=$hinhsp?>">
+                                                    <input type="hidden" name="img" value="<?=$hinhpath?>">
                                                     <input type="hidden" name="price" value="<?=$gia_sp?>">
                                                 </div>
-                                                <a class="button add_to_cart_button" href="#" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addcart"></a>
-                                                <input type="hidden" value="2471" name="addtocart">
-                                                <input type="hidden" value="2471" name="product_id">
-                                                <input type="hidden" value="0" class="variation_id" name="variation_id">
+                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
+                                               
                                             </div>
                                         </div>
                                         <!-- .single_variation_wrap -->

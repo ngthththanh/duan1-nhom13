@@ -15,7 +15,7 @@
                          <div class="entry-content">
                          <div class="woocommerce">
                               <div class="cart-wrapper">
-                                   <form method="post" action="#" class="woocommerce-cart-form">
+                                   <form method="post" action="index.php?act=thanhtoan" class="woocommerce-cart-form">
                                      
                                         <?php 
                                         if((isset($_SESSION['giohang'])) && (count($_SESSION['giohang'])>0)){
@@ -47,14 +47,11 @@
                                                             <a class="remove" href="index.php?act=delcart&i='.$i.'">×</a>
                                                        </td>
                                                        <td class="product-thumbnail">
-                                                            <a href="single-product-fullwidth.html">
-                                                                 <img width="180" height="180" alt="" class="wp-post-image" src="'.$item[2].'">
-                                                            </a>
                                                        </td>
                                                        <td data-title="Product" class="product-name">
                                                             <div class="media cart-item-product-detail">
                                                                  <a href="single-product-fullwidth.html">
-                                                                      <img width="180" height="180" alt="" class="wp-post-image" src="'.$item[2].'">
+                                                                     
                                                                  </a>
                                                                  <div class="media-body align-self-center">
                                                                       <a href="single-product-fullwidth.html">'.$item[1].'</a>
@@ -114,7 +111,7 @@
                            <div class="cart-collaterals">
                               <h3>Thông tin đặt hàng</h3>
                                         <form action="index.php?act=thanhtoan" method="post">
-                                             <input type="hidden" name="tongdonhang" value="<?$tong?>">
+                                             <input type="hidden" name="tongdonhang" value="<?=$tong?>">
                                              <table>
                                                   <tr>
                                                        <td><input type="text" name="hoten" placeholder="Nhập họ tên" required ></td>
@@ -123,7 +120,7 @@
                                                        <td><input type="text" name="address" placeholder="Nhập địa chỉ" required ></td>
                                                   </tr>
                                                   <tr>
-                                                       <td><input type="text" name="email" placeholder="Nhập email" required  ></td>
+                                                       <td><input type="email" name="email" placeholder="Nhập email" required  ></td>
                                                   </tr>
                                                   <tr>
                                                        <td><input type="text" name="tel" placeholder="Nhập số điện thoại" required  ></td>
@@ -131,14 +128,14 @@
                                                   <tr>
                                                        <td>Phương thức thanh toán <br>
                                                             <input type="radio" name="pttt" value="1"> Thanh toán khi nhận hàng <br>
-                                                            <input type="radio" name="pttt" value="1"> Thanh toán chuyển khoản <br>
-                                                            <input type="radio" name="pttt" value="1"> Thanh toán ví MoMo <br>
-                                                            <input type="radio" name="pttt" value="1"> Thanh toán online <br>
+                                                            <input type="radio" name="pttt" value="2"> Thanh toán chuyển khoản <br>
+                                                            <input type="radio" name="pttt" value="3"> Thanh toán ví MoMo <br>
+                                                            <input type="radio" name="pttt" value="4"> Thanh toán online <br>
                                                        </td>
 
                                                   </tr>
                                                   <tr>
-                                                       <td><input type="submit" value="thanhtoan"></td>
+                                                       <td><input type="submit" value="thanhtoan" name="thanhtoan"></td>
                                                   </tr>
                                              </table>
                                         </form>

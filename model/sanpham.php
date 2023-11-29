@@ -78,4 +78,12 @@ function add_sanpham($tendm){
     $sql = "INSERT INTO sanpham (`id_sp`) VALUES ('$tendm')";
     pdo_execute($sql);
 }
+function updatesoluong($vitri){
+    for ($i=0; $i < sizeof($_SESSION['giohang']); $i++) { 
+       if($i==$vitri){
+        $_SESSION['giohang'][$i][4]+=1;
+       }
+    }
+   
+}
 ?>
