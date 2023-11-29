@@ -59,6 +59,9 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                             $sobinhluan = sobl($_GET['idsp']);
                             $id_sp = $_GET['idsp'];
                             $listkthuoc = loadkthuoc_sp($id_sp);
+
+                            $listmsac = loadmsac_sp($id_sp);
+
                             include "chitietsp.php";
                         } else {
                             include "shared/404.php";

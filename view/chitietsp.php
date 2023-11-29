@@ -92,7 +92,7 @@
                                                             <option value="">Chọn kích thước</option>
                                                             <?php foreach ($listkthuoc as $kthuoc) {
                                                                 extract($kthuoc);
-                                                                echo '<option value="' . $so_luong . '">' . $ten . '</option>';
+                                                                echo '<option value="' . $so_luong . '">Size' . $ten . '</option>';
                                                             } ?>
                                                         </select>
                                                     </td>
@@ -100,11 +100,11 @@
                                                         <label for="pa_screen-size">Màu Sắc</label>
                                                     </td>
                                                     <td class="value">
-                                                        <select onchange="soLuong1()" id="kichThuoc" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="attribute_pa_screen-size" class="" id="pa_screen-size">
+                                                        <select onchange="soLuong1()" id="mausac" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="attribute_pa_screen-size" class="" id="pa_screen-size">
                                                             <option value="">Chọn màu sắc</option>
                                                             <?php foreach ($listmsac as $msac) {
                                                                 extract($msac);
-                                                                echo '<option value="' . $so_luong . '">' . $ten . '</option>';
+                                                                echo '<option value="' . $so_luong . '">Màu' . $ten . '</option>';
                                                             } ?>
                                                         </select>
                                                     </td>

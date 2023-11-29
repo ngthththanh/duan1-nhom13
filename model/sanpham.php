@@ -3,7 +3,14 @@ function loadall_sanpham_home(){
     $sql="SELECT * FROM sanpham WHERE 1 ORDER BY id_sp desc limit 0,10";
     $listsanpham=pdo_query($sql);
     return  $listsanpham;
+}function loadall_sanpham_count()
+{
+    $sql = "SELECT COUNT(*) as total FROM sanpham";
+    $result = pdo_query_one($sql);
+
+    return $result['total'];
 }
+
 function loadall_sanpham($kyw = "", $iddm = 0, $minPrice = null, $maxPrice = null)
 {
     $sql = "SELECT sanpham.*, COUNT(binhluan.id_bl) as soBinhLuan
@@ -33,8 +40,9 @@ function loadall_sanpham($kyw = "", $iddm = 0, $minPrice = null, $maxPrice = nul
     return $listsanpham;
 }
 
-function insert_sanpham($tensp, $giasp, $hinh,$size,$soluong, $mota,$iddm){
-    $sql="INSERT INTO sanpham(ten_sp, gia_sp, hinh, size, soluong,mota, id_dm) VALUES ('$tensp','$giasp', '$hinh', '$size', '$soluong','$mota','$iddm')";
+
+function insert_sanpham($tensp, $giasp, $hinh,$mota,$iddm){
+    $sql="INSERT INTO sanpham(ten_sp, gia_sp, hinh ,mota, id_dm) VALUES ('$tensp','$giasp', '$hinh','$mota','$iddm')";
     pdo_execute($sql);
 }
 
@@ -49,11 +57,11 @@ function loadone_sanpham($id){
     return $sp;
 }
 
-function update_sanpham($id, $tensp, $iddm, $giasp, $size, $soluong, $mota, $hinh) {
+function update_sanpham($id, $tensp, $iddm, $giasp, $mota, $hinh) {
     if ($hinh != "") {
-        $sql = "UPDATE sanpham SET ten_sp = '".$tensp."', id_dm = '".$iddm."', gia_sp = '".$giasp."', size = '".$size."', soluong = '".$soluong."', mota = '".$mota."', hinh = '" .$hinh."' WHERE id_sp = ".$id;
+        $sql = "UPDATE sanpham SET ten_sp = '".$tensp."', id_dm = '".$iddm."', gia_sp = '".$giasp."',  mota = '".$mota."', hinh = '" .$hinh."' WHERE id_sp = ".$id;
     } else {
-        $sql = "UPDATE sanpham SET ten_sp = '".$tensp."', id_dm = '".$iddm."', gia_sp = '".$giasp."', size = '".$size."', soluong = '".$soluong."', mota = '".$mota."' WHERE id_sp = ".$id;
+        $sql = "UPDATE sanpham SET ten_sp = '".$tensp."', id_dm = '".$iddm."', gia_sp = '".$giasp."',  mota = '".$mota."' WHERE id_sp = ".$id;
     }
     pdo_execute($sql);
     // return $sql;
@@ -90,5 +98,27 @@ function oldimg($id)
 function add_sanpham($tendm){
     $sql = "INSERT INTO sanpham (`id_sp`) VALUES ('$tendm')";
     pdo_execute($sql);
+}
+
+function phantrang($conn, $table, $limit){
+    if(isset($_GET['page'])){
+        $page = $_GET['page'];
+    }
+    else{
+        $page=1;
+    }
+    $sql = "SELECT * FROM $table";
+    $ketqua = $conn->query($sql);
+    if($ketqua->num_rows>0){
+        $tongsotrang = ceil($ketqua->num_rows/$limit);
+    }
+    if($tongsotrang>1){
+        echo '<ul class="phantrang">';
+        for($i=0;$i<=$tongsotrang;$i++){
+            $active = ($page == $i)? "active" : "";
+            echo "<li><a href='user.php?page=$i' class='$active'>$i</a></li>";
+        }
+        echo "</ul>";
+    }
 }
 ?>

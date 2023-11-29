@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../model/pdo.php";
 include "header.php";
 include "../model/danhmuc.php";
@@ -6,8 +7,11 @@ include "../model/sanpham.php";
 include "../model/taikhoan.php";
 include "../model/thongke.php";
 include "../model/binhluan.php";
-include "../model/kthuoc.php";
+include "../model/bienthe.php";
 
+// if (!isset($_SESSION['username']) || $_SESSION['username']['phanquyen'] == "2") {
+//      header('location:../view/index.php');
+// }
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
@@ -57,27 +61,46 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
           case "add-sp":
                $listdanhmuc = loadall_danhmuc();
                include "sanpham/add-spham.php";
-
                if (isset($_POST['themmoi'])) {
                     $iddm = $_POST['iddm'];
                     $tensp = $_POST['tensp'];
                     $giasp = $_POST['giasp'];
-                    $size = $_POST['size'];
-                    $soluong = $_POST['soluong'];
                     $mota = $_POST['mota'];
                     $hinh = $_FILES['hinh']['name'];
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-
-                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                         // File uploaded successfully
-                         insert_sanpham($tensp, $giasp, $hinh, $size, $soluong, $mota, $iddm);
-                         echo '<script>alert("Bạn đã thêm sản phẩm thành công.");</script>';
-                    } else {
-                         // Error uploading file
-                         echo '<script>alert("Sorry, there was an error uploading your file.");</script>';
+                    $uploadOk = 1;
+                
+                    // Kiểm tra xem tệp tải lên có phải là hình ảnh không
+                    $check = getimagesize($_FILES["hinh"]["tmp_name"]);
+                    if ($check === false) {
+                        echo '<script>alert("Tệp không phải là hình ảnh.");</script>';
+                        $uploadOk = 0;
                     }
-               }
+                
+                    // Cho phép chỉ định định dạng tệp hình ảnh
+                    $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
+                    $uploaded_extension = strtolower(pathinfo($hinh, PATHINFO_EXTENSION));
+                    if (!in_array($uploaded_extension, $allowed_extensions)) {
+                        echo '<script>alert("Định dạng tệp không hợp lệ. Vui lòng tải lên một tệp hình ảnh hợp lệ.");</script>';
+                        $uploadOk = 0;
+                    }
+                
+                    if ($uploadOk == 0) {
+                        echo '<script>alert("Xin lỗi, tệp của bạn không được tải lên.");</script>';
+                    } else {
+                        // Di chuyển tệp đã tải lên vào thư mục đích
+                        if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                            // Tệp đã được tải lên thành công
+                            // Thêm sản phẩm vào cơ sở dữ liệu
+                            insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm);
+                            echo '<script>alert("Bạn đã thêm sản phẩm thành công.");</script>';
+                        } else {
+                            // Lỗi khi tải lên tệp
+                            echo '<script>alert("Xin lỗi, có lỗi khi tải lên tệp của bạn.");</script>';
+                        }
+                    }
+                }               
                break;
           case 'list-sp':
                if (isset($_POST['listok']) && ($_POST['listok'])) {
@@ -113,8 +136,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $tensp = $_POST['tensp'];
                     $hinh = $_FILES['hinh']['name'];
                     $giasp = $_POST['giasp'];
-                    $size = $_POST['size'];
-                    $soluong = $_POST['soluong'];
                     $mota = $_POST['mota'];
                     $id = $_POST['id'];
                     $oldImagePath = oldimg($id);
@@ -126,7 +147,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          }
                     } else {
                     }
-                    $listsanpham = update_sanpham($id, $tensp, $iddm, $giasp, $size, $soluong, $mota, $hinh);
+                    $listsanpham = update_sanpham($id, $tensp, $iddm, $giasp, $mota, $hinh);
                     echo '<script>alert("Bạn đã cập nhật danh mục thành công.");</script>';
                }
                $listdanhmuc = loadall_danhmuc();
@@ -191,13 +212,29 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     // echo "<script>window.location.href='index.php?act=list-dm';</script>";
                }
                $listsanpham = loadall_sanpham();
-               include "kichthuoc/add-kthuoc.php";
+               include "bienthe/add-kthuoc.php";
                break;
-          case 'list-kthuoc':
-               include "kichthuoc/list-kthuoc.php";
+               
+          case 'add-msac':
+               if (isset($_POST['themmau'])) {
+                    $id_sanpham = $_POST['id_sanpham'];
+                    $tenmsac = $_POST['tenmsac'];
+                    $slmsac = $_POST['slmsac'];
+                    insert_msac($id_sanpham,$tenmsac,$slmsac);
+                    echo '<script>alert("Bạn đã thêm bien the kich thuoc thành công.");</script>';
+                    // echo "<script>window.location.href='index.php?act=list-dm';</script>";
+               }
+               $listsanpham = loadall_sanpham();
+               include "bienthe/add-msac.php";
                break;
+               
+          // case 'list-kthuoc':
+          //      include "kichthuoc/list-kthuoc.php";
+          //      break;
      }
 } else {
      include "home.php";
 }
+
 include "footer.php";
+?>
