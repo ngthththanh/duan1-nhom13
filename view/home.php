@@ -41,7 +41,7 @@
                                         <input type="hidden" name="name" value="'.$sp['ten_sp'].'">
                                         <input type="hidden" name="img" value="'.$sp['hinh'].'">
                                         <input type="hidden" name="price" value="'.$sp['gia_sp'].'">
-                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
+                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
                                     </div>
@@ -88,13 +88,14 @@
                                         <input type="hidden" name="name" value="'.$ten_sp.'">
                                         <input type="hidden" name="img" value="'.$hinhpath.'">
                                         <input type="hidden" name="price" value="'.$gia_sp.'">
-                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
+                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
                                     </div>
-                                    </form>';
+                                    </form>
+                                    ';
                                     $i+=1;
-                                }?>                    
+                                }?>              
                             </div>
                         </div>
                         <!-- .woocommerce -->
@@ -134,7 +135,7 @@
                                         <input type="hidden" name="name" value="'.$ten_sp.'">
                                         <input type="hidden" name="img" value="'.$hinhpath.'">
                                         <input type="hidden" name="price" value="'.$gia_sp.'">
-                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
+                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
                                     </div>
@@ -180,7 +181,7 @@
                                         <input type="hidden" name="name" value="'.$ten_sp.'">
                                         <input type="hidden" name="img" value="'.$hinhpath.'">
                                         <input type="hidden" name="price" value="'.$gia_sp.'">
-                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
+                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
                                     </div>
@@ -250,7 +251,7 @@
                                 <input type="hidden" name="name" value="'.$ten_sp.'">
                                 <input type="hidden" name="img" value="'.$hinhpath.'">
                                 <input type="hidden" name="price" value="'.$gia_sp.'">
-                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
+                                <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                 <a class="add-to-compare-link" href="compare.html">So sánh</a>
                             </div>
                             </div>
@@ -306,7 +307,7 @@
                                         <input type="hidden" name="name" value="'.$ten_sp.'">
                                         <input type="hidden" name="img" value="'.$hinhpath.'">
                                         <input type="hidden" name="price" value="'.$gia_sp.'">
-                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
+                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                     </div>
                                     </div>

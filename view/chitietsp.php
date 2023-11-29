@@ -21,14 +21,15 @@
                                     <div class="techmarket-single-product-gallery-images" data-ride="tm-slick-carousel" data-wrap=".woocommerce-product-gallery__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:false,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .techmarket-single-product-gallery-thumbnails__wrapper&quot;}">
                                         <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4">
                                             <a href="#" class="woocommerce-product-gallery__trigger">🔍</a>
-                                            <div data-thumb="assets/images/products/sm-card-1.jpg" class="woocommerce-product-gallery__image">
-                                                <a href="#" tabindex="0">
-                                                    <?php
-                                                    $hinhsp = $img_path . $hinh;
-                                                    echo '<img width="600" height="600" src="' . $hinhsp . '" class="attachment-shop_single size-shop_single wp-post-image" alt="">;'
-                                                    ?>
-                                                </a>
-                                            </div>
+                                                <div data-thumb="assets/images/products/sm-card-1.jpg" class="woocommerce-product-gallery__image">
+                                                    <a href="#" tabindex="0">
+                                                        <?php 
+                                                            $hinhsp = $img_path . $hinh;
+                                                            $hinhpath ="../uploads/".$hinh;
+                                                            echo '<img width="600" height="600" src="'.$hinhsp.'" class="attachment-shop_single size-shop_single wp-post-image" alt="">;'
+                                                        ?>  
+                                                    </a>
+                                                </div>
                                         </div>
                                         <!-- .woocommerce-product-gallery -->
                                     </div>
@@ -116,15 +117,13 @@
                                                 <div class="quantity">
                                                     <label for="quantity-input">Quantity</label>
                                                     <input id="quantity-input" type="number" name="soluong" value="1" title="Qty" class="input-text qty text" size="4">
-                                                    <input type="hidden" name="id" value="<?= $id_sp ?>">
-                                                    <input type="hidden" name="name" value="<?= $ten_sp ?>">
-                                                    <input type="hidden" name="img" value="'<?= $hinhsp ?>">
-                                                    <input type="hidden" name="price" value="<?= $gia_sp ?>">
+                                                    <input type="hidden" name="id" value="<?=$id_sp?>">
+                                                    <input type="hidden" name="name" value="<?=$ten_sp?>">
+                                                    <input type="hidden" name="img" value="<?=$hinhpath?>">
+                                                    <input type="hidden" name="price" value="<?=$gia_sp?>">
                                                 </div>
-                                                <a class="button add_to_cart_button" href="#" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addcart"></a>
-                                                <input type="hidden" value="2471" name="addtocart">
-                                                <input type="hidden" value="2471" name="product_id">
-                                                <input type="hidden" value="0" class="variation_id" name="variation_id">
+                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
+                                               
                                             </div>
                                         </div>
                                         <!-- .single_variation_wrap -->

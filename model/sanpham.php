@@ -99,26 +99,4 @@ function add_sanpham($tendm){
     $sql = "INSERT INTO sanpham (`id_sp`) VALUES ('$tendm')";
     pdo_execute($sql);
 }
-
-function phantrang($conn, $table, $limit){
-    if(isset($_GET['page'])){
-        $page = $_GET['page'];
-    }
-    else{
-        $page=1;
-    }
-    $sql = "SELECT * FROM $table";
-    $ketqua = $conn->query($sql);
-    if($ketqua->num_rows>0){
-        $tongsotrang = ceil($ketqua->num_rows/$limit);
-    }
-    if($tongsotrang>1){
-        echo '<ul class="phantrang">';
-        for($i=0;$i<=$tongsotrang;$i++){
-            $active = ($page == $i)? "active" : "";
-            echo "<li><a href='user.php?page=$i' class='$active'>$i</a></li>";
-        }
-        echo "</ul>";
-    }
-}
 ?>

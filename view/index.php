@@ -16,6 +16,7 @@
     $dmft2 = loadall_danhmuc_footer2();
     $allsp = loadall_sanpham();
     $dstop10 = loadall_sanpham_top10();
+    $loadallbill=loadall_bill();
 if(isset($_GET['act'])&&($_GET['act']!="")){
      $act=$_GET['act'];
      switch($act){
@@ -146,7 +147,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                }
                break;
           case "addcart":
-               
                if(isset($_SESSION['username']) ){
                     if(isset($_POST['addtocart']) && ($_POST['addtocart'])){
                          $id_sp=$_POST['id'];
@@ -198,18 +198,41 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     header('location:index.php');
                }
                     break;
-          case "thanhtoan":
-               if((isset($_POST['thanhtoan'])) && ($_POST['thanhtoan'])){
-                    $tongdonhang=$_POST['tongdonhang'];
-                    $hoten=$_POST['hoten'];
-                    $address =$_POST['address'];
-                    $email=$_POST['email'];
-                    $tel=$_POST['tel'];
-                    $pttt=$_POST['ptt'];
-                    $madh="B";
+                    case 'thanhtoan' :
+                         if (isset($_POST['thanhtoan'])) {
+                             $tongdonhang=$_POST['tongdonhang'];
+                             $hoten=$_POST['hoten'];
+                             $address=$_POST['address'];
+                             $email=$_POST['email'];
+                             $tell=$_POST['tel'];
+                             $pttt=$_POST['pttt'];
+                             //ma don hang
+                             $madh ="shopbh".rand(0,999999);
+                             // tạo đơn hàng trả về id đơn hàng |
+                             // $item = array($id,$tensp,$img,$gia,$sl);
+                             
+                             $iddh = taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell);
+                            $_SESSION['iddh']=$iddh;
+                                 if(isset($_SESSION['giohang'])&&count($_SESSION['giohang'])>0){
+                                     
+                                     foreach ($_SESSION['giohang'] as $item) {
+                                         addtocard($iddh,$item[0],$item[1],$item[2],$item[3],$item[4]);
+                                 
+                                 }
+                                 unset($_SESSION['giohang']);
+                             }
+ 
+                             include "cart/hoadon.php";
+                         }
+                         break;
+                         
+          case "dathang":
+               if($_POST['dathang']){
+                    echo '<script>alert("Bạn đã đặt hàng thành công.");</script>';
                }
-               include "shop.php";
+               include "cart/thongtindonhang.php";
                break;
+                         
           case "shop":
                include "shop.php";
                break;
@@ -237,7 +260,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
           default:
           include "./shared/cauhoi.php";
                break;
-          }
+     }
      
 }else{
      include "home.php";
