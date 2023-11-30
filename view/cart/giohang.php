@@ -189,11 +189,7 @@
                                    <figcaption class="text-overlay">
                                         <div class="info">
                                              <h4>cannon</h4>
-<<<<<<< HEAD
                                         </div>
-=======
-                                        </div>    
->>>>>>> dbaba1781769423625b415822bd4bb156de4a64f
                                         <!-- /.info -->
                                    </figcaption>
                                    <img width="145" height="50" class="img-responsive desaturate" alt="cannon" src="assets/images/brands/3.png">

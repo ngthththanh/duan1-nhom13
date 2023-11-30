@@ -93,19 +93,11 @@
                                                         <!-- .woocommerce-LoopProduct-link -->
                                                      
                                                         <div class="hover-area">
-<<<<<<< HEAD
                                                         <input type="hidden" name="id" value="' . $id_sp . '">
                                                         <input type="hidden" name="name" value="' . $ten_sp . '">
                                                         <input type="hidden" name="img" value="' . $hinhpath . '">
                                                         <input type="hidden" name="price" value="' . $gia_sp . '">
                                                         <a class="button add_to_cart_button" href="index.php?act=addcart" rel="nofollow">Thêm vào giỏ hàng</a>
-=======
-                                                        <input type="hidden" name="id" value="'.$id_sp.'">
-                                                        <input type="hidden" name="name" value="'.$ten_sp.'">
-                                                        <input type="hidden" name="img" value="'.$hinhpath.'">
-                                                        <input type="hidden" name="price" value="'.$gia_sp.'">
-                                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
->>>>>>> dbaba1781769423625b415822bd4bb156de4a64f
                                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                                         </div>
                                                         <!-- .hover-area --> 

@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['username']) || $_SESSION['username']['phanquyen'] == "2") {
+     header('location:../view/index.php');
+}
 include "../model/pdo.php";
 include "header.php";
 include "../model/danhmuc.php";
@@ -10,9 +14,6 @@ include "../model/binhluan.php";
 include "../model/bienthe.php";
 include "../model/donhang.php";
 
-// if (!isset($_SESSION['username']) || $_SESSION['username']['phanquyen'] == "2") {
-//      header('location:../view/index.php');
-// }
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
@@ -194,7 +195,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                break;
           case "list-dh":
                $listhoadon = loadall_hoadon($id);
-               include "donhang/list-donhang.php";
+               include "donhang/list-dhang.php";
                break;
           case 'xoabl';
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {

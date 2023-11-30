@@ -26,12 +26,24 @@
                                 <th></th>
                             </tr>
                         </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>ID Tài Khoản</th>
+                                <th>Tên Tài Khoản</th>
+                                <th>Email</th>
+                                <th>Pass</th>
+                                <th>Địa Chỉ</th>
+                                <th>Vai Trò</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
                         <tbody>
                             <?php foreach ($listtaikhoan as $taikhoan) {
                                 extract($taikhoan);
                                 $suatk="index.php?act=suatk&id=".$id_tk;
                                 $xoatk="index.php?act=xoatk&id=".$id_tk;
-                                # code...
+                         
                                 echo
                                     '<tr>
                                         <td> <input type="checkbox" name="" id=""></td>
@@ -50,4 +62,4 @@
             </div>
         </div>
     </main>
-    
+    <

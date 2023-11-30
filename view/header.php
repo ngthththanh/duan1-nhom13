@@ -269,7 +269,7 @@ ob_start();
                         <li class="animate-dropdown dropdown ">
                             <a class="cart-contents" href="index.php?act=addcart" data-toggle="dropdown" title="View your shopping cart">
                                 <i class="tm tm-shopping-bag"></i>
-                                <span class="count"><?php echo count($_SESSION['giohang']); ?></span>
+                                <span class="count"><?php echo count($_SESSION['giohang']) ?></span>
                                 <span class="amount">
                                     <span class="price-label">
                                     <?php
@@ -285,28 +285,8 @@ ob_start();
                                 <li>
                                     <div class="widget woocommerce widget_shopping_cart">
                                         <div class="widget_shopping_cart_content">
-<<<<<<< HEAD
                                             <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                                                <?php
-                                                if((isset($_SESSION['giohang'])) && (count($_SESSION['giohang'])>0)){
-                                                    $i=0;
-                                             $tong=0;
-                                             foreach ($_SESSION['giohang'] as $item){
-                                                $tt=$item[3] * $item[4];
-                                                  $tong+=$tt;
-                                                  echo '<li class="woocommerce-mini-cart-item mini_cart_item">
-                                                  <a href="#" class="remove" aria-label="Remove this item" data-product_id="27" data-product_sku="">×</a>
-                                                  <a href="single-product-sidebar.html">
-                                                      <img src="../uploads/'.$item[2].'" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">'.$item[1].';
-                                                  </a>
-                                                  <span class="quantity">'.$item[4].' ×
-                                                      <span class="woocommerce-Price-amount amount">
-                                                          <span class="woocommerce-Price-currencySymbol">$</span>'.$item[3].'</span>
-                                                  </span>
-                                              </li>';
-                                             }
-                                                }
-                                                 ?>
+                                              
                                                 <!-- <li class="woocommerce-mini-cart-item mini_cart_item">
                                                     <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
                                                     <a href="single-product-sidebar.html">
@@ -332,13 +312,8 @@ ob_start();
                                             <p class="woocommerce-mini-cart__total total">
                                                 <strong>Subtotal:</strong>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span><?php echo $tong ?></span>
+                                                    <span class="woocommerce-Price-currencySymbol">$</span><?php echo $tong ;?></span>
                                             </p>
-=======
-                                           
-                                            <!-- .cart_list -->
-                                           
->>>>>>> dbaba1781769423625b415822bd4bb156de4a64f
                                             <p class="woocommerce-mini-cart__buttons buttons">
                                                 <a href="index.php?act=giohang" class="button wc-forward">View cart</a>
                                                 <a href="index.php?act=theodoi" class="button checkout wc-forward">Checkout</a>

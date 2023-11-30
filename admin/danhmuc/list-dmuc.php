@@ -1,10 +1,11 @@
-
-   
+<div id="layoutSidenav_content">
+    <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Danh sách danh mục</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="?act=add-dm">Thêm danh mục</a></li>
             </ol>
+            
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>Danh sách danh mục
@@ -53,8 +54,11 @@
                         </tbody>
                     </table>
                 </div>
-              
+                <?php
+                if (isset($thongbao) && ($thongbao != ""))
+                    echo $thongbao;
+                ?>
             </div>
         </div>
-   
+    </main>
 

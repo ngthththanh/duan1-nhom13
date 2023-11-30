@@ -58,8 +58,6 @@
                                         <td>'.number_format($gia_sp).'VND</td>        
                                         <td>'.$mota.'</td>
                                         <td><a href="'.$addkt.'"><button type="button" class="btn">Thêm kích thước</button></a></td>
-                                        <td><a href="'.$addms.'"><button type="button" class="btn">Thêm màu sắc</button></a></td>
-
                                         <td><a href="'.$suasp.'"><button type="button" class="btn">Sửa</button></a>
                                         <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');"><button type="button" class="btn">Xóa</button></a></td>
                                     </tr>';
