@@ -1,5 +1,7 @@
 <?php
-                                                   $tong = 0;
+                                
+                                <?php echo count($_SESSION['giohang']) ?>
+                                $tong = 0;
                                                 if((isset($_SESSION['giohang'])) && (count($_SESSION['giohang']) > 0)){
                                                     $i = 0;
                                                     $tong = 0;

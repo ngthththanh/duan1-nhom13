@@ -269,7 +269,7 @@ ob_start();
                         <li class="animate-dropdown dropdown ">
                             <a class="cart-contents" href="index.php?act=addcart" data-toggle="dropdown" title="View your shopping cart">
                                 <i class="tm tm-shopping-bag"></i>
-                                <span class="count"><?php echo count($_SESSION['giohang']) ?></span>
+                                <span class="count"></span>
                                 <span class="amount">
                                     <span class="price-label">
                                     <?php
