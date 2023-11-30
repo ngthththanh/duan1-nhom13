@@ -70,37 +70,37 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                     $uploadOk = 1;
-                
+
                     // Kiểm tra xem tệp tải lên có phải là hình ảnh không
                     $check = getimagesize($_FILES["hinh"]["tmp_name"]);
                     if ($check === false) {
-                        echo '<script>alert("Tệp không phải là hình ảnh.");</script>';
-                        $uploadOk = 0;
+                         echo '<script>alert("Tệp không phải là hình ảnh.");</script>';
+                         $uploadOk = 0;
                     }
-                
+
                     // Cho phép chỉ định định dạng tệp hình ảnh
                     $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
                     $uploaded_extension = strtolower(pathinfo($hinh, PATHINFO_EXTENSION));
                     if (!in_array($uploaded_extension, $allowed_extensions)) {
-                        echo '<script>alert("Định dạng tệp không hợp lệ. Vui lòng tải lên một tệp hình ảnh hợp lệ.");</script>';
-                        $uploadOk = 0;
+                         echo '<script>alert("Định dạng tệp không hợp lệ. Vui lòng tải lên một tệp hình ảnh hợp lệ.");</script>';
+                         $uploadOk = 0;
                     }
-                
+
                     if ($uploadOk == 0) {
-                        echo '<script>alert("Xin lỗi, tệp của bạn không được tải lên.");</script>';
+                         echo '<script>alert("Xin lỗi, tệp của bạn không được tải lên.");</script>';
                     } else {
-                        // Di chuyển tệp đã tải lên vào thư mục đích
-                        if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                            // Tệp đã được tải lên thành công
-                            // Thêm sản phẩm vào cơ sở dữ liệu
-                            insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm);
-                            echo '<script>alert("Bạn đã thêm sản phẩm thành công.");</script>';
-                        } else {
-                            // Lỗi khi tải lên tệp
-                            echo '<script>alert("Xin lỗi, có lỗi khi tải lên tệp của bạn.");</script>';
-                        }
+                         // Di chuyển tệp đã tải lên vào thư mục đích
+                         if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                              // Tệp đã được tải lên thành công
+                              // Thêm sản phẩm vào cơ sở dữ liệu
+                              insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm);
+                              echo '<script>alert("Bạn đã thêm sản phẩm thành công.");</script>';
+                         } else {
+                              // Lỗi khi tải lên tệp
+                              echo '<script>alert("Xin lỗi, có lỗi khi tải lên tệp của bạn.");</script>';
+                         }
                     }
-                }               
+               }
                break;
           case 'list-sp':
                if (isset($_POST['listok']) && ($_POST['listok'])) {
@@ -201,40 +201,39 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
           case "home":
                include "home.php";
                break;
-          //quan ly bien the
+               //quan ly bien the
           case 'add-kthuoc':
                if (isset($_POST['themmoi'])) {
                     $id_sanpham = $_POST['id_sanpham'];
                     $tenkthuoc = $_POST['tenkthuoc'];
                     $slkthuoc = $_POST['slkthuoc'];
-                    insert_kthuoc($id_sanpham,$tenkthuoc,$slkthuoc);
+                    insert_kthuoc($id_sanpham, $tenkthuoc, $slkthuoc);
                     echo '<script>alert("Bạn đã thêm bien the kich thuoc thành công.");</script>';
                     // echo "<script>window.location.href='index.php?act=list-dm';</script>";
                }
                $listsanpham = loadall_sanpham();
                include "bienthe/add-kthuoc.php";
                break;
-               
+
           case 'add-msac':
                if (isset($_POST['themmau'])) {
                     $id_sanpham = $_POST['id_sanpham'];
                     $tenmsac = $_POST['tenmsac'];
                     $slmsac = $_POST['slmsac'];
-                    insert_msac($id_sanpham,$tenmsac,$slmsac);
+                    insert_msac($id_sanpham, $tenmsac, $slmsac);
                     echo '<script>alert("Bạn đã thêm bien the kich thuoc thành công.");</script>';
                     // echo "<script>window.location.href='index.php?act=list-dm';</script>";
                }
                $listsanpham = loadall_sanpham();
                include "bienthe/add-msac.php";
                break;
-               
-          // case 'list-kthuoc':
-          //      include "kichthuoc/list-kthuoc.php";
-          //      break;
+
+               // case 'list-kthuoc':
+               //      include "kichthuoc/list-kthuoc.php";
+               //      break;
      }
 } else {
      include "home.php";
 }
 
 include "footer.php";
-?>

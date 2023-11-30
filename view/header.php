@@ -168,7 +168,10 @@ ob_start();
                         <!-- ============================================================= End Header Logo ============================================================= -->
                         <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu">
                             <ul id="menu-primary-menu" class="nav yamm">
-                                <li class="sale-clr yamm-fw menu-item animate-dropdown">
+                            <li class="sale-clr yamm-fw menu-item animate-dropdown">
+                                    <a title="Super deals" href="index.php?act=home">Trang chủ</a>
+                                </li>
+                                <li class="yamm-fw menu-item animate-dropdown">
                                     <a title="Super deals" href="index.php?act=gioithieu">Giới Thiệu</a>
                                 </li>
                                 <li class="menu-item menu-item-has-children animate-dropdown dropdown">
@@ -266,7 +269,7 @@ ob_start();
                         <li class="animate-dropdown dropdown ">
                             <a class="cart-contents" href="index.php?act=addcart" data-toggle="dropdown" title="View your shopping cart">
                                 <i class="tm tm-shopping-bag"></i>
-                                <span class="count">2</span>
+                                <span class="count"><?php echo count($_SESSION['giohang']); ?></span>
                                 <span class="amount">
                                     <span class="price-label">
                                     <?php
@@ -283,7 +286,27 @@ ob_start();
                                     <div class="widget woocommerce widget_shopping_cart">
                                         <div class="widget_shopping_cart_content">
                                             <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                                                <li class="woocommerce-mini-cart-item mini_cart_item">
+                                                <?php
+                                                if((isset($_SESSION['giohang'])) && (count($_SESSION['giohang'])>0)){
+                                                    $i=0;
+                                             $tong=0;
+                                             foreach ($_SESSION['giohang'] as $item){
+                                                $tt=$item[3] * $item[4];
+                                                  $tong+=$tt;
+                                                  echo '<li class="woocommerce-mini-cart-item mini_cart_item">
+                                                  <a href="#" class="remove" aria-label="Remove this item" data-product_id="27" data-product_sku="">×</a>
+                                                  <a href="single-product-sidebar.html">
+                                                      <img src="../uploads/'.$item[2].'" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">'.$item[1].';
+                                                  </a>
+                                                  <span class="quantity">'.$item[4].' ×
+                                                      <span class="woocommerce-Price-amount amount">
+                                                          <span class="woocommerce-Price-currencySymbol">$</span>'.$item[3].'</span>
+                                                  </span>
+                                              </li>';
+                                             }
+                                                }
+                                                 ?>
+                                                <!-- <li class="woocommerce-mini-cart-item mini_cart_item">
                                                     <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
                                                     <a href="single-product-sidebar.html">
                                                         <img src="assets/images/products/mini-cart1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">XONE Wireless Controller&nbsp;
@@ -302,13 +325,13 @@ ob_start();
                                                         <span class="woocommerce-Price-amount amount">
                                                             <span class="woocommerce-Price-currencySymbol">$</span>72.00</span>
                                                     </span>
-                                                </li>
+                                                </li> -->
                                             </ul>
                                             <!-- .cart_list -->
                                             <p class="woocommerce-mini-cart__total total">
                                                 <strong>Subtotal:</strong>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>136.99</span>
+                                                    <span class="woocommerce-Price-currencySymbol">$</span><?php echo $tong ?></span>
                                             </p>
                                             <p class="woocommerce-mini-cart__buttons buttons">
                                                 <a href="index.php?act=giohang" class="button wc-forward">View cart</a>

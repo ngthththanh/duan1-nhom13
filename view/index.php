@@ -23,28 +23,36 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
           case "home":
                include "home.php";
                break;
-           case 'sanpham':
-               if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
-                   $kyw = $_POST['kyw'];
-               } else {
-                   $kyw = "";
-               }
-               
-               if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
-                   $iddm = $_GET['iddm'];
-               } else {
-                   $iddm = 0;
-               }   
-               $minPrice = isset($_GET['min_price']) ? (int)$_GET['min_price'] : null;
-               $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
-               
-               $dssp = loadall_sanpham($kyw, $iddm, $minPrice, $maxPrice);
-               
-               $ten_dm = load_ten_dm($iddm);
-               
-               include "sanpham.php";
-               
-               break; 
+               case 'sanpham':
+                    // Check if 'kyw' is set in POST and not empty
+                    if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+                        $kyw = $_POST['kyw'];
+                    } else {
+                        $kyw = "";
+                    }
+                
+                    // Check if 'iddm' is set in GET and greater than 0
+                    if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
+                        $iddm = $_GET['iddm'];
+                    } else {
+                        $iddm = 0;
+                    }
+                
+                    // Retrieve 'min_price' and 'max_price' from GET and convert them to integers
+                    $minPrice = isset($_GET['min_price']) ? (int)$_GET['min_price'] : null;
+                    $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
+                
+                    // Call the 'loadall_sanpham' function with the specified parameters
+                    $dssp = loadall_sanpham($kyw, $iddm, $minPrice, $maxPrice);
+                
+                    // Load the name of the category based on 'iddm'
+                    $ten_dm = load_ten_dm($iddm);
+                
+                    // Include the 'sanpham.php' file to display the products
+                    include "sanpham.php";
+                
+                    break;
+                
                case "chitietsp":
                     if (isset($_POST['guibinhluan'])) {
                         insert_binhluan($_POST['id_sp'], $_POST['noidung']);
@@ -89,7 +97,8 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     //      echo "Lỗi: Tên người dùng đã tồn tại!";
                     // }
                     if (checkusermail($user, $email)) {
-                         echo '<script>alert("Tài khoản hoặc tên ngừi dùng đã tồn tại");</script>';
+                         echo '<script>alert("Tài khoản hoặc tên người dùng đã tồn tại");</script>';
+                         echo "<script>window.location.href='index.php?act=login';</script>";
                     } 
                     else {
                     // Tiếp tục với logic đăng ký
@@ -173,6 +182,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                               $item=array($id_sp,$ten_sp,$hinh,$gia_sp,$sl);
                               $_SESSION['giohang'][]=$item;
                          }
+                         
                          // Khởi tạo 1 mảng con trước khi đưa vào giỏ hàng
                          
                          header('location:index.php?act=giohang');

@@ -55,7 +55,7 @@
                                         <td>'.$ngaybinhluan.'</td>
                                         <td>
                                         <a href="' .  $xoabl . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
-                                            <button type="button" class="btn btn-primary">Xóa</button>
+                                            <button type="button" class="btn">Xóa</button>
                                         </a>
                                         </td>                                    
                                     </tr>';

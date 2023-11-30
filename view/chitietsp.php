@@ -7,9 +7,9 @@
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
                 </span><a href="?act=shop">Shop
-                <span class="delimiter">
-                    <i class="tm tm-breadcrumbs-arrow-right"></i>
-                </span><?php echo "$ten_sp" ?>
+                    <span class="delimiter">
+                        <i class="tm tm-breadcrumbs-arrow-right"></i>
+                    </span><?php echo "$ten_sp" ?>
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
@@ -21,15 +21,15 @@
                                     <div class="techmarket-single-product-gallery-images" data-ride="tm-slick-carousel" data-wrap=".woocommerce-product-gallery__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:false,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .techmarket-single-product-gallery-thumbnails__wrapper&quot;}">
                                         <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4">
                                             <a href="#" class="woocommerce-product-gallery__trigger">🔍</a>
-                                                <div data-thumb="assets/images/products/sm-card-1.jpg" class="woocommerce-product-gallery__image">
-                                                    <a href="#" tabindex="0">
-                                                        <?php 
-                                                            $hinhsp = $img_path . $hinh;
-                                                            $hinhpath ="../uploads/".$hinh;
-                                                            echo '<img width="600" height="600" src="'.$hinhsp.'" class="attachment-shop_single size-shop_single wp-post-image" alt="">;'
-                                                        ?>  
-                                                    </a>
-                                                </div>
+                                            <div data-thumb="assets/images/products/sm-card-1.jpg" class="woocommerce-product-gallery__image">
+                                                <a href="#" tabindex="0">
+                                                    <?php
+                                                    $hinhsp = $img_path . $hinh;
+                                                    $hinhpath = "../uploads/" . $hinh;
+                                                    echo '<img width="600" height="600" src="' . $hinhsp . '" class="attachment-shop_single size-shop_single wp-post-image" alt="">;'
+                                                    ?>
+                                                </a>
+                                            </div>
                                         </div>
                                         <!-- .woocommerce-product-gallery -->
                                     </div>
@@ -93,19 +93,7 @@
                                                             <option value="">Chọn kích thước</option>
                                                             <?php foreach ($listkthuoc as $kthuoc) {
                                                                 extract($kthuoc);
-                                                                echo '<option value="' . $so_luong . '">Size' . $ten . '</option>';
-                                                            } ?>
-                                                        </select>
-                                                    </td>
-                                                    <td class="label">
-                                                        <label for="pa_screen-size">Màu Sắc</label>
-                                                    </td>
-                                                    <td class="value">
-                                                        <select onchange="soLuong1()" id="mausac" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="attribute_pa_screen-size" class="" id="pa_screen-size">
-                                                            <option value="">Chọn màu sắc</option>
-                                                            <?php foreach ($listmsac as $msac) {
-                                                                extract($msac);
-                                                                echo '<option value="' . $so_luong . '">Màu' . $ten . '</option>';
+                                                                echo '<option value="' . $so_luong . '" class="attached enabled">Size' . $ten . '</option>';
                                                             } ?>
                                                         </select>
                                                     </td>
@@ -117,13 +105,13 @@
                                                 <div class="quantity">
                                                     <label for="quantity-input">Quantity</label>
                                                     <input id="quantity-input" type="number" name="soluong" value="1" title="Qty" class="input-text qty text" size="4">
-                                                    <input type="hidden" name="id" value="<?=$id_sp?>">
-                                                    <input type="hidden" name="name" value="<?=$ten_sp?>">
-                                                    <input type="hidden" name="img" value="<?=$hinhpath?>">
-                                                    <input type="hidden" name="price" value="<?=$gia_sp?>">
+                                                    <input type="hidden" name="id" value="<?= $id_sp ?>">
+                                                    <input type="hidden" name="name" value="<?= $ten_sp ?>">
+                                                    <input type="hidden" name="img" value="<?= $hinhpath ?>">
+                                                    <input type="hidden" name="price" value="<?= $gia_sp ?>">
                                                 </div>
                                                 <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
-                                               
+
                                             </div>
                                         </div>
                                         <!-- .single_variation_wrap -->

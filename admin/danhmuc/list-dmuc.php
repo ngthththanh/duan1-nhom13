@@ -5,7 +5,6 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="?act=add-dm">Thêm danh mục</a></li>
             </ol>
-            
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>Danh sách danh mục
@@ -43,10 +42,10 @@
                                     <td>'.$soLuongSanPham.'</td>
                                     <td>
                                         <a href="' . $suadm . '">
-                                            <button type="button" class="btn btn-primary">Sửa</button>
+                                            <button type="button" class="btn">Sửa</button>
                                         </a>
                                         <a href="' . $xoadm . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');">
-                                            <button type="button" class="btn btn-primary">Xóa</button>
+                                            <button type="button" class="btn">Xóa</button>
                                         </a>
                                     </td>
                                 </tr>';
