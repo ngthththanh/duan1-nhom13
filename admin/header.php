@@ -75,6 +75,17 @@
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsKichThuoc" aria-expanded="false" aria-controls="collapseLayoutsSanPham">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Đơn Hàng
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayoutsKichThuoc" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="?act=list-dh">Danh sách</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsKichThuoc" aria-expanded="false" aria-controls="collapseLayoutsSanPham">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 kich thuoc
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>

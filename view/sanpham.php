@@ -78,6 +78,7 @@
                                                         $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                                                         echo '
                                                         <div class="product first">
+                                                        <form action="index.php?act=addcart" method="post">
                                                         <div class="yith-wcwl-add-to-wishlist">
                                                             <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                                                         </div>
@@ -97,10 +98,11 @@
                                                         <input type="hidden" name="name" value="'.$ten_sp.'">
                                                         <input type="hidden" name="img" value="'.$hinhpath.'">
                                                         <input type="hidden" name="price" value="'.$gia_sp.'">
-                                                        <a class="button add_to_cart_button" href="index.php?act=addcart" rel="nofollow">Thêm vào giỏ hàng</a>
+                                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                                         <a class="add-to-compare-link" href="compare.html">So sánh</a>
                                                         </div>
                                                         <!-- .hover-area --> 
+                                                        </form>
                                                     </div>
                                                     ';
                                                         $i+=1;
