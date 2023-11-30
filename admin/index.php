@@ -8,6 +8,7 @@ include "../model/taikhoan.php";
 include "../model/thongke.php";
 include "../model/binhluan.php";
 include "../model/bienthe.php";
+include "../model/donhang.php";
 
 // if (!isset($_SESSION['username']) || $_SESSION['username']['phanquyen'] == "2") {
 //      header('location:../view/index.php');
@@ -190,6 +191,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
           case "binhluan":
                $listbinhluan = load_binhluan(0);
                include "binhluan/list-bluan.php";
+               break;
+          case "list-dh":
+               $listhoadon = loadall_hoadon($id);
+               include "donhang/list-donhang.php";
                break;
           case 'xoabl';
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {

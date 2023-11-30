@@ -17,7 +17,6 @@ function taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell){
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':tell', $tell);
     $stmt->bindParam(':tell', $tell);
-
     $stmt->execute();
     
     $last_id = $conn->lastInsertId();
@@ -71,7 +70,11 @@ function loadall_bill(){
     $listbill=pdo_query($sql);
     return  $listbill;
 }
-
+function loadall_hoadon(){
+    $sql = "SELECT * FROM tbl_cart ";
+    $listhoadon=pdo_query($sql);
+    return  $listhoadon;
+}
 ?>
 
 

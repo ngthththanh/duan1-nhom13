@@ -57,7 +57,6 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                     if (isset($_POST['guibinhluan'])) {
                         insert_binhluan($_POST['id_sp'], $_POST['noidung']);
                     }
-                
                     if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                         $onesanpham = loadone_sanpham($_GET['idsp']);
                         // Kiểm tra xem có dữ liệu sản phẩm và không phải là null hay không

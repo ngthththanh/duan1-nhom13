@@ -285,6 +285,7 @@ ob_start();
                                 <li>
                                     <div class="widget woocommerce widget_shopping_cart">
                                         <div class="widget_shopping_cart_content">
+<<<<<<< HEAD
                                             <ul class="woocommerce-mini-cart cart_list product_list_widget ">
                                                 <?php
                                                 if((isset($_SESSION['giohang'])) && (count($_SESSION['giohang'])>0)){
@@ -333,6 +334,11 @@ ob_start();
                                                 <span class="woocommerce-Price-amount amount">
                                                     <span class="woocommerce-Price-currencySymbol">$</span><?php echo $tong ?></span>
                                             </p>
+=======
+                                           
+                                            <!-- .cart_list -->
+                                           
+>>>>>>> dbaba1781769423625b415822bd4bb156de4a64f
                                             <p class="woocommerce-mini-cart__buttons buttons">
                                                 <a href="index.php?act=giohang" class="button wc-forward">View cart</a>
                                                 <a href="index.php?act=theodoi" class="button checkout wc-forward">Checkout</a>

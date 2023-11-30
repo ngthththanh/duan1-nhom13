@@ -95,6 +95,7 @@
                                         $linksp = "index.php?act=chitietsp&idsp=" . $id_sp;
                                         echo '
                                                         <div class="product first">
+                                                        <form action="index.php?act=addcart" method="post">
                                                         <div class="yith-wcwl-add-to-wishlist">
                                                             <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                                                         </div>
