@@ -32,66 +32,66 @@ ob_start();
             <div class="col-full">
                 <?php
                 if (isset($_SESSION['username'])) {
-                    extract($_SESSION['username']);?>
-                <ul id="menu-top-bar-left" class="nav menu-top-bar-left">
-                    <li class="menu-item animate-dropdown">
-                        <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
-                    </li>
-                    <li class="menu-item animate-dropdown">
-                        <a title="Quality Guarantee of products" href="shop.html">Quality Guarantee of products</a>
-                    </li>
-                    <li class="menu-item animate-dropdown">
-                        <a title="Fast returnings program" href="track-your-order.html">Fast returnings program</a>
-                    </li>
-                    <li class="menu-item animate-dropdown">
-                        <a title="No additional fees" href="contact-v2.html">No additional fees</a>
-                    </li>
-                </ul>
+                    extract($_SESSION['username']); ?>
+                    <ul id="menu-top-bar-left" class="nav menu-top-bar-left">
+                        <li class="menu-item animate-dropdown">
+                            <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <a title="Quality Guarantee of products" href="shop.html">Quality Guarantee of products</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <a title="Fast returnings program" href="track-your-order.html">Fast returnings program</a>
+                        </li>
+                        <li class="menu-item animate-dropdown">
+                            <a title="No additional fees" href="contact-v2.html">No additional fees</a>
+                        </li>
+                    </ul>
                     <!-- .nav -->
                     <ul id="menu-top-bar-right" class="nav menu-top-bar-right">
                         <li class="hidden-sm-down menu-item animate-dropdown">
-                            <a title="Track Your Order" href="track-your-order.html">
-                                <i class="tm tm-order-tracking"></i>Track Your Order</a>
+                            <a title="Track Your Order" href="?act=ttdh">
+                                <i class="tm tm-order-tracking"></i>Thông tin đơn hàng</a>
                         </li>
-                        <?php if (isset($_SESSION['username'])) {?>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-487 animate-dropdown dropdown">
-                            <a title="Dollar (US)" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">
-                                <i class="tm tm-login-register"></i>Xin chào <?php echo $_SESSION['username']['hoten'] ?>
-                                <span class="caret"></span>
-                            </a>
-                            <ul role="menu" class=" dropdown-menu">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-491 animate-dropdown">
-                                    <a href="?act=updatetk">Thông tin cá nhân</a>
-                                </li>
-                                <?php if( $phanquyen==1){
-                                    echo '<li class="hidden-sm-down menu-item animate-dropdown">
+                        <?php if (isset($_SESSION['username'])) { ?>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-487 animate-dropdown dropdown">
+                                <a title="Dollar (US)" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">
+                                    <i class="tm tm-login-register"></i>Xin chào <?php echo $_SESSION['username']['hoten'] ?>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul role="menu" class=" dropdown-menu">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-491 animate-dropdown">
+                                        <a href="?act=updatetk">Thông tin cá nhân</a>
+                                    </li>
+                                    <?php if ($phanquyen == 1) {
+                                        echo '<li class="hidden-sm-down menu-item animate-dropdown">
                                     <a  href="../admin/index.php">Đăng Nhập Admin</a></li>';
-                                }?>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-490 animate-dropdown">
-                                    <a title="" href="javascript:void(0);" onclick="logout()">Đăng Xuất</a>
-                                    <script>
-                                    function logout() {
-                                        if (confirm('Bạn có chắc muốn đăng xuất?')) {
-                                            var xhr = new XMLHttpRequest();
-                                            xhr.open('GET', 'index.php?act=thoat', true);
-                                            xhr.onreadystatechange = function() {
-                                                if (xhr.readyState == 4 && xhr.status == 200) {
-                                                    window.location.href = 'index.php';
+                                    } ?>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-490 animate-dropdown">
+                                        <a title="" href="javascript:void(0);" onclick="logout()">Đăng Xuất</a>
+                                        <script>
+                                            function logout() {
+                                                if (confirm('Bạn có chắc muốn đăng xuất?')) {
+                                                    var xhr = new XMLHttpRequest();
+                                                    xhr.open('GET', 'index.php?act=thoat', true);
+                                                    xhr.onreadystatechange = function() {
+                                                        if (xhr.readyState == 4 && xhr.status == 200) {
+                                                            window.location.href = 'index.php';
+                                                        }
+                                                    };
+                                                    xhr.send();
                                                 }
-                                            };
-                                            xhr.send();
-                                        }
-                                    }
-                                    </script>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- .dropdown-menu -->
+                                            }
+                                        </script>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- .dropdown-menu -->
                         <?php } ?>
-                            <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                        <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                             <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
                     </ul>
-                    <?php } else { ?>
+                <?php } else { ?>
                     <ul id="menu-top-bar-left" class="nav menu-top-bar-left">
                         <li class="menu-item animate-dropdown">
                             <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
@@ -168,7 +168,7 @@ ob_start();
                         <!-- ============================================================= End Header Logo ============================================================= -->
                         <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu">
                             <ul id="menu-primary-menu" class="nav yamm">
-                            <li class="sale-clr yamm-fw menu-item animate-dropdown">
+                                <li class="sale-clr yamm-fw menu-item animate-dropdown">
                                     <a title="Super deals" href="index.php?act=home">Trang chủ</a>
                                 </li>
                                 <li class="yamm-fw menu-item animate-dropdown">
@@ -180,13 +180,12 @@ ob_start();
                                         <li class="menu-item animate-dropdown">
                                             <a title="Wishlist" href="">Danh Mục</a>
                                         </li>
-                                    <?php
-                                        foreach($dsdm as $dm){
-                                        extract($dm);
-                                        $linkdm="index.php?act=sanpham&iddm=".$id_dm;
-                                        echo '<li  class="menu-item animate-dropdown"><a href="'.$linkdm.'">'.$ten_dm.'</a></li>';
-    
-                                    }?>
+                                        <?php
+                                        foreach ($dsdm as $dm) {
+                                            extract($dm);
+                                            $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                            echo '<li  class="menu-item animate-dropdown"><a href="' . $linkdm . '">' . $ten_dm . '</a></li>';
+                                        } ?>
                                     </ul>
                                     <!-- .dropdown-menu -->
                                 </li>
@@ -219,21 +218,20 @@ ob_start();
                         </button>
                         <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
                             <?php
-                                foreach($dsdm as $dm){
-                                    extract($dm);
-                                    $linkdm="index.php?act=sanpham&iddm=".$id_dm;
-                                    echo '<li><a href="'.$linkdm.'">'.$ten_dm.'('.$soLuongSanPham.')</a></li>';
-
-                                }
+                            foreach ($dsdm as $dm) {
+                                extract($dm);
+                                $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                echo '<li><a href="' . $linkdm . '">' . $ten_dm . '(' . $soLuongSanPham . ')</a></li>';
+                            }
                             ?>
-                        </ul>      
+                        </ul>
                     </div>
                     <!-- .departments-menu -->
                     <form class="navbar-search" method="post" action="index.php?act=sanpham">
                         <label class="sr-only screen-reader-text" for="search" name="kyw">Tìm kiếm:</label>
                         <div class="input-group">
                             <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="kyw" placeholder="Tìm kiếm: " />
-                          
+
                             <!-- .input-group-addon -->
                             <div class="input-group-btn input-group-append">
                                 <input type="hidden" id="search-param" value="product" />
@@ -272,13 +270,13 @@ ob_start();
                                 <span class="count"></span>
                                 <span class="amount">
                                     <span class="price-label">
-                                    <?php
+                                        <?php
                                         if (isset($_SESSION['username'])) {
                                             echo $user;
                                         } else {
                                             echo '<a href="index.php?act=login">Login</a> <br>';
                                         }
-                                    ?>
+                                        ?>
                             </a>
 
                             <ul class="dropdown-menu dropdown-menu-mini-cart">
@@ -286,7 +284,7 @@ ob_start();
                                     <div class="widget woocommerce widget_shopping_cart">
                                         <div class="widget_shopping_cart_content">
                                             <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                                              
+
                                                 <!-- <li class="woocommerce-mini-cart-item mini_cart_item">
                                                     <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
                                                     <a href="single-product-sidebar.html">
@@ -312,7 +310,7 @@ ob_start();
                                             <p class="woocommerce-mini-cart__total total">
                                                 <strong>Subtotal:</strong>
                                                 <span class="woocommerce-Price-amount amount">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span><?php echo $tong ;?></span>
+                                                    <span class="woocommerce-Price-currencySymbol">$</span><?php echo $tong; ?></span>
                                             </p>
                                             <p class="woocommerce-mini-cart__buttons buttons">
                                                 <a href="index.php?act=giohang" class="button wc-forward">View cart</a>
@@ -421,6 +419,7 @@ ob_start();
                                     <i class="tm tm-shopping-bag"></i>
                                     <span class="count">2</span>
                                 </a>
+                            </nav>
                         </div>
                         <!-- /.row -->
                     </div>

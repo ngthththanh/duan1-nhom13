@@ -106,6 +106,7 @@
                                                 </p>
                                                 <p class="form-row">
                                                     <input type="submit" class="woocommerce-Button button" name="register" value="Đăng kí" />
+                                                    
                                                 </p>
                                                 <div class="register-benefits">
                                                     <h3>Đăng ký ngay hôm nay và bạn sẽ có thể:</h3>

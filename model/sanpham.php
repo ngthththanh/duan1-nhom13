@@ -11,7 +11,7 @@ function loadall_sanpham_home(){
     return $result['total'];
 }
 
-function loadall_sanpham($kyw = "", $iddm = 0, $minPrice = null, $maxPrice = null)
+function loadall_sanpham($kyw = "", $iddm = 0)
 {
     $sql = "SELECT sanpham.*, COUNT(binhluan.id_bl) as soBinhLuan
             FROM sanpham LEFT JOIN binhluan ON binhluan.id_sp = sanpham.id_sp WHERE 1";
@@ -22,15 +22,6 @@ function loadall_sanpham($kyw = "", $iddm = 0, $minPrice = null, $maxPrice = nul
 
     if ($iddm > 0) {
         $sql .= " AND sanpham.id_dm = '" . $iddm . "'";
-    }
-
-    // Thêm điều kiện lọc theo giá
-    if ($minPrice !== null) {
-        $sql .= " AND sanpham.gia >= " . $minPrice;
-    }
-
-    if ($maxPrice !== null) {
-        $sql .= " AND sanpham.gia <= " . $maxPrice;
     }
 
     $sql .= " GROUP BY sanpham.id_sp

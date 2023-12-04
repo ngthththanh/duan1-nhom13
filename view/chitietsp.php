@@ -60,7 +60,7 @@
                                     </ul>
                                 </div>
                                 <!-- so luong san pham -->
-                                <div id="bienthe1"></div>
+                                <div id="bienthe1"><p>Số lượng: </p></div>
                                 <!-- .woocommerce-product-details__short-description -->
                             </div>
                             <!-- .entry-summary -->
@@ -329,6 +329,6 @@
     <script>
         function soLuong1() {
             var x = document.getElementById("kichThuoc").value;
-            document.getElementById("bienthe1").innerHTML = "So luong: " + x;
+            document.getElementById("bienthe1").innerHTML = "Số lượng: " + x;
         }
     </script>

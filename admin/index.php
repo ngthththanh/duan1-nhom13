@@ -156,7 +156,51 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                $listsanpham = loadall_sanpham();
                include "sanpham/list-spham.php";
                break;
-
+               case 'add-kthuoc':
+                    if (isset($_POST['themmoi'])) {
+                         $id_sanpham = $_POST['id_sanpham'];
+                         $tenkthuoc = $_POST['tenkthuoc'];
+                         $slkthuoc = $_POST['slkthuoc'];
+                         insert_kthuoc($id_sanpham, $tenkthuoc, $slkthuoc);
+                         echo '<script>alert("Bạn đã thêm bien the kich thuoc thành công.");</script>';
+                         // echo "<script>window.location.href='index.php?act=list-dm';</script>";
+                    }
+                    $listsanpham = loadall_sanpham();
+                    include "bienthe/add-kthuoc.php";
+                    break;
+               case 'list-kthuoc':
+                    $listkichthuoc = loadall_kichthuoc();
+                    include "bienthe/list_kthuoc.php";
+                    break;
+               case 'sua-kt':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                         $kichthuoc = loadone_kichthuoc($_GET['id']);
+                    }
+                    $listsanpham = loadall_sanpham();
+                    $listkichthuoc = loadall_kichthuoc();
+                    include "bienthe/update-kthuoc.php";
+                    break;
+               case 'update-kt':
+                    if (isset($_POST['capnhat'])) {
+                         $idsp= $_POST['id_sanpham'];
+                         $ten = $_POST['tenkthuoc'];
+                         $so_luong = $_POST['slkthuoc'];
+                         $id = $_POST['id'];
+                         $listkichthuoc = update_kichthuoc($id, $idsp, $ten, $so_luong);
+                         echo '<script>alert("Bạn đã cập nhật danh mục thành công.");</script>';
+                    }
+                    $listkichthuoc = loadall_kichthuoc();
+                    $listsanpham = loadall_sanpham();
+                    include "bienthe/list_kthuoc.php";
+                    break;
+     
+               case 'xoa-kt':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                         delete_kichthuoc($_GET['id']);
+                    }
+                    $listkichthuoc = loadall_kichthuoc();
+                    include "bienthe/list_kthuoc.php";
+                    break;
           case 'list-tk':
                $listtaikhoan = loadall_taikhoan();
                include "taikhoan/list-tkhoan.php";
@@ -208,32 +252,16 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                include "home.php";
                break;
                //quan ly bien the
-          case 'add-kthuoc':
-               if (isset($_POST['themmoi'])) {
-                    $id_sanpham = $_POST['id_sanpham'];
-                    $tenkthuoc = $_POST['tenkthuoc'];
-                    $slkthuoc = $_POST['slkthuoc'];
-                    insert_kthuoc($id_sanpham, $tenkthuoc, $slkthuoc);
-                    echo '<script>alert("Bạn đã thêm bien the kich thuoc thành công.");</script>';
-                    // echo "<script>window.location.href='index.php?act=list-dm';</script>";
-               }
-               $listsanpham = loadall_sanpham();
-               include "bienthe/add-kthuoc.php";
+          
+          case "thongke":
+               $dsthongke = load_thongke_sanpham_danhmuc();
+               include "thongke/list.php";
                break;
-
-          case 'add-msac':
-               if (isset($_POST['themmau'])) {
-                    $id_sanpham = $_POST['id_sanpham'];
-                    $tenmsac = $_POST['tenmsac'];
-                    $slmsac = $_POST['slmsac'];
-                    insert_msac($id_sanpham, $tenmsac, $slmsac);
-                    echo '<script>alert("Bạn đã thêm bien the kich thuoc thành công.");</script>';
-                    // echo "<script>window.location.href='index.php?act=list-dm';</script>";
-               }
-               $listsanpham = loadall_sanpham();
-               include "bienthe/add-msac.php";
+          case "chart":
+               $dsthongke = load_thongke_sanpham_danhmuc();
+               include "thongke/chart.php";
                break;
-
+          print_r($dsthongke); die;
                // case 'list-kthuoc':
                //      include "kichthuoc/list-kthuoc.php";
                //      break;
