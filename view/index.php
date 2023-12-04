@@ -163,7 +163,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
                          foreach ($_SESSION['giohang'] as $item) {
                               if ($item[1] == $ten_sp) {
-                                   $slnew = $sl + $item[4];
+                                   if (!empty($_POST['type']) && $_POST['type'] == 'update') {
+                                        $slnew = $sl;
+                                   } else {
+                                        $slnew = $sl + $item[4];
+                                   }
+                                   
                                    $_SESSION['giohang'][$i][4] = $slnew;
                                    $fg = 1;
                                    break;

@@ -64,6 +64,12 @@ function getorderinfor($iddh){
 
 }
 
+function update_trangthai($id, $trangthai)
+{
+    $sql = "UPDATE tbl_order SET trangthai='" . $trangthai . "'" . " WHERE  id=" . $id;
+    pdo_execute($sql);
+}
+
 
 function loadall_bill(){
     $sql = "SELECT * FROM tbl_cart";
@@ -71,9 +77,14 @@ function loadall_bill(){
     return  $listbill;
 }
 function loadall_hoadon(){
-    $sql = "SELECT * FROM tbl_cart ";
-    $listhoadon=pdo_query($sql);
-    return  $listhoadon;
+    $sql = "SELECT * FROM tbl_order ";
+    $listorder = pdo_query($sql);
+    foreach ($listorder as $key => $item) {
+        $sql = "SELECT * FROM tbl_cart where iddh = " . $item['id'];
+        $listproduct = pdo_query($sql);
+        $listorder[$key]['products'] = $listproduct;
+    }
+    return  $listorder;
 }
 ?>
 

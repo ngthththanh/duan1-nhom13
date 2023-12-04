@@ -65,12 +65,12 @@
                                                        <td class="product-quantity" data-title="Quantity">
                                                             <div class="quantity">
                                                                  <label for="quantity-input-1">Quantity</label>
-                                                                 <input id="quantity-input-1" type="number" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="' . $item[4] . '" title="Qty" class="input-text qty text" size="4">
+                                                                 <input id="quantity-input-1" type="number" data-id="' . $i . '" data-unit-price="' . $item[3] . '" data-name="' . $item[1] . '" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="' . $item[4] . '" title="Qty" class="input-text qty text input-quantity" size="4">
                                                             </div>
                                                        </td>
                                                        <td data-title="Total" class="product-subtotal">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbol">' . $tong . '</span>VND
+                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . $tong . '</span>VND
                                                             </span>
                                                             <a title="Remove this item" class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
                                                        </td>
@@ -329,3 +329,30 @@
      </section>
      <!-- .brands-carousel -->
 </div>
+<script>
+     document.addEventListener("DOMContentLoaded", () => {
+          $('.input-quantity').on('change', function() {
+               var quantity = $(this).val();
+               if (quantity < 1) {
+                    quantity = 1;
+                    $(this).val(quantity);
+               }
+               var unitPrice = $(this).data('unit-price');
+               var amount = quantity * unitPrice;
+               var id = $(this).data('id');
+               $('.total-product-' + id).text(amount);
+               var params = {
+                    addtocart: 1,
+                    id: '',
+                    name: $(this).data('name'),
+                    img: '',
+                    soluong: quantity,
+                    type: 'update',
+                    price: unitPrice
+               };
+               $.post("index.php?act=addcart", params, function(data, status){
+                    
+               });
+          });
+     });
+</script>

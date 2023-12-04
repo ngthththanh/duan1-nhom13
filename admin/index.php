@@ -14,6 +14,11 @@ include "../model/binhluan.php";
 include "../model/bienthe.php";
 include "../model/donhang.php";
 
+$tatcatrangthai = [
+     ['code' => 'choxuly', 'name' => 'Cho xu ly'],
+     ['code' => 'dangxuly', 'name' => 'Dang xu ly']
+];
+
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
@@ -241,6 +246,26 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                $listhoadon = loadall_hoadon($id);
                include "donhang/list-dhang.php";
                break;
+          case 'suatrangthaidonhang':
+               if (isset($_POST['id']) && isset($_POST['trangthai'])) {
+                    update_trangthai($_POST['id'], $_POST['trangthai']);                    }
+          
+               break;
+     
+          case 'suatk':
+               if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $khachhang = loadone_khachhang($_GET['id']);
+               }
+               include "khachhang/update.php";
+               break;
+
+          case 'suatk':
+               if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $khachhang = loadone_khachhang($_GET['id']);
+               }
+               include "khachhang/update.php";
+               break;
+
           case 'xoabl';
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     delete_binhluan($_GET['id']);

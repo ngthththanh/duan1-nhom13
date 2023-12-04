@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
@@ -13,38 +15,37 @@
                                 <tr>
                                     <th></th>
                                     <th>ID</th>
+                                    <th>Khach hang</th>
                                     <th>Sản phẩm</th>
-                                    <th>Hình Sản Phẩm</th>
-                                    <th>Đơn Giá</th>
                                     <th>Trạng Thái</th>
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th>ID</th>
-                                    <th>Sản phẩm</th>
-                                    <th>Hình Sản Phẩm</th>
-                                    <th>Đơn Giá</th>
-                                    <th>Trạng Thái</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 <?php foreach ($listhoadon as $bill) {
                                     extract($bill);
-                                    echo
-                                    '<tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>' . $id . '</td>
-                                        <td>' . $tensp . ' </td>
-                                        <td><img src="../uploads/' . $img . '" alt="" width="80"></td>
-                                        <td>' . $soluong . '</td>
-                                        <td>' . $dongia . '</td>
-                                            <td></td>                              
-                                    </tr>';
-                                } ?>
+                                ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $bill['id'] ?></td>
+                                        <td><?= $bill['hoten'] ?></td>
+                                        <td>
+                                            <?php foreach ($bill['products'] as $product) { ?>
+                                                <p><?= $product['tensp'] ?></p>
+                                            <?php } ?>
+                                        </td>
+                                        <td>
+                                            <select class="select-trangthai" data-id="<?= $bill['id'] ?>">
+                                                <?php foreach ($tatcatrangthai as $trangthai) {  ?>
+                                                    <option value="<?= $trangthai['code'] ?>" <?= $bill['trangthai'] == $trangthai['code'] ? 
+                                                    'selected' : '' ?>  ><?= $trangthai['name'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                            
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
@@ -52,3 +53,16 @@
             </div>
         </div>
     </main>
+    <script>
+        $(document.body).on('change',".select-trangthai",function (e) {
+   
+         var optVal= $(".select-trangthai option:selected").val();
+         var params = {
+                    id: $(this).data('id'),
+                    trangthai: optVal
+               };
+               $.post("index.php?act=suatrangthaidonhang", params, function(data, status){
+                    
+               });
+});
+</script>
