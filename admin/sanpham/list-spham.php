@@ -20,7 +20,7 @@
                                     <th>Hình</th>
                                     <th>Giá</th>                
                                     <th>Mô tả</th>
-                                    <th>Thêm biến thể</th>
+                                    <th colspan="2">Thêm biến thể</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -32,7 +32,7 @@
                                     <th>Hình</th>
                                     <th>Giá</th>
                                     <th>Mô Tả</th>
-                                    <th>Thêm biến thể</th>
+                                    <th colspan="2">Thêm biến thể</th>
                                     <th></th>
                                 </tr>
                             </tfoot>
@@ -42,6 +42,7 @@
                                     $suasp="index.php?act=sua-sp&id=".$id_sp;
                                     $xoasp="index.php?act=xoa-sp&id=".$id_sp;
                                     $addkt="index.php?act=add-kthuoc&id=".$id_sp;
+                                    $addms="index.php?act=add-msac&id=".$id_sp;
                                     $hinhpath ="../uploads/".$hinh;
                                     if (is_file($hinhpath)) {
                                         $hinhsp = "<img src='".$hinhpath."' width=80px'>";
@@ -57,6 +58,8 @@
                                         <td>'.number_format($gia_sp).'VND</td>        
                                         <td>'.$mota.'</td>
                                         <td><a href="'.$addkt.'"><button type="button" class="btn">Thêm kích thước</button></a></td>
+                                        <td><a href="'.$addms.'"><button type="button" class="btn">Thêm màu sắc</button></a></td>
+
                                         <td><a href="'.$suasp.'"><button type="button" class="btn">Sửa</button></a>
                                         <a href="'.$xoasp.'" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\');"><button type="button" class="btn">Xóa</button></a></td>
                                     </tr>';

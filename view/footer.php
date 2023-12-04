@@ -278,6 +278,8 @@
         <script type="text/javascript" src="assets/js/pace.min.js"></script>
         <script type="text/javascript" src="assets/js/slick.min.js"></script>
         <script type="text/javascript" src="assets/js/scripts.js"></script>
+        <script  src="../view/giohang.js"></script>
+        
         
     </body>
 </html>

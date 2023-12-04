@@ -21391,7 +21391,6 @@ table.cart {
 @media (min-width: 991px) and (max-width: 576px) {
   .cart-collaterals {
     margin: auto; } }
-
 .cart-collaterals .cart_totals {
   padding: 1.250em;
   background-color: #f9f9f9;

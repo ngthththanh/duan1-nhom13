@@ -81,17 +81,11 @@
 
                                         <button type="submit">Apply Filters</button>
                                     </form>
-                                    <!-- .woocommerce-ordering -->
-                                    <nav class="techmarket-advanced-pagination">
-                                        <form class="form-adv-pagination" method="post">
-                                            <input type="number" value="1" class="form-control" step="1" max="5" min="1" size="2" id="goto-page">
-                                        </form> of 5<a href="#" class="next page-numbers">→</a>
-                                    </nav>
-                                    <!-- .techmarket-advanced-pagination -->
+                                    <!-- .woocommerce-ordering -->                                    <!-- .techmarket-advanced-pagination -->
                                 </div>
                                 <!-- .shop-control-bar -->
                                 <div class="tab-content">
-                                    <div id="grid" class="tab-pane active" role="tabpanel">
+                                    <div id="grid" class="tab-pane active" role="tabpanel">   
                                         <div class="woocommerce columns-7">
                                             <div class="products">
                                                 <?php
@@ -102,6 +96,7 @@
                                                         $linksp = "index.php?act=chitietsp&idsp=".$id_sp;
                                                         echo '
                                                         <div class="product first">
+                                                        <form action="index.php?act=addcart" method="post">
                                                         <div class="yith-wcwl-add-to-wishlist">
                                                             <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                                                         </div>
@@ -116,52 +111,77 @@
                                                         </a>
                                                         <!-- .woocommerce-LoopProduct-link -->
                                                         <div class="hover-area">
-                                                            <a class="button" href="cart.html">Thêm vào giỏ hàng</a>
-                                                            <a class="add-to-compare-link" href="compare.html">Thêm vào để so sánh</a>
-                                                        </div>
+                                                        <input type="hidden" name="id" value="'.$id_sp.'">
+                                                        <input type="hidden" name="name" value="'.$ten_sp.'">
+                                                        <input type="hidden" name="img" value="'.$hinhpath.'">
+                                                        <input type="hidden" name="price" value="'.$gia_sp.'">
+                                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
+                                                        <a class="add-to-compare-link" href="compare.html">So sánh</a>
+                                                            </div>
                                                         <!-- .hover-area -->
-                                                    </div>';
-                                                        $i+=1;
-                                                    }?>                   
+                                                        </form>
+                                                        </div>
+                                                        ';
+                                                            $i+=1;
+                                                        }?>  
+                                                                  
                                             </div>
                                             <!-- .products -->
                                         </div>
-                                        <!-- .woocommerce -->
+                                        <!-- .woocommerce -->   
                                     </div>
-                                    <!-- .tab-pane -->
-                                    
-                                <div class="shop-control-bar-bottom">
-                                    <form class="form-techmarket-wc-ppp" method="POST">
-                                        <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
-                                            <option value="20">Show 20</option>
-                                            <option value="40">Show 40</option>
-                                            <option value="-1">Show All</option>
-                                        </select>
-                                        <input type="hidden" value="5" name="shop_columns">
-                                        <input type="hidden" value="15" name="shop_per_page">
-                                        <input type="hidden" value="right-sidebar" name="shop_layout">
-                                        <input type="hidden" value="<?php echo isset($_POST['page']) ? $_POST['page'] : 1; ?>" name="page">
-                                    </form>
-                                    <!-- .form-techmarket-wc-ppp -->
-                                    <p class="woocommerce-result-count">
-                                        <!-- Showing 1&ndash;15 of 73 results -->
-                                    </p>
-                                    <!-- .woocommerce-result-count -->
-                                    <nav class="woocommerce-pagination">
-                                        <ul class="page-numbers">
-                                            <li>
-                                                <span class="page-numbers current">1</span>
-                                            </li>
-                                            <li><a href="#" class="page-numbers">2</a></li>
-                                            <li><a href="#" class="page-numbers">3</a></li>
-                                            <li><a href="#" class="page-numbers">4</a></li>
-                                            <li><a href="#" class="page-numbers">5</a></li>
-                                            <li><a href="#" class="next page-numbers">→</a></li>
-                                        </ul>
-                                        <!-- .page-numbers -->
-                                    </nav>
-                                    <!-- .woocommerce-pagination -->
-                                </div>
+                                    <!-- .tab-pane -->    
+                                    <?php
+// Số sản phẩm mỗi trang
+$itemsPerPage = isset($_POST['ppp']) ? $_POST['ppp'] : 20;
+
+// Trang hiện tại, mặc định là trang 1
+$currentPage = isset($_POST['page']) ? $_POST['page'] : 1;
+
+// Tính toán vị trí bắt đầu của sản phẩm trong cơ sở dữ liệu
+$offset = ($currentPage - 1) * $itemsPerPage;
+
+// Simulate fetching products from the database
+// Giả sử có một hàm getProductsFromDatabase($offset, $itemsPerPage) trả về danh sách sản phẩm từ cơ sở dữ liệu
+$products = loadall_sanpham($offset, $itemsPerPage);
+
+// Hiển thị danh sách sản phẩm
+foreach ($products as $product) {
+    echo '<p>' . $product['name'] . '</p>';
+}
+
+// Tính toán số trang
+$totalPages = ceil(loadall_sanpham_count() / $itemsPerPage);
+
+// Hiển thị thanh phân trang
+echo '<div class="woocommerce-pagination">';
+echo '<ul class="page-numbers">';
+
+for ($i = 1; $i <= $totalPages; $i++) {
+    echo '<li>';
+    if ($i == $currentPage) {
+        echo '<span class="page-numbers current">' . $i . '</span>';
+    } else {
+        echo '<a href="#" class="page-numbers" onclick="submitForm(' . $i . ')">' . $i . '</a>';
+    }
+    echo '</li>';
+}
+
+echo '</ul>';
+echo '</div>';
+?>
+
+<script>
+    // Hàm để submit form với trang mới khi người dùng click vào một trang khác
+    function submitForm(page) {
+        // Đặt giá trị trang vào input ẩn
+        document.querySelector('input[name="page"]').value = page;
+
+        // Submit form
+        document.querySelector('.form-techmarket-wc-ppp').submit();
+    }
+</script>
+
                                 <!-- .shop-control-bar-bottom -->
                             </main>
                             <!-- #main -->
