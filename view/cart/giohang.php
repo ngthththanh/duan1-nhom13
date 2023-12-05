@@ -54,6 +54,7 @@
                                                                  </a>
                                                                  <div class="media-body align-self-center">
                                                                       <a href="single-product-fullwidth.html">' . $item[1] . '</a>
+                                                                        
                                                                  </div>
                                                             </div>
                                                        </td>

@@ -17,6 +17,12 @@ $dmft2 = loadall_danhmuc_footer2();
 $allsp = loadall_sanpham();
 $dstop10 = loadall_sanpham_top10();
 $loadallbill = loadall_bill();
+$listhoadon = loadall_hoadon();
+$tatcatrangthai = [
+     ['code' => 'choxuly', 'name' => 'Chờ xử lí'],
+     ['code' => 'huydonhang', 'name' => 'Hủy đơn hàng']
+   
+];
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
@@ -160,6 +166,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          $fg = 0;
                          $i = 0;
                          $gia_sp = $_POST['price'];
+                         $kichthuoc = $_POST['kichthuoc'];
 
                          foreach ($_SESSION['giohang'] as $item) {
                               if ($item[1] == $ten_sp) {
@@ -176,7 +183,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                               $i++;
                          }
                          if ($fg == 0) {
-                              $item = array($id_sp, $ten_sp, $hinh, $gia_sp, $sl);
+                              $item = array($id_sp, $ten_sp, $hinh, $gia_sp, $sl,$kichthuoc);
                               $_SESSION['giohang'][] = $item;
                          }
 
@@ -232,15 +239,27 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
       
                include "cart/hoadon.php";
                break;
+          case 'suatrangthaidonhang':
+               if (isset($_POST['id']) && isset($_POST['trangthai'])) {
+                    update_trangthai($_POST['id'], $_POST['trangthai']);                    }
+          
+               break;
           case "dathang":
                if ($_POST['dathang']) {
                     echo '<script>alert("Bạn đã đặt hàng thành công.");</script>';
                }
                include "cart/thongtindonhang.php";
                break;
-               case "ttdh":
-                    include "cart/thongtindonhang.php";
-                    break;
+          case "ttdh":
+               include "cart/thongtindonhang.php";
+               break;
+          case 'xoa-dh':
+               if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    delete_donhang($_GET['id']);
+               }
+               $listhoadon = loadall_hoadon(); 
+               include "cart/thongtindonhang.php";
+               break;
      
           case "shop":
                include "shop.php";

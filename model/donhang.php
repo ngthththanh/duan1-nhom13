@@ -86,6 +86,11 @@ function loadall_hoadon(){
     }
     return  $listorder;
 }
+function delete_donhang($id)
+{
+    $sql = "DELETE FROM tbl_order WHERE id=". $id;
+    pdo_execute($sql);
+}
 ?>
 
 

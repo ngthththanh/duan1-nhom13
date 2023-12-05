@@ -15,8 +15,14 @@ include "../model/bienthe.php";
 include "../model/donhang.php";
 
 $tatcatrangthai = [
-     ['code' => 'choxuly', 'name' => 'Cho xu ly'],
-     ['code' => 'dangxuly', 'name' => 'Dang xu ly']
+     ['code' => 'choxuly', 'name' => 'Chờ xử lí'],
+     ['code' => 'dangxuly', 'name' => 'Đang xử lí'],
+     ['code' => 'chovanchuyen', 'name' => 'Chờ vận chuyển'],
+     ['code' => 'donhangdangvanchuyen', 'name' => 'Đơn hàng đang vận chuyển'],
+     ['code' => 'davanchuyen', 'name' => 'Vận chuyển thành công'],
+     ['code' => 'hoanthanhdonhang', 'name' => 'Hoàn thành đơn hàng'],
+     ['code' => 'huydonhang', 'name' => 'Hủy đơn hàng']
+   
 ];
 
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
