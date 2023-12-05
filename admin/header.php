@@ -13,7 +13,7 @@
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/css.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    
 </head>
 
 <body class="sb-nav-fixed">
