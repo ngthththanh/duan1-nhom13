@@ -274,19 +274,19 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                include "shared/danhsachyeuthich.php";
                break;
           case "giohang":
-               include "./cart/giohang.php";
+               include "cart/giohang.php";
                break;
           case "theodoi":
-               include "./cart/theodoidonhang.php";
+               include "cart/theodoidonhang.php";
                break;
           case "404":
-               include "./shared/404.php";
+               include "shared/404.php";
                break;
           case "cauhoi":
-               include "./shared/cauhoi.php";
+               include "shared/cauhoi.php";
                break;
           default:
-               include "./shared/cauhoi.php";
+               include "shared/cauhoi.php";
                break;
      }
 } else {
