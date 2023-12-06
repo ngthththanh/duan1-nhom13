@@ -150,6 +150,7 @@
      </div>
      <!-- .col-full -->
 </div>
+
 <!-- #content -->
 <div class="col-full">
      <section class="brands-carousel">

@@ -24,8 +24,6 @@
                                         </li>
                                     </ul>
                                     <!-- .woocommerce-order-overview -->
-
-
                                     <section class="woocommerce-order-details">
                                         <h2 class="woocommerce-order-details__title">Chi tiết đặt hàng</h2>
                                         <?php

@@ -27,10 +27,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
      switch ($act) {
           case "home":
                include "home.php";
-               break;
-
-
-               
+               break;      
           case 'sanpham':
                if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
                     $kyw = $_POST['kyw'];
