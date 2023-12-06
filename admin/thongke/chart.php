@@ -14,12 +14,16 @@
           <i class="fas fa-chart-bar me-1"></i>
           Bar Chart Example
         </div>
-        <div class="card-body"><canvas id="myChart" width="100%" height="50"></canvas></div>
+        <div class="card-body">
+          <!-- <canvas id="myChart" ></canvas> -->
+          <div id="myChart"></div>
+        </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
   </main>
-    <script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script defer>
       google.charts.load('current', {
         'packages': ['corechart']
       });
@@ -58,3 +62,5 @@
 
       }
     </script>
+
+    
