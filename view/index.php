@@ -16,7 +16,6 @@ $dmft = loadall_danhmuc_footer();
 $dmft2 = loadall_danhmuc_footer2();
 $allsp = loadall_sanpham();
 $dstop10 = loadall_sanpham_top10();
-$loadallbill = loadall_bill();
 $listhoadon = loadall_hoadon();
 $tatcatrangthai = [
      ['code' => 'choxuly', 'name' => 'Chờ xử lí'],
@@ -175,7 +174,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                                    } else {
                                         $slnew = $sl + $item[4];
                                    }
-                                   
+                              
                                    $_SESSION['giohang'][$i][4] = $slnew;
                                    $fg = 1;
                                    break;
@@ -245,9 +244,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
           
                break;
           case "dathang":
-               if ($_POST['dathang']) {
-                    echo '<script>alert("Bạn đã đặt hàng thành công.");</script>';
-               }
                include "cart/thongtindonhang.php";
                break;
           case "ttdh":

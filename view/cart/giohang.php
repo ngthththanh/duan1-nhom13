@@ -60,7 +60,7 @@
                                                        </td>
                                                        <td data-title="Price" class="product-price">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbol">' . $item[3] . '</span>VND
+                                                                 <span class="woocommerce-Price-currencySymbol">' .number_format($item[3])  . '</span>VND
                                                             </span>
                                                        </td>
                                                        <td class="product-quantity" data-title="Quantity">
@@ -71,7 +71,7 @@
                                                        </td>
                                                        <td data-title="Total" class="product-subtotal">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . $tong . '</span>VND
+                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' .number_format($tong ) . '</span>VND
                                                             </span>
                                                             <a title="Remove this item" class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
                                                        </td>

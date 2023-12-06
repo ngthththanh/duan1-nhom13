@@ -142,7 +142,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><input type="submit" value="Đặt Hàng" name="dathang"></td>
+                                                            <td><input type="submit" value="Kiểm tra" name="dathang"></td>
                                                         </tr>
                                                     </table>
                                                 </form>
