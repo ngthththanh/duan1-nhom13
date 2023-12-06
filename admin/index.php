@@ -15,11 +15,9 @@ include "../model/bienthe.php";
 include "../model/donhang.php";
 
 $tatcatrangthai = [
-     ['code' => 'choxuly', 'name' => 'Chờ xử lí'],
-     ['code' => 'dangxuly', 'name' => 'Đang xử lí'],
-     ['code' => 'chovanchuyen', 'name' => 'Chờ vận chuyển'],
-     ['code' => 'donhangdangvanchuyen', 'name' => 'Đơn hàng đang vận chuyển'],
-     ['code' => 'davanchuyen', 'name' => 'Vận chuyển thành công'],
+     ['code' => 'dangchoxuly', 'name' => 'Đang chờ xử lý '],
+     ['code' => 'daxacnhan', 'name' => 'Đã xác nhận'],
+     ['code' => 'dangvanchuyen', 'name' => 'Đang vận chuyển'],
      ['code' => 'hoanthanhdonhang', 'name' => 'Hoàn thành đơn hàng'],
      ['code' => 'huydonhang', 'name' => 'Hủy đơn hàng']
    

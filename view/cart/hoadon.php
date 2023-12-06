@@ -103,7 +103,6 @@
                                         ?>
                                                 <form action="index.php?act=dathang" method="post">
                                                     <h3>Thông tin đặt hàng</h3>
-
                                                     <input type="hidden" name="tongdonhang" value="<?= $tong ?>">
                                                     <table>
                                                         <tr>
