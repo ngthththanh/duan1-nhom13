@@ -6,7 +6,7 @@
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
                 </span>
-                Track Order
+                Theo dõi đơn hàng
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
@@ -14,7 +14,7 @@
                     <div class="type-page hentry">
                         <header class="entry-header">
                             <div class="page-header-caption">
-                                <h1 class="entry-title">Track Order</h1>
+                                <h1 class="entry-title"> Theo dõi đơn hàng</h1>
                             </div>
                         </header>
                         <!-- .entry-header -->

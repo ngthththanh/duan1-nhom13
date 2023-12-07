@@ -6,7 +6,7 @@
                     <span class="delimiter">
                          <i class="tm tm-breadcrumbs-arrow-right"></i>
                     </span>
-                    Cart
+                    Giỏ hàng 
                </nav>
                <!-- .woocommerce-breadcrumb -->
                <div id="primary" class="content-area">
