@@ -215,12 +215,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $email = $_POST['email'];
                     $tell = $_POST['tel'];
                     $pttt = $_POST['pttt'];
+                    $ngaymua=date('Y-m-d');
                     //ma don hang
                     $madh = "shopbh" . rand(0, 999999);
                     // tạo đơn hàng trả về id đơn hàng |
                     // $item = array($id,$tensp,$img,$gia,$sl);
 
-                    $iddh = taodonhang($madh, $tongdonhang, $pttt, $hoten, $address, $email, $tell);
+                    $iddh = taodonhang($madh, $tongdonhang, $pttt, $hoten, $address, $email, $tell,$ngaymua);
                     $_SESSION['iddh'] = $iddh;
                     if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
 
