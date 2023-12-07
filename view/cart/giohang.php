@@ -50,17 +50,17 @@
                                                        <td data-title="Product" class="product-name">
                                                             <div class="media cart-item-product-detail">
                                                                  <a href="single-product-fullwidth.html">
-                                                                     
+                                                                 
                                                                  </a>
                                                                  <div class="media-body align-self-center">
                                                                       <a href="single-product-fullwidth.html">' . $item[1] . '</a>
-                                                                        
+                                                                      
                                                                  </div>
                                                             </div>
                                                        </td>
                                                        <td data-title="Price" class="product-price">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbol">' . $item[3] . '</span>VND
+                                                                 <span class="woocommerce-Price-currencySymbol">' . number_format($item[3])  . '</span>VND
                                                             </span>
                                                        </td>
                                                        <td class="product-quantity" data-title="Quantity">
@@ -71,7 +71,7 @@
                                                        </td>
                                                        <td data-title="Total" class="product-subtotal">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . $tong . '</span>VND
+                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . number_format($tong) . '</span>VND
                                                             </span>
                                                             <a title="Remove this item" class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
                                                        </td>
@@ -102,11 +102,18 @@
 
                                              <div class="cart-collaterals">
                                                   <h3>Thông tin đặt hàng</h3>
-                                                  <form action="index.php?act=thanhtoan" method="post">
+                                                  <?php
+                                                  if (isset($_POST['online']) && $_POST('online')) {
+                                                       $url = '/view/cart/vnpay_create_payment.php';
+                                                  } else {
+                                                       $url = 'index.php?act=thanhtoan';
+                                                  }
+                                                  ?>
+                                                  <form action="<?php echo $url ?>" method="post">
                                                        <input type="hidden" name="tongdonhang" value="<?= $tong ?>">
                                                        <table>
                                                             <tr>
-                                                                 <td><input type="text" name="hoten" placeholder="Nhập họ tên" required></td>
+                                                                 <td><input type="text" name="hoten" value="" placeholder="Nhập họ tên" required></td>
                                                             </tr>
                                                             <tr>
                                                                  <td><input type="text" name="address" placeholder="Nhập địa chỉ" required></td>
@@ -117,19 +124,43 @@
                                                             <tr>
                                                                  <td><input type="text" name="tel" placeholder="Nhập số điện thoại" required></td>
                                                             </tr>
+                                                            <!-- <input name="amount" type="text" value="10000"> -->
                                                             <tr>
                                                                  <td>Phương thức thanh toán <br>
                                                                       <input type="radio" name="pttt" value="1"> Thanh toán khi nhận hàng <br>
-                                                                      <input type="radio" name="pttt" value="2"> Thanh toán chuyển khoản <br>
-                                                                      <input type="radio" name="pttt" value="3"> Thanh toán ví MoMo <br>
-                                                                      <input type="radio" name="pttt" value="4"> Thanh toán online <br>
                                                                  </td>
-
                                                             </tr>
                                                             <tr>
                                                                  <td><input type="submit" value="thanhtoan" name="thanhtoan"></td>
                                                             </tr>
                                                        </table>
+                                                  </form>
+                                                  <b>Hoặc</b>
+                                                  <form action="./cart/vnpay_create_payment.php" id="frmCreateOrder" class="cont" method="post">
+                                                       <h3 hidden>Tổng tiền</h3>
+                                                       <div class="form-group" hidden>
+                                                            <!-- <input type="text" name="tongdonhang" value="<?= $tong ?>"> -->
+                                                            <input name="amount" type="text" value="<?= $tong ?>">
+                                                            <input name="hoten" type="text" value="<?= $hoten ?>">
+                                                            <input name="email" type="text" value="<?= $email ?>">
+                                                            <input name="address" type="text" value="<?= $diachi ?>">
+                                                            <input name="tel" type="text" value="<?= $tel ?>">
+                                                            <!-- <input class="form-control" data-val="true" data-val-number="The field amount must be a number." data-val-required="The amount field is required." id="amount" max="100000000" min="10000" name="amount" type="number" value="0"  style="color:white;background-color: transparent;border: none; " /> -->
+                                                       </div>
+                                                       <h4 hidden>Chọn phương thức thanh toán</h4>
+                                                       <div hidden class="form-group">
+                                                            <input type="radio" id="bankCode1" name="bankCode" value="">
+                                                            <label for="bankCode1">Cổng thanh toán VNPAYQR</label><br>
+                                                            <h5 hidden>Cách 2: Tách phương thức tại site của đơn vị kết nối</h5>
+                                                            <input hidden type="radio" id="bankCode2" name="bankCode" value="VNPAYQR">
+                                                            <label hidden for="bankCode2">Thanh toán bằng ứng dụng hỗ trợ VNPAYQR</label><br>
+                                                            <input type="radio" checked="true" id="bankCode3" name="bankCode" value="VNBANK">
+                                                            <label for="bankCode3">Thanh toán qua thẻ ATM/Tài khoản nội địa</label><br>
+                                                            <input hidden type="radio" id="bankCode4" name="bankCode" value="INTCARD">
+                                                            <label hidden for="bankCode4">Thanh toán qua thẻ quốc tế</label><br>
+                                                       </div>
+                                                       <hr>
+                                                       <input type="submit" name="redirect" class="btn btn-default" value="Thanh toán VNPAY">
                                                   </form>
                                              </div>
                                              <!-- .cart-collaterals -->
@@ -351,8 +382,8 @@
                     type: 'update',
                     price: unitPrice
                };
-               $.post("index.php?act=addcart", params, function(data, status){
-                    
+               $.post("index.php?act=addcart", params, function(data, status) {
+
                });
           });
      });

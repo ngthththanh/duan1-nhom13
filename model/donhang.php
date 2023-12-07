@@ -23,16 +23,21 @@ function taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell){
 
     return $last_id;
 }
-function addtocard($iddh,$idpro,$tensp,$img,$dongia,$soluong){
-    $sql="INSERT INTO tbl_cart(iddh,idpro,tensp,img,dongia,soluong)  
-    values ('$iddh','$idpro','$tensp','$img','$dongia','$soluong')";
+function addtocard($iddh, $idpro, $tensp, $img, $dongia, $soluong) {
+    // Thêm một trường thời gian để theo dõi khi nào mỗi mục được thêm vào
+    $thoigianthem = date("Y-m-d H:i:s");
+    
+    $sql = "INSERT INTO tbl_cart (iddh, idpro, tensp, img, dongia, soluong, ngaybinhdathang)  
+            VALUES ('$iddh', '$idpro', '$tensp', '$img', '$dongia', '$soluong', '$thoigianthem')";
+    
     pdo_execute($sql);
-   
-   
-
-
-
 }
+
+// Ví dụ câu truy vấn SELECT với ORDER BY
+$sql_select = "SELECT * FROM tbl_cart ORDER BY ngaybinhdathang DESC";
+// Thực hiện câu truy vấn và hiển thị danh sách
+// ...
+
 function getshowcart($iddh){
 
     $sql = "SELECT * FROM tbl_cart WHERE iddh = :iddh";
@@ -71,21 +76,18 @@ function update_trangthai($id, $trangthai)
 }
 
 
-function loadall_bill(){
-    $sql = "SELECT * FROM tbl_cart";
-    $listbill=pdo_query($sql);
-    return  $listbill;
-}
 function loadall_hoadon(){
     $sql = "SELECT * FROM tbl_order ";
     $listorder = pdo_query($sql);
     foreach ($listorder as $key => $item) {
-        $sql = "SELECT * FROM tbl_cart where iddh = " . $item['id'];
+        // Sắp xếp sản phẩm theo thời gian thêm mới nhất
+        $sql = "SELECT * FROM tbl_cart WHERE iddh = " . $item['id'] . " ORDER BY ngaybinhdathang DESC";
         $listproduct = pdo_query($sql);
         $listorder[$key]['products'] = $listproduct;
     }
     return  $listorder;
 }
+
 function delete_donhang($id)
 {
     $sql = "DELETE FROM tbl_order WHERE id=". $id;

@@ -17,6 +17,7 @@
                                     <th>ID</th>
                                     <th>Khach hang</th>
                                     <th>Sản phẩm</th>
+                                    <th>Phương thức thanh toán</th>
                                     <th>Trạng Thái</th>
                                     <th>Hủy đơn hàng</th>
                                     <th></th>
@@ -35,6 +36,9 @@
                                             <?php foreach ($bill['products'] as $product) { ?>
                                                 <p><?= $product['tensp'] ?></p>
                                             <?php } ?>
+                                        </td>
+                                        <td>
+                                        <p><?= $bill['pttt'] ?></p>
                                         </td>
                                         <td>
                                             <p><?= $bill['trangthai'] ?></p>

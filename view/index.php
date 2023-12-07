@@ -16,12 +16,14 @@ $dmft = loadall_danhmuc_footer();
 $dmft2 = loadall_danhmuc_footer2();
 $allsp = loadall_sanpham();
 $dstop10 = loadall_sanpham_top10();
-$loadallbill = loadall_bill();
 $listhoadon = loadall_hoadon();
 $tatcatrangthai = [
-     ['code' => 'choxuly', 'name' => 'Chờ xử lí'],
+     ['code' => 'choxuly', 'name' => 'Đang chờ xử lý '],
+     ['code' => 'daxacnhan', 'name' => 'Đã xác nhận'],
+     ['code' => 'dangvanchuyen', 'name' => 'Đang vận chuyển'],
+     ['code' => 'hoanthanhdonhang', 'name' => 'Hoàn thành đơn hàng'],
      ['code' => 'huydonhang', 'name' => 'Hủy đơn hàng']
-   
+
 ];
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
@@ -31,7 +33,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                break;
 
 
-               
+
           case 'sanpham':
                if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
                     $kyw = $_POST['kyw'];
@@ -175,7 +177,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                                    } else {
                                         $slnew = $sl + $item[4];
                                    }
-                                   
+
                                    $_SESSION['giohang'][$i][4] = $slnew;
                                    $fg = 1;
                                    break;
@@ -183,7 +185,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                               $i++;
                          }
                          if ($fg == 0) {
-                              $item = array($id_sp, $ten_sp, $hinh, $gia_sp, $sl,$kichthuoc);
+                              $item = array($id_sp, $ten_sp, $hinh, $gia_sp, $sl, $kichthuoc);
                               $_SESSION['giohang'][] = $item;
                          }
 
@@ -236,18 +238,50 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     include "cart/hoadon.php";
                }
                break;
-      
+
                include "cart/hoadon.php";
                break;
           case 'suatrangthaidonhang':
                if (isset($_POST['id']) && isset($_POST['trangthai'])) {
-                    update_trangthai($_POST['id'], $_POST['trangthai']);                    }
-          
+                    update_trangthai($_POST['id'], $_POST['trangthai']);
+               }
+
+               break;
+          case 'insert_vnpay':
+               if (isset($_POST['insert_vnpay']) && $_POST['insert_vnpay']) {
+                    $vnp_Amount = $_POST['vnp_Amount'];
+                    $vnp_BankCode = $_POST['vnp_BankCode'];
+                    $vnp_BankTranNo = $_POST['vnp_BankTranNo'];
+                    $vnp_CardType = $_POST['vnp_CardType'];
+                    $vnp_OrderInfo = $_POST['vnp_OrderInfo'];
+                    $vnp_PayDate = $_POST['vnp_PayDate'];
+                    $vnp_ResponseCode = $_POST['vnp_ResponseCode'];
+                    $vnp_TmnCode = $_POST['vnp_TmnCode'];
+                    $vnp_TransactionNo = $_POST['vnp_TransactionNo'];
+                    $vnp_TransactionStatus = $_POST['vnp_TransactionStatus'];
+                    $vnp_TxnRef = $_POST['vnp_TxnRef'];
+                    $vnp_SecureHash = $_POST['vnp_SecureHash'];
+                    // bill
+
+                    $madh = "shopbh" . rand(0, 999999);
+                    $amount = $_POST['amount'];
+                    $hoten = $_POST['hoten'];
+                    $address = $_POST['address'];
+                    $email = $_POST['email'];
+                    // $tell = $_POST['tel'];
+                    $iddh = taodonhang($madh, $amount, 'VNPAY', $hoten, $address, $email, '');
+                    $_SESSION['iddh'] = $iddh;
+                    if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                         foreach ($_SESSION['giohang'] as $item) {
+                              addtocard($iddh, $item[0], $item[1], $item[2], $item[3], $item[4]);
+                         }
+                         unset($_SESSION['giohang']);
+                    }
+                    insert_vnpay($vnp_Amount, $vnp_BankCode, $vnp_BankTranNo, $vnp_CardType, $vnp_OrderInfo, $vnp_PayDate, $vnp_ResponseCode, $vnp_TmnCode, $vnp_TransactionNo, $vnp_TransactionStatus, $vnp_TxnRef, $vnp_SecureHash);
+                    header('location: ./index.php?act=dathang');
+               }
                break;
           case "dathang":
-               if ($_POST['dathang']) {
-                    echo '<script>alert("Bạn đã đặt hàng thành công.");</script>';
-               }
                include "cart/thongtindonhang.php";
                break;
           case "ttdh":
@@ -257,10 +291,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     delete_donhang($_GET['id']);
                }
-               $listhoadon = loadall_hoadon(); 
+               $listhoadon = loadall_hoadon();
                include "cart/thongtindonhang.php";
                break;
-     
+
           case "shop":
                include "shop.php";
                break;

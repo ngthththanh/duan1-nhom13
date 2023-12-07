@@ -109,6 +109,7 @@
                                                     <input type="hidden" name="name" value="<?= $ten_sp ?>">
                                                     <input type="hidden" name="img" value="<?= $hinhpath ?>">
                                                     <input type="hidden" name="price" value="<?= $gia_sp ?>">
+                                                    <input type="hidden" name="kichthuoc" value="<?= $kichthuoc ?>">
                                                 </div>
                                                 <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
 

@@ -17,6 +17,8 @@
                                     <th>ID</th>
                                     <th>Khach hang</th>
                                     <th>Sản phẩm</th>
+                                    <th>Ngày đặt hàng</th>
+                                    <th>Phương thức thanh toán</th>
                                     <th>Trạng Thái</th>
                                     <th></th>
                                 </tr>
@@ -32,7 +34,19 @@
                                         <td>
                                             <?php foreach ($bill['products'] as $product) { ?>
                                                 <p><?= $product['tensp'] ?></p>
+                                                <p><?= $product['soluong'] ?></p>
+                                                <p><?= $product['dongia'] ?></p>
+                                               
+                                                <p><img src="../uploads/<?= $product['img'] ?>" alt="" width="80"></p>
                                             <?php } ?>
+                                        </td>
+                                        <td>
+                                        <?php foreach ($bill['products'] as $product) { ?>
+                                            <p><?= $product['ngaybinhdathang'] ?></p>
+                                            <?php } ?>
+                                        </td>
+                                        <td>
+                                        <td><?= $bill['pttt'] ?></td>
                                         </td>
                                         <td>
                                             <select class="select-trangthai" data-id="<?= $bill['id'] ?>">
@@ -66,3 +80,4 @@
                });
 });
 </script>
+
