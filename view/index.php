@@ -31,9 +31,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
           case "home":
                include "home.php";
                break;
-
-
-
           case 'sanpham':
                if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
                     $kyw = $_POST['kyw'];
@@ -71,7 +68,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     include "shared/404.php";
                }
                break;
-
           case 'dangki':
                if (isset($_POST['register']) && ($_POST['register'])) {
                     $user = $_POST['username'];
@@ -177,7 +173,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                                    } else {
                                         $slnew = $sl + $item[4];
                                    }
-
                                    $_SESSION['giohang'][$i][4] = $slnew;
                                    $fg = 1;
                                    break;

@@ -57,7 +57,9 @@
                 </form>
             </div>
         </div>
-    </main>
+    </main>     
+
+    
     <script>
         $(document.body).on('change',".select-trangthai",function (e) {
    
@@ -69,5 +71,7 @@
                $.post("index.php?act=suatrangthaidonhang", params, function(data, status){
                     
                });
+
+
 });
 </script>

@@ -4,8 +4,9 @@ session_start();
 if (!isset($_SESSION['username']) || $_SESSION['username']['phanquyen'] == "2") {
      header('location:../view/index.php');
 }
-include "../model/pdo.php";
+
 include "header.php";
+include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
@@ -13,7 +14,7 @@ include "../model/thongke.php";
 include "../model/binhluan.php";
 include "../model/bienthe.php";
 include "../model/donhang.php";
-
+$dsthongke = load_thongke_sanpham_danhmuc();
 $tatcatrangthai = [
      ['code' => 'choxuly', 'name' => 'Đang chờ xử lý '],
      ['code' => 'daxacnhan', 'name' => 'Đã xác nhận'],
@@ -27,6 +28,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
           case "home":
+            
                $listdanhmuc = loadall_danhmuc();
                include "home.php";
                break;
@@ -227,7 +229,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                }
                include "khachhang/update.php";
                break;
-
           case 'updatetk':
                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                     $user_name = $_POST['user'];
@@ -255,8 +256,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     update_trangthai($_POST['id'], $_POST['trangthai']);
                }
 
-               break;
 
+               break;
           case 'suatk':
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     $khachhang = loadone_khachhang($_GET['id']);
@@ -270,7 +271,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                }
                include "khachhang/update.php";
                break;
-
           case 'xoabl';
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     delete_binhluan($_GET['id']);
@@ -278,11 +278,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                $listbinhluan = load_binhluan(0);
                include "binhluan/list-bluan.php";
                break;
-          case "home":
-               include "home.php";
-               break;
-               //quan ly bien the
-
           case "thongke":
                $dsthongke = load_thongke_sanpham_danhmuc();
                include "thongke/list.php";
@@ -296,6 +291,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                // case 'list-kthuoc':
                //      include "kichthuoc/list-kthuoc.php";
                //      break;
+               default:
+               include "shared/cauhoi.php";
+               break;
+     
      }
 } else {
      include "home.php";

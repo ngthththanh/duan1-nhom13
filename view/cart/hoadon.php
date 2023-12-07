@@ -24,8 +24,6 @@
                                         </li>
                                     </ul>
                                     <!-- .woocommerce-order-overview -->
-
-
                                     <section class="woocommerce-order-details">
                                         <h2 class="woocommerce-order-details__title">Chi tiết đặt hàng</h2>
                                         <?php
@@ -103,7 +101,6 @@
                                         ?>
                                                 <form action="index.php?act=dathang" method="post">
                                                     <h3>Thông tin đặt hàng</h3>
-
                                                     <input type="hidden" name="tongdonhang" value="<?= $tong ?>">
                                                     <table>
                                                         <tr>

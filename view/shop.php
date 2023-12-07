@@ -50,50 +50,24 @@
                         <!-- .shop-view-switcher -->
                         <form class="form-techmarket-wc-ppp" method="POST">
                             <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
-                                <option value="20">Show 20</option>
-                                <option value="40">Show 40</option>
                                 <option value="-1">Show All</option>
                             </select>
                             <input type="hidden" value="5" name="shop_columns">
                             <input type="hidden" value="15" name="shop_per_page">
                             <input type="hidden" value="right-sidebar" name="shop_layout">
                         </form>
-                        <!-- .form-techmarket-wc-ppp -->
-                        <form method="get" class="woocommerce-ordering">
-                            <select class="orderby" name="orderby">
-                                <option value="popularity">Sort by popularity</option>
-                                <option value="rating">Sort by average rating</option>
-                                <option selected="selected" value="date">Sort by newness</option>
-                                <option value="price-asc">Sort by price: low to high</option>
-                                <option value="price-desc">Sort by price: high to low</option>
-                            </select>
-                            <input type="hidden" value="5" name="shop_columns">
-                            <input type="hidden" value="15" name="shop_per_page">
-                            <input type="hidden" value="right-sidebar" name="shop_layout">
 
-                            <!-- Add new input fields for price -->
-                            <label for="min_price">Min Price:</label>
-                            <input type="text" id="min_price" name="min_price" value="<?php echo isset($_GET['min_price']) ? $_GET['min_price'] : ''; ?>" placeholder="Min Price">
-
-                            <label for="max_price">Max Price:</label>
-                            <input type="text" id="max_price" name="max_price" value="<?php echo isset($_GET['max_price']) ? $_GET['max_price'] : ''; ?>" placeholder="Max Price">
-
-                            <button type="submit">Apply Filters</button>
-                        </form>
-                        <!-- .woocommerce-ordering --> <!-- .techmarket-advanced-pagination -->
-                    </div>
-                    <!-- .shop-control-bar -->
-                    <div class="tab-content">
-                        <div id="grid" class="tab-pane active" role="tabpanel">
-                            <div class="woocommerce columns-7">
-                                <div class="products">
-                                    <?php
-                                    $i = 0;
-                                    foreach ($allsp as $sp) {
-                                        extract($sp);
-                                        $hinhpath = "../uploads/" . $hinh;
-                                        $linksp = "index.php?act=chitietsp&idsp=" . $id_sp;
-                                        echo '
+                        <div class="tab-content">
+                            <div id="grid" class="tab-pane active" role="tabpanel">
+                                <div class="woocommerce columns-7">
+                                    <div class="products">
+                                        <?php
+                                        $i = 0;
+                                        foreach ($allsp as $sp) {
+                                            extract($sp);
+                                            $hinhpath = "../uploads/" . $hinh;
+                                            $linksp = "index.php?act=chitietsp&idsp=" . $id_sp;
+                                            echo '
                                                         <div class="product first">
                                                         <form action="index.php?act=addcart" method="post">
                                                         <div class="yith-wcwl-add-to-wishlist">
@@ -119,66 +93,39 @@
                                                             </div>
                                                         <!-- .hover-area -->
                                                     </div>   ';
-                                        $i += 1;
-                                    } ?>
+                                            $i += 1;
+                                        } ?>
 
+                                    </div>
+                                    <!-- .products -->
                                 </div>
-                                <!-- .products -->
+                                <!-- .woocommerce -->
                             </div>
-                            <!-- .woocommerce -->
+                            <!-- .tab-pane -->
+
+                            <form class="form-techmarket-wc-ppp" method="POST">
+                                <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
+
+                                    <option value="-1">Show All</option>
+                                </select>
+                                <input type="hidden" value="5" name="shop_columns">
+                                <input type="hidden" value="15" name="shop_per_page">
+                                <input type="hidden" value="right-sidebar" name="shop_layout">
+                            </form>
+
+                            <nav class="woocommerce-pagination">
+                                <ul class="page-numbers">
+                                    <li>
+                                        <span class="page-numbers current">1</span>
+                                    </li>
+
+                                    <li><a href="#" class="next page-numbers">→</a></li>
+                                </ul>
+                                <!-- .page-numbers -->
+                            </nav>
+                            <!-- .woocommerce-pagination -->
+
                         </div>
-                        <!-- .tab-pane -->
-                        <?php
-                        // Số sản phẩm mỗi trang
-                        $itemsPerPage = isset($_POST['ppp']) ? $_POST['ppp'] : 20;
-
-                        // Trang hiện tại, mặc định là trang 1
-                        $currentPage = isset($_POST['page']) ? $_POST['page'] : 1;
-
-                        // Tính toán vị trí bắt đầu của sản phẩm trong cơ sở dữ liệu
-                        $offset = ($currentPage - 1) * $itemsPerPage;
-
-                        // Simulate fetching products from the database
-                        // Giả sử có một hàm getProductsFromDatabase($offset, $itemsPerPage) trả về danh sách sản phẩm từ cơ sở dữ liệu
-                        $products = loadall_sanpham($offset, $itemsPerPage);
-
-                        // Hiển thị danh sách sản phẩm
-                        foreach ($products as $product) {
-                            echo '<p>' . $product['name'] . '</p>';
-                        }
-
-                        // Tính toán số trang
-                        $totalPages = ceil(loadall_sanpham_count() / $itemsPerPage);
-
-                        // Hiển thị thanh phân trang
-                        echo '<div class="woocommerce-pagination">';
-                        echo '<ul class="page-numbers">';
-
-                        for ($i = 1; $i <= $totalPages; $i++) {
-                            echo '<li>';
-                            if ($i == $currentPage) {
-                                echo '<span class="page-numbers current">' . $i . '</span>';
-                            } else {
-                                echo '<a href="#" class="page-numbers" onclick="submitForm(' . $i . ')">' . $i . '</a>';
-                            }
-                            echo '</li>';
-                        }
-
-                        echo '</ul>';
-                        echo '</div>';
-                        ?>
-
-                        <script>
-                            // Hàm để submit form với trang mới khi người dùng click vào một trang khác
-                            function submitForm(page) {
-                                // Đặt giá trị trang vào input ẩn
-                                document.querySelector('input[name="page"]').value = page;
-
-                                // Submit form
-                                document.querySelector('.form-techmarket-wc-ppp').submit();
-                            }
-                        </script>
-
                         <!-- .shop-control-bar-bottom -->
                 </main>
                 <!-- #main -->

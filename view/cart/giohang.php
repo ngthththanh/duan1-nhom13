@@ -6,7 +6,7 @@
                     <span class="delimiter">
                          <i class="tm tm-breadcrumbs-arrow-right"></i>
                     </span>
-                    Cart
+                    Giỏ hàng 
                </nav>
                <!-- .woocommerce-breadcrumb -->
                <div id="primary" class="content-area">
@@ -60,7 +60,7 @@
                                                        </td>
                                                        <td data-title="Price" class="product-price">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbol">' . number_format($item[3])  . '</span>VND
+                                                                 <span class="woocommerce-Price-currencySymbol">' .number_format($item[3])  . '</span>VND
                                                             </span>
                                                        </td>
                                                        <td class="product-quantity" data-title="Quantity">
@@ -181,6 +181,7 @@
      </div>
      <!-- .col-full -->
 </div>
+
 <!-- #content -->
 <div class="col-full">
      <section class="brands-carousel">
