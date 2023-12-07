@@ -16,8 +16,12 @@ include "../model/bienthe.php";
 include "../model/donhang.php";
 $dsthongke = load_thongke_sanpham_danhmuc();
 $tatcatrangthai = [
-     ['code' => 'choxuly', 'name' => 'Cho xu ly'],
-     ['code' => 'dangxuly', 'name' => 'Dang xu ly']
+     ['code' => 'dangchoxuly', 'name' => 'Đang chờ xử lý '],
+     ['code' => 'daxacnhan', 'name' => 'Đã xác nhận'],
+     ['code' => 'dangvanchuyen', 'name' => 'Đang vận chuyển'],
+     ['code' => 'hoanthanhdonhang', 'name' => 'Hoàn thành đơn hàng'],
+     ['code' => 'huydonhang', 'name' => 'Hủy đơn hàng']
+   
 ];
 
 if (isset($_GET['act']) && ($_GET['act'] != "")) {

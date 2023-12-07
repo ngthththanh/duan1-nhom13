@@ -41,7 +41,7 @@
                                                     'selected' : '' ?>  ><?= $trangthai['name'] ?></option>
                                                 <?php } ?>
                                             </select>
-                                            
+
                                         </td>
                                         <td></td>
                                     </tr>
@@ -56,7 +56,7 @@
     <script>
         $(document.body).on('change',".select-trangthai",function (e) {
    
-         var optVal= $(".select-trangthai option:selected").val();
+            var optVal = $(this).find('option:selected').val();
          var params = {
                     id: $(this).data('id'),
                     trangthai: optVal

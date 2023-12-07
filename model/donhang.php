@@ -71,11 +71,6 @@ function update_trangthai($id, $trangthai)
 }
 
 
-function loadall_bill(){
-    $sql = "SELECT * FROM tbl_cart";
-    $listbill=pdo_query($sql);
-    return  $listbill;
-}
 function loadall_hoadon(){
     $sql = "SELECT * FROM tbl_order ";
     $listorder = pdo_query($sql);
@@ -85,6 +80,11 @@ function loadall_hoadon(){
         $listorder[$key]['products'] = $listproduct;
     }
     return  $listorder;
+}
+function delete_donhang($id)
+{
+    $sql = "DELETE FROM tbl_order WHERE id=". $id;
+    pdo_execute($sql);
 }
 ?>
 

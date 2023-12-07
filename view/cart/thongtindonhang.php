@@ -1,44 +1,73 @@
-<section>
-<?php  if(isset($_SESSION['iddh'])&&($_SESSION['iddh']>0)){
-                        $getorderinfor=getorderinfor($_SESSION['iddh']);
-                        if(count($getorderinfor)>0){
-                        
-                        ?>
-    <h1>Lịch sử đơn hàng</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID đơn hàng:</th>
-                    <th>Tên sản phẩm :</th>
-                    <th>Hình</th>
-                    <th>Số lượng:</th>
-                    <th>Đơn Giá</th>
-                    <th>Trạng thái</th>
-                </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($loadallbill as $bill) :?>
-                
-              <tr>
-                <td><?php echo $bill['iddh'] ?></td>
-                <td><?php echo $bill['tensp'] ?></td>
-                <td><img src="../uploads/<?php echo $bill['img'] ?>" alt="" width="80"></td>
-                <td><?php echo $bill['soluong'] ?></td>
-                <td><?php echo $bill['dongia'] ?></td>
-                <td>Đang xử lí</td>
-              </tr>
-              <?php endforeach ?>
-                <!-- Thêm các dòng dữ liệu khác tại đây -->
-            </tbody>
-        </table>
-       
-                                  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-                                    
-    </section>
-    <?php 
-          
-}
-                                                                  
-} ?>
-                        
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Danh sách đơn hàng</h1>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>Danh sách đơn hàng
+                </div>
+                <form action="#" method="post">
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ID</th>
+                                    <th>Khach hang</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Hủy đơn hàng</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($listhoadon as $bill) {
+                                    extract($bill);
+                                    $xoadh = "index.php?act=xoa-dh&id=" . $bill['id'];
+                                ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $bill['id'] ?></td>
+                                        <td><?= $bill['hoten'] ?></td>
+                                        <td>
+                                            <?php foreach ($bill['products'] as $product) { ?>
+                                                <p><?= $product['tensp'] ?></p>
+                                            <?php } ?>
+                                        </td>
+                                        <td>
+                                            <p><?= $bill['trangthai'] ?></p>
+
+                                        </td>
+                                        <td>
+                                        <a href="<?=$xoadn?>" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng không')">
+                                            <button type="button" class="btn">Hủy Đơn Hàng</button>
+                                        </a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>     
+
+    
+    <script>
+        $(document.body).on('change',".select-trangthai",function (e) {
+   
+            var optVal = $(this).find('option:selected').val();
+         var params = {
+                    id: $(this).data('id'),
+                    trangthai: optVal
+               };
+               $.post("index.php?act=suatrangthaidonhang", params, function(data, status){
+                    
+               });
+
+
+});
+</script>
