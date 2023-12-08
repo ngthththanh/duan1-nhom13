@@ -50,7 +50,7 @@ ob_start();
                     <!-- .nav -->
                     <ul id="menu-top-bar-right" class="nav menu-top-bar-right">
                         <li class="hidden-sm-down menu-item animate-dropdown">
-                            <a title="Track Your Order" href="?act=theodoi">
+                            <a title="Track Your Order" href="?act=dathang">
                                 <i class="tm tm-order-tracking"></i>Theo dõi đơn hàng</a>
                         </li>
                         <?php if (isset($_SESSION['username'])) { ?>

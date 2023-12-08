@@ -89,18 +89,25 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          exit();
                     }
 
-
                     // Check if the username or email already exists in the database
                     if (checkusermail($user, $email)) {
                          echo '<script>alert("Lỗi: Tài khoản hoặc tên người dùng đã tồn tại!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                     } else {
+                         // Check if the username contains whitespace
+                         if (strpos($user, ' ') !== false) {
+                              echo '<script>alert("Lỗi: Tên người dùng không được chứa khoảng trắng!");</script>';
+                              echo "<script>window.location.href='index.php?act=login';</script>";
+                              exit();
+                         }
+
                          // Continue with the registration logic
                          insert_taikhoan($user, $hoten, $pass, $email);
-                         echo '<script>alert("Đăng kí thành công");</script>';
+                         echo '<script>alert("Đăng ký thành công");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                     }
                }
+
 
                include "login/login-and-register.php";
                break;
@@ -129,6 +136,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                include "login/login-and-register.php";
                break;
           case 'updatetk':
+
                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                     $id = $_POST['id'];
                     $user = $_POST['username'];
@@ -137,11 +145,26 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $email = $_POST['email'];
                     $sdt = $_POST['sdt'];
                     $diachi = $_POST['diachi'];
+
+                    // Kiểm tra xem email có hợp lệ không
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                         echo '<script>alert("Lỗi: Email không hợp lệ!");</script>';
+                         // Có thể thêm chuyển hướng hoặc các xử lý khác tùy thuộc vào yêu cầu của bạn
+                    }
+
+                    // Kiểm tra xem số điện thoại có đúng định dạng không
+                    if (!preg_match('/^0[0-9]{9}$/', $sdt)) {
+                         echo '<script>alert("Lỗi: Số điện thoại không hợp lệ!");</script>';
+                         // Có thể thêm chuyển hướng hoặc các xử lý khác tùy thuộc vào yêu cầu của bạn
+                    }
+
+                    // Tiếp tục với logic cập nhật tài khoản nếu không có lỗi
                     $taikhoan = update_taikhoan($id, $user, $hoten, $email, $pass, $sdt, $diachi);
-                    echo '<script>alert("Cập nhật thành công vui lòng đăng nhập lại");</script>';
+                    echo '<script>alert("Cập nhật thành công, vui lòng đăng nhập lại!");</script>';
                     // unset($_SESSION['username']);
                     // echo "<script>window.location.href='index.php?act=login';</script>";
                }
+
                include "login/updatetk.php";
                break;
           case "thoat":
@@ -214,29 +237,42 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $address = $_POST['address'];
                     $email = $_POST['email'];
                     $tell = $_POST['tel'];
-                    $pttt = $_POST['pttt'];
-                    $ngaymua=date('Y-m-d');
-                    //ma don hang
-                    $madh = "shopbh" . rand(0, 999999);
-                    // tạo đơn hàng trả về id đơn hàng |
-                    // $item = array($id,$tensp,$img,$gia,$sl);
 
-                    $iddh = taodonhang($madh, $tongdonhang, $pttt, $hoten, $address, $email, $tell,$ngaymua);
-                    $_SESSION['iddh'] = $iddh;
-                    if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                    // Kiểm tra số điện thoại
+                    if (!preg_match('/^\d{10}$/', $tell)) {
+                         // Định dạng số điện thoại không hợp lệ
+                         echo '<script>alert("Số điện thoại không hợp lệ. Vui lòng nhập một số điện thoại có 10 chữ số.");</script>';
+                         include "cart/giohang.php";
+                    } else {
+                         // Kiểm tra địa chỉ email
+                         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                              // Định dạng địa chỉ email không hợp lệ
+                              echo '<script>alert("Địa chỉ email không hợp lệ. Vui lòng nhập một địa chỉ email hợp lệ.");</script>';
+                              include "cart/giohang.php";
+                         } else {
+                              $pttt = $_POST['pttt'];
 
-                         foreach ($_SESSION['giohang'] as $item) {
-                              addtocard($iddh, $item[0], $item[1], $item[2], $item[3], $item[4]);
+                              // Tạo mã đơn hàng
+                              $madh = "shopbh" . rand(0, 999999);
+                              // Tạo đơn hàng và lấy ID đơn hàng
+                              $iddh = taodonhang($madh, $tongdonhang, $pttt, $hoten, $address, $email, $tell);
+                              $_SESSION['iddh'] = $iddh;
+
+                              // Thêm sản phẩm vào đơn hàng
+                              if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                                   foreach ($_SESSION['giohang'] as $item) {
+                                        addtocard($iddh, $item[0], $item[1], $item[2], $item[3], $item[4]);
+                                   }
+                                   unset($_SESSION['giohang']);
+                              }
+
+                              // Bao gồm hoadon.php
+                              include "cart/hoadon.php";
                          }
-                         unset($_SESSION['giohang']);
                     }
-
-                    include "cart/hoadon.php";
                }
                break;
 
-               include "cart/hoadon.php";
-               break;
           case 'suatrangthaidonhang':
                if (isset($_POST['id']) && isset($_POST['trangthai'])) {
                     update_trangthai($_POST['id'], $_POST['trangthai']);
@@ -265,7 +301,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $address = $_POST['address'];
                     $email = $_POST['email'];
                     // $tell = $_POST['tel'];
-                    $iddh = taodonhang($madh, $amount, 'VNPAY', $hoten, $address, $email, '');
+                    $iddh = taodonhang($madh, $amount, 'VNPAY', $hoten, $address, $email, '', date('d/m/y'));
                     $_SESSION['iddh'] = $iddh;
                     if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
                          foreach ($_SESSION['giohang'] as $item) {

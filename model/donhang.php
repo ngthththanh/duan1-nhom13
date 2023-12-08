@@ -1,11 +1,11 @@
 <?php
 
-function taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell,$ngaymua){
+function taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell){
 
     $conn = pdo_get_connection();
     
-    $sql="INSERT INTO tbl_order(madh,tongdonhang,pttt,hoten,address,email,tell,ngaymua)  
-    VALUES (:madh,:tongdonhang,:pttt,:hoten,:address,:email,:tell,:ngaymua)";
+    $sql="INSERT INTO tbl_order(madh,tongdonhang,pttt,hoten,address,email,tell)  
+    VALUES (:madh,:tongdonhang,:pttt,:hoten,:address,:email,:tell)";
 
     $stmt = $conn->prepare($sql);
 
@@ -16,7 +16,7 @@ function taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell,$ngaym
     $stmt->bindParam(':address', $address);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':tell', $tell);
-    $stmt->bindParam(':ngaymua', $ngaymua);
+    
     $stmt->execute();
     
     $last_id = $conn->lastInsertId();

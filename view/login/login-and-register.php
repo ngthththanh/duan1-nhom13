@@ -83,7 +83,7 @@
                                                     <label for="reg_email">Email address
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="email" value="" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text" required>
+                                                    <input type="text" value="" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text" required>
                                                 </p>
                                                 <p class="form-row form-row-wide">
                                                     <label for="reg_username">Fullname

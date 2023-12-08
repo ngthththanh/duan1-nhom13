@@ -119,7 +119,7 @@
                                                                  <td><input type="text" name="address" placeholder="Nhập địa chỉ" required></td>
                                                             </tr>
                                                             <tr>
-                                                                 <td><input type="email" name="email" placeholder="Nhập email" required></td>
+                                                                 <td><input type="text" name="email" placeholder="Nhập email" required></td>
                                                             </tr>
                                                             <tr>
                                                                  <td><input type="text" name="tel" placeholder="Nhập số điện thoại" required></td>

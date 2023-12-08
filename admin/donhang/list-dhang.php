@@ -23,6 +23,18 @@
                                     <th></th>
                                 </tr>
                             </thead>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>ID</th>
+                                    <th>Khach hang</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Ngày đặt hàng</th>
+                                    <th>Phương thức thanh toán</th>
+                                    <th>Trạng Thái</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
                             <tbody>
                                 <?php foreach ($listhoadon as $bill) {
                                     extract($bill);
@@ -45,9 +57,7 @@
                                             <p><?= $product['ngaybinhdathang'] ?></p>
                                             <?php } ?>
                                         </td>
-                                        <td>
                                         <td><?= $bill['pttt'] ?></td>
-                                        </td>
                                         <td>
                                             <select class="select-trangthai" data-id="<?= $bill['id'] ?>">
                                                 <?php foreach ($tatcatrangthai as $trangthai) {  ?>
