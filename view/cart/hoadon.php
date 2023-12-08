@@ -1,24 +1,14 @@
-<!-- .header-v1 -->
-<!-- ============================================================= Header End ============================================================= -->
-
 <div id="content" class="site-content" tabindex="-1">
     <div class="col-full">
         <div class="row">
-
-            <!-- .woocommerce-breadcrumb -->
-
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
                     <div class="page hentry">
-
                         <div class="entry-content">
                             <div class="woocommerce">
                                 <div class="woocommerce-order">
-
                                     <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">Thank you. Your order has been received.</p>
-
                                     <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
-
                                         <li class="woocommerce-order-overview__order order">
                                             Mã số đơn hàng:<strong><?= $iddh ?></strong>
                                         </li>
@@ -26,71 +16,64 @@
                                     <!-- .woocommerce-order-overview -->
                                     <section class="woocommerce-order-details">
                                         <h2 class="woocommerce-order-details__title">Chi tiết đặt hàng</h2>
-                                        <?php
-                                        if (isset($_SESSION['iddh']) && ($_SESSION['iddh'] > 0)) {
+                                        <table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
 
+                                            <thead>
+                                                <tr>
+                                                    <th class="woocommerce-table__product-name product-name">STT</th>
+                                                    <th class="woocommerce-table__product-name product-name">Product</th>
+                                                    <th class="woocommerce-table__product-name product-name">Hình</th>
+                                                    <th class="woocommerce-table__product-table product-total">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (isset($_SESSION['iddh']) && ($_SESSION['iddh'] > 0)) {
+                                                $getshowcart =  getshowcart($iddh);
+                                                if ((isset($getshowcart) && count($getshowcart) > 0)) {
+                                                    $i = 0;
+                                                    $tong = 0;
+                                                    foreach ($getshowcart as $item) {
+                                                        $tt = $item['soluong'] * $item['dongia'];
+                                                        $tong = $tong + $tt;
+                                                        ?>
+                                                        <tbody>
+                                                            <tr class="woocommerce-table__line-item order_item">
+                                                            <td class="woocommerce-table__product-total product-total">
+                                                                <span class="woocommerce-Price-amount amount"><?=  ($i + 1) ?> </span>  
+                                                            </td>
+                                                                <td class="woocommerce-table__product-name product-name">
+                                                                    <a href="single-product-fullwidth.html"><?= $item['tensp'] ?> </a> 
+                                                                    <strong class="product-quantity">×  <?= $item['soluong']?> </strong>
+                                                                </td>
 
-                                            $getshowcart =  getshowcart($iddh);
+                                                                <td class="woocommerce-table__product-total product-total">
+                                                                    <span class="woocommerce-Price-amount amount"><img src="../uploads/<?= $item['img'] ?>" alt="" width="80px"></span>  
+                                                                </td>
+                                                                <td class="woocommerce-table__product-total product-total">
+                                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND </span><?= $tt ?></span>  
+                                                                </td>
 
+                                                            </tr>
 
-                                            if ((isset($getshowcart) && count($getshowcart) > 0)) {
-                                                echo '<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
-
-                    <thead>
-                        <tr>
-                            <th class="woocommerce-table__product-name product-name">STT</th>
-                            <th class="woocommerce-table__product-name product-name">Product</th>
-                            <th class="woocommerce-table__product-name product-name">Hình</th>
-                            <th class="woocommerce-table__product-table product-total">Total</th>
-                        </tr>
-                    </thead>';
-                                                $i = 0;
-                                                $tong = 0;
-                                                foreach ($getshowcart as $item) {
-
-                                                    $tt = $item['soluong'] * $item['dongia'];
-                                                    $tong = $tong + $tt;
-                                                    echo '  <tbo>
-                        <tr class="woocommerce-table__line-item order_item">
-                        <td class="woocommerce-table__product-total product-total">
-                            <span class="woocommerce-Price-amount amount">' . ($i + 1) . '</span>  
-                        </td>
-                            <td class="woocommerce-table__product-name product-name">
-                                <a href="single-product-fullwidth.html">' . $item['tensp'] . '</a> 
-                                <strong class="product-quantity">× ' . $item['soluong'] . '</strong>
-                            </td>
-
-                            <td class="woocommerce-table__product-total product-total">
-                                <span class="woocommerce-Price-amount amount"><img src="../uploads/' . $item['img'] . '" alt="" width="80px"></span>  
-                            </td>
-                            <td class="woocommerce-table__product-total product-total">
-                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span>' . $tt . '</span>  
-                            </td>
-
-                        </tr>
-
-                       
-                    </tbo dy>';
-                                                    $i++;
-                                                }
-                                                echo '  <tfoot>
-                <tr>
-                    <th scope="row">Phí :</th>
-                    <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span>35000</span>&nbsp;<small class="shipped_via">via Normal Delivery</small></td>
-                </tr>
-                <tr>
-                    <th scope="row">Tổng:</th>
-                    <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span>' . $tong . '</span></td>
-                </tr>
-            </tfoot>';
-                                                echo  '</table>      
-            ';
+                                                        
+                                                        </tbody>
+                                                        <?= $i++; ?>
+                                                   <?php } ?>
+                                                
+                                                <tfoot>
+                                                        <tr>
+                                                            <th scope="row">Phí :</th>
+                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span>35000</span>&nbsp;<small class="shipped_via">via Normal Delivery</small></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Tổng:</th>
+                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span><?=  $tong ?></span></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                <?php }
                                             }
-                                        } else {
-                                            echo "gio hang rong";
-                                        }
-
-                                        ?>
+                                            ?>
+                                        </table>
                                         <!-- .woocommerce-table -->
                                     </section>
                                     <!-- .woocommerce-order-details -->
@@ -144,14 +127,11 @@
                                                     </table>
                                                 </form>
                                         <?php
-
                                             }
                                         } ?>
 
                                     </div>
                                     <!-- .cart-collaterals -->
-
-
                                 </div>
                                 <!-- .woocommerce-order -->
                             </div>

@@ -17,7 +17,7 @@
                                     <div id="customer_login" class="u-columns col2-set">
                                         <!-- .col-1 -->
                                         <div class="u-column2 col-2">
-                                            <h2>Update</h2>
+                                            <h2>Thông tin tài khoản</h2>
                                             <?php 
                                                 if(isset($_SESSION['username'])&&(is_array($_SESSION['username']))){
                                                     extract($_SESSION['username']);

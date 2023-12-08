@@ -42,7 +42,7 @@
                                     echo 
                                     '<tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>'.$id.'</td>
+                                        <td>'.$id_sp.'</td>
                                         <td>'.$ten_sp.' </td>
                                         <td>'.$ten.'</td>
                                         <td>'.$so_luong.'</td>        

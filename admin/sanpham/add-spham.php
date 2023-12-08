@@ -23,7 +23,7 @@
                          </div>
                          <div class="mb-3">
                               <label for="exampleInputText" class="form-label">Giá Sản Phẩm</label>
-                              <input type="text" class="form-control" id="exampleInputText" name="giasp" required>
+                              <input type="text" class="form-control" id="exampleInputText" name="giasp" required min="1">
                          </div>
                         <div class="mb-3">
                               <label for="exampleInputText" class="form-label">Hình Ảnh Sản Phẩm</label>
@@ -52,7 +52,7 @@
                               </script>
                          <div class="mb-3">
                               <label for="exampleFormControlTextarea1" class="form-label">Mô Tả Sản Phẩm</label>
-                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota" required></textarea>
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota"></textarea>
                          </div>
                          <button type="submit" class="btn btn-primary" name="themmoi">Submit</button>
                     </form>

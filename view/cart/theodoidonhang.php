@@ -4,9 +4,9 @@
             <nav class="woocommerce-breadcrumb">
                 <a href="home-v1.html">Home</a>
                 <span class="delimiter">
-                    <i class="tm tm-breadcrumbs-arrow-right"></i>
+                    <i class="tm tm-breadcrumbs-arrow-right"></i>Theo dõi đơn hàng
                 </span>
-                Theo dõi đơn hàng
+                
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">

@@ -82,24 +82,14 @@
                                     </p>
                                     <!-- .price -->
                                     <form class="variations_form cart" action="index.php?act=addcart" method="post">
-                                        <table class="variations">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="label">
-                                                        <label for="pa_screen-size">Kích Thước</label>
-                                                    </td>
-                                                    <td class="value">
-                                                        <select onchange="soLuong1()" id="kichThuoc" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="attribute_pa_screen-size" class="" id="pa_screen-size">
-                                                            <option value="">Chọn kích thước</option>
-                                                            <?php foreach ($listkthuoc as $kthuoc) {
-                                                                extract($kthuoc);
-                                                                echo '<option value="' . $so_luong . '" class="attached enabled">Size' . $ten . '</option>';
-                                                            } ?>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <select onchange="soLuong1()" id="kichThuoc" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="attribute_pa_screen-size" class="" id="pa_screen-size">
+                                            <option value="">Chọn kích thước</option>
+                                            <?php foreach ($listkthuoc as $kthuoc) {
+                                                extract($kthuoc);
+                                                echo '<option value="' . $so_luong . '" class="attached enabled">Size' . $ten . '</option>';
+                                            } ?>
+                                        </select>
+                                  
                                         <div class="single_variation_wrap">
                                             <div class="woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-disabled">
                                                 <div class="quantity">
@@ -112,7 +102,6 @@
                                                     <input type="hidden" name="kichthuoc" value="<?= $kichthuoc ?>">
                                                 </div>
                                                 <a class="button add_to_cart_button" href="cart.html" rel="nofollow"><input type="submit" value="Thêm vào giỏ hàng" name="addtocart"></a>
-
                                             </div>
                                         </div>
                                         <!-- .single_variation_wrap -->

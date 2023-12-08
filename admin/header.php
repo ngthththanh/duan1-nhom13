@@ -99,6 +99,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="?act=chart">Biểu đồ</a>
                                 <a class="nav-link" href="?act=thongke">Danh sách</a>
+                                <a class="nav-link" href="?act=thongkesp">Thống kê sản phẩm bán chạy</a>
                             </nav>
                         </div>  
                         <div class="sb-sidenav-menu-heading">Addons</div>

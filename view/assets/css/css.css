@@ -10,4 +10,112 @@
         color: #000;
 
       }
-      
+      /* Container styles */
+      #content {
+          padding: 20px;
+          background-color: #fff;
+      }
+  
+      .col-full {
+          max-width: 100%;
+          margin: 0 auto;
+      }
+  
+      .row {
+          display: flex;
+          flex-wrap: wrap;
+      }
+  
+      /* Order details styles */
+      .woocommerce-notice--success {
+          background-color: #2961ca;
+          color: #fff;
+          padding: 10px;
+          margin-bottom: 20px;
+      }
+  
+      .woocommerce-order-overview__order {
+          font-size: 16px;
+          margin-bottom: 10px;
+      }
+  
+      .woocommerce-order-details {
+          margin-top: 20px;
+      }
+      .woocommerce-order-details__title{
+        font-size: 30px;
+      }
+      .woocommerce-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+      }
+  
+      .woocommerce-table th,
+      .woocommerce-table td {
+          border: 1px solid #ddd;
+          padding: 10px;
+          text-align: left;
+      }
+  
+      .woocommerce-table th {
+          background-color: #f2f2f2;
+      }
+  
+      .woocommerce-table img {
+          max-width: 80px;
+          height: auto;
+      }
+  
+      .cart-collaterals {
+          margin-top: 20px;
+      }
+  
+      .cart-collaterals h3 {
+          font-size: 18px;
+          margin-bottom: 10px;
+      }
+  
+      .cart-collaterals table {
+          width: 100%;
+      }
+      .cart-collaterals table tr td input[type="text"]{
+        width: 400px;
+      }
+  
+      .cart-collaterals table tr td {
+          padding: 5px;
+      }
+  
+      /* Responsive styles */
+      @media (max-width: 768px) {
+          .woocommerce-table th,
+          .woocommerce-table td {
+              font-size: 12px;
+          }
+      }
+      .container-fluid {
+        margin-top: 20px;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .btn {
+        background-color: #2961ca;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+  

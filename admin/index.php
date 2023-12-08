@@ -28,7 +28,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
           case "home":
-            
                $listdanhmuc = loadall_danhmuc();
                include "home.php";
                break;
@@ -74,6 +73,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
           case "add-sp":
                $listdanhmuc = loadall_danhmuc();
                include "sanpham/add-spham.php";
+
                if (isset($_POST['themmoi'])) {
                     $iddm = $_POST['iddm'];
                     $tensp = $_POST['tensp'];
@@ -102,18 +102,25 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     if ($uploadOk == 0) {
                          echo '<script>alert("Xin lỗi, tệp của bạn không được tải lên.");</script>';
                     } else {
-                         // Di chuyển tệp đã tải lên vào thư mục đích
-                         if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                              // Tệp đã được tải lên thành công
-                              // Thêm sản phẩm vào cơ sở dữ liệu
-                              insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm);
-                              echo '<script>alert("Bạn đã thêm sản phẩm thành công.");</script>';
+                         // Check if the product price is greater than 0
+                         if ($giasp > 0) {
+                              // Di chuyển tệp đã tải lên vào thư mục đích
+                              if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                                   // Tệp đã được tải lên thành công
+                                   // Thêm sản phẩm vào cơ sở dữ liệu
+                                   insert_sanpham($tensp, $giasp, $hinh, $mota, $iddm);
+                                   echo '<script>alert("Bạn đã thêm sản phẩm thành công.");</script>';
+                              } else {
+                                   // Lỗi khi tải lên tệp
+                                   echo '<script>alert("Xin lỗi, có lỗi khi tải lên tệp của bạn.");</script>';
+                              }
                          } else {
-                              // Lỗi khi tải lên tệp
-                              echo '<script>alert("Xin lỗi, có lỗi khi tải lên tệp của bạn.");</script>';
+                              // Product price is not greater than 0
+                              echo '<script>alert("Giá sản phẩm phải lớn hơn 0.");</script>';
                          }
                     }
                }
+
                break;
           case 'list-sp':
                if (isset($_POST['listok']) && ($_POST['listok'])) {
@@ -264,13 +271,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                }
                include "khachhang/update.php";
                break;
-
-          case 'suatk':
-               if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $khachhang = loadone_khachhang($_GET['id']);
-               }
-               include "khachhang/update.php";
-               break;
           case 'xoabl';
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     delete_binhluan($_GET['id']);
@@ -282,6 +282,14 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                $dsthongke = load_thongke_sanpham_danhmuc();
                include "thongke/list.php";
                break;
+          case 'thongkesp':
+               if (isset($_POST['check'])) {
+                    $bd = $_POST['bd'];
+                    $kt = $_POST['kt'];
+                    $dsthongkesp = thongkespbanchay($_POST['bd'], $_POST['kt']);
+               }
+               include "thongke/thongke-spbanchay.php";
+               break;
           case "chart":
                $dsthongke = load_thongke_sanpham_danhmuc();
                include "thongke/chart.php";
@@ -291,10 +299,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                // case 'list-kthuoc':
                //      include "kichthuoc/list-kthuoc.php";
                //      break;
-               default:
+          default:
                include "shared/cauhoi.php";
                break;
-     
      }
 } else {
      include "home.php";
