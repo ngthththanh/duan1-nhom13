@@ -13,7 +13,7 @@ include "../model/thongke.php";
 include "../model/binhluan.php";
 include "../model/bienthe.php";
 include "../model/donhang.php";
-
+$dsthongke = doanhthu();
 $dsthongke = load_thongke_sanpham_danhmuc();
 $tatcatrangthai = [
      ['code' => 'choxuly', 'name' => 'Đang chờ xử lý '],
@@ -27,13 +27,12 @@ $tatcatrangthai = [
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
-
+         
           case "add-dm":
                if (isset($_POST['themmoi'])) {
                     $tendm = $_POST['tendm'];
                     insert_danhmuc($tendm);
                     echo '<script>alert("Bạn đã thêm danh mục thành công.");</script>';
-                    // echo "<script>window.location.href='index.php?act=list-dm';</script>";
                }
                include "danhmuc/add-dmuc.php";
                break;
@@ -307,16 +306,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                $dsthongke = load_thongke_sanpham_danhmuc();
                include "thongke/chart.php";
                break;
-          case "home":
-               $dsthongke = doanhthu();
-               include "home.php";
-               break;
-          default:
-               include "shared/cauhoi.php";
-               break;
+               case "home":
+                    $dsthongke = doanhthu();
+                    include "home.php";
+                    break;
      }
 } else {
+     $dsthongke = doanhthu();
      include "home.php";
 }
-
 include "footer.php";

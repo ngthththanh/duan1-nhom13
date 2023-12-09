@@ -48,7 +48,7 @@
                <div class="row">
 
                     <div class="card-body">
-                         <div id="myChart" style="width:100%; max-width:100%; height:800px;"></div>
+                         <div id="myChart" style="width:100%; max-width:100%; height:600px;"></div>
                     </div>
                </div>
           </div>
