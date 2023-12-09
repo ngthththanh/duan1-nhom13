@@ -13,7 +13,7 @@
                          <form action="index.php?act=update-kt" method="POST">
                               <div class="mb-3">
                                    <label for="exampleInputText" class="form-label">Chọn sản phẩm</label>
-                                   <select id="id_sanpham" name="id_sanpham">
+                                   <select id="id_sanpham" name="id_sanpham" disabled>
                                         <?php foreach ($listsanpham as $sanpham) {
                                              extract($sanpham);
                                              $s = ($id_sp == $kichthuoc['id_sanpham']) ? "selected" : "";
@@ -23,7 +23,7 @@
                               </div>
                               <div class="mb-3">
                                    <label for="sizeSelect" class="form-label">Size</label>
-                                   <select class="form-select" id="kthuoc" name="tenkthuoc" required>
+                                   <select class="form-select" id="kthuoc" name="tenkthuoc" disabled>
                                         <option value="37" <?= ($ten == '37') ? 'selected' : '' ?>>37</option>
                                         <option value="38" <?= ($ten == '38') ? 'selected' : '' ?>>38</option>
                                         <option value="39" <?= ($ten == '39') ? 'selected' : '' ?>>39</option>
