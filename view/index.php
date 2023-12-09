@@ -18,10 +18,7 @@ $allsp = loadall_sanpham();
 $dstop10 = loadall_sanpham_top10();
 $listhoadon = loadall_hoadon();
 $tatcatrangthai = [
-     ['code' => 'choxuly', 'name' => 'Đang chờ xử lý '],
-     ['code' => 'daxacnhan', 'name' => 'Đã xác nhận'],
-     ['code' => 'dangvanchuyen', 'name' => 'Đang vận chuyển'],
-     ['code' => 'hoanthanhdonhang', 'name' => 'Hoàn thành đơn hàng'],
+     ['code' => '', 'name' => 'chọn'],
      ['code' => 'huydonhang', 'name' => 'Hủy đơn hàng']
 
 ];
@@ -250,7 +247,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          echo '<script>alert("Lỗi: Họ tên quá dài, vui lòng nhập họ tên ngắn hơn!");</script>';
                          include "cart/giohang.php";
                     } else {
-                         $tell = $_POST['tell'];
+                         $tell = $_POST['tel'];
 
                          // Kiểm tra định dạng số điện thoại
                          if (!preg_match('/^\d{10}$/', $tell)) {

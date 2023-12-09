@@ -58,12 +58,13 @@
                                         </td>
                                         <td><?= $bill['pttt'] ?></td>
                                         <td>
-                                            <select class="select-trangthai" data-id="<?= $bill['id'] ?>">
-                                                <?php foreach ($tatcatrangthai as $trangthai) {  ?>
-                                                    <option value="<?= $trangthai['code'] ?>" <?= $bill['trangthai'] == $trangthai['code'] ? 
-                                                    'selected' : '' ?>  ><?= $trangthai['name'] ?></option>
-                                                <?php } ?>
-                                            </select>
+                                        <select class="select-trangthai" data-id="<?= $bill['id'] ?>" onchange="handleTrangThaiChange(this)">
+                                            <?php foreach ($tatcatrangthai as $trangthai) {  ?>
+                                                <option value="<?= $trangthai['code'] ?>" <?= $bill['trangthai'] == $trangthai['code'] ? 'selected' : '' ?>>
+                                                    <?= $trangthai['name'] ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
 
                                         </td>
                                         <td></td>
@@ -89,5 +90,32 @@
                     
                });
 });
+</script>
+<script>
+    function handleTrangThaiChange(selectElement) {
+        // Lấy giá trị của tùy chọn được chọn
+        var selectedValue = selectElement.value;
+
+        // Lấy tất cả các tùy chọn trong select
+        var options = selectElement.options;
+
+        // Duyệt qua từng tùy chọn để ẩn hoặc vô hiệu hóa "Hủy đơn hàng" khi "Đang vận chuyển" được chọn
+        for (var i = 0; i < options.length; i++) {
+            var option = options[i];
+            if (selectedValue === 'dangvanchuyen') {
+                // Nếu "Đang vận chuyển" được chọn, ẩn hoặc vô hiệu hóa "Hủy đơn hàng"
+                if (option.value === 'huydonhang') {
+                    option.style.display = 'none'; // Ẩn tùy chọn
+                    // Hoặc sử dụng option.disabled = true; để vô hiệu hóa tùy chọn
+                }
+            } else {
+                // Nếu không phải "Đang vận chuyển", hiển thị "Hủy đơn hàng"
+                if (option.value === 'huydonhang') {
+                    option.style.display = ''; // Hiển thị tùy chọn
+                    // Hoặc sử dụng option.disabled = false; để bỏ vô hiệu hóa tùy chọn
+                }
+            }
+        }
+    }
 </script>
 

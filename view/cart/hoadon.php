@@ -63,11 +63,11 @@
                                                 <tfoot>
                                                         <tr>
                                                             <th scope="row">Phí :</th>
-                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span>35000</span>&nbsp;<small class="shipped_via">via Normal Delivery</small></td>
+                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span>35.000</span>&nbsp;<small class="shipped_via"></small></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">Tổng:</th>
-                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span><?=  $tong ?></span></td>
+                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span><?= number_format($tong) ?></span></td>
                                                         </tr>
                                                     </tfoot>
                                                 <?php }

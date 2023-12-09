@@ -56,9 +56,13 @@
 
                                                 </td>
                                                 <td>
-                                                    <a href="<?= $xoadn ?>" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng không')">
-                                                        <button type="button" class="btn">Hủy Đơn Hàng</button>
-                                                    </a>
+                                                <select class="select-trangthai" data-id="<?= $bill['id'] ?>">
+                                                <?php foreach ($tatcatrangthai as $trangthai) {  ?>
+                                                    <option value="<?= $trangthai['code'] ?>" <?= $bill['trangthai'] == $trangthai['code'] ? 
+                                                    'selected' : '' ?>  ><?= $trangthai['name'] ?></option>
+                                                <?php } ?>
+                                            </select>
+
                                                 </td>
                                             </tr>
                                         <?php } ?>
