@@ -22,3 +22,16 @@ function thongkespbanchay($bd,$kt){
 ";
   return pdo_query($sql);
 }
+function doanhthu(){
+  $sql="SELECT
+  MONTH(ngaybinhdathang) as thang,
+  SUM(tbl_order.tongdonhang) as total
+FROM
+tbl_cart join tbl_order on tbl_order.id=tbl_cart.iddh
+WHERE
+  YEAR(ngaybinhdathang) = 2023
+GROUP BY thang
+ORDER BY thang;";
+  return pdo_query($sql);
+}
+

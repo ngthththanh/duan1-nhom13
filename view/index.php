@@ -83,13 +83,17 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     }
 
                     // Check if the password contains both letters and numbers and is at least 6 characters long
-                    if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/', $pass)) {
+                    if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/', $pass)) {
                          echo '<script>alert("Lỗi: Mật khẩu phải chứa ít nhất một chữ và một số, và dài ít nhất 6 ký tự!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                          exit();
                     }
-
-                    // Check if the username or email already exists in the database
+                    if (strlen($user) > 20) {
+                         echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
+                    }
+                    if (strlen($hoten) > 50) {
+                         echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
+                    }
                     if (checkusermail($user, $email)) {
                          echo '<script>alert("Lỗi: Tài khoản hoặc tên người dùng đã tồn tại!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
@@ -156,6 +160,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     if (!preg_match('/^0[0-9]{9}$/', $sdt)) {
                          echo '<script>alert("Lỗi: Số điện thoại không hợp lệ!");</script>';
                          // Có thể thêm chuyển hướng hoặc các xử lý khác tùy thuộc vào yêu cầu của bạn
+                    }
+                    if (strlen($hoten) > 20) {
+                         echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
                     }
 
                     // Tiếp tục với logic cập nhật tài khoản nếu không có lỗi
@@ -239,35 +246,43 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $tell = $_POST['tel'];
 
                     // Kiểm tra số điện thoại
-                    if (!preg_match('/^\d{10}$/', $tell)) {
-                         // Định dạng số điện thoại không hợp lệ
-                         echo '<script>alert("Số điện thoại không hợp lệ. Vui lòng nhập một số điện thoại có 10 chữ số.");</script>';
+                    if (strlen($hoten) > 50) {
+                         echo '<script>alert("Lỗi: Họ tên quá dài, vui lòng nhập họ tên ngắn hơn!");</script>';
                          include "cart/giohang.php";
                     } else {
-                         // Kiểm tra địa chỉ email
-                         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                              // Định dạng địa chỉ email không hợp lệ
-                              echo '<script>alert("Địa chỉ email không hợp lệ. Vui lòng nhập một địa chỉ email hợp lệ.");</script>';
+                         $tell = $_POST['tell'];
+
+                         // Kiểm tra định dạng số điện thoại
+                         if (!preg_match('/^\d{10}$/', $tell)) {
+                              // Định dạng số điện thoại không hợp lệ
+                              echo '<script>alert("Số điện thoại không hợp lệ. Vui lòng nhập một số điện thoại có 10 chữ số.");</script>';
                               include "cart/giohang.php";
                          } else {
-                              $pttt = $_POST['pttt'];
+                              // Kiểm tra địa chỉ email
+                              if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                   // Định dạng địa chỉ email không hợp lệ
+                                   echo '<script>alert("Địa chỉ email không hợp lệ. Vui lòng nhập một địa chỉ email hợp lệ.");</script>';
+                                   include "cart/giohang.php";
+                              } else {
+                                   $pttt = $_POST['pttt'];
 
-                              // Tạo mã đơn hàng
-                              $madh = "shopbh" . rand(0, 999999);
-                              // Tạo đơn hàng và lấy ID đơn hàng
-                              $iddh = taodonhang($madh, $tongdonhang, $pttt, $hoten, $address, $email, $tell);
-                              $_SESSION['iddh'] = $iddh;
+                                   // Tạo mã đơn hàng
+                                   $madh = "shopbh" . rand(0, 999999);
+                                   // Tạo đơn hàng và lấy ID đơn hàng
+                                   $iddh = taodonhang($madh, $tongdonhang, $pttt, $hoten, $address, $email, $tell);
+                                   $_SESSION['iddh'] = $iddh;
 
-                              // Thêm sản phẩm vào đơn hàng
-                              if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
-                                   foreach ($_SESSION['giohang'] as $item) {
-                                        addtocard($iddh, $item[0], $item[1], $item[2], $item[3], $item[4]);
+                                   // Thêm sản phẩm vào đơn hàng
+                                   if (isset($_SESSION['giohang']) && count($_SESSION['giohang']) > 0) {
+                                        foreach ($_SESSION['giohang'] as $item) {
+                                             addtocard($iddh, $item[0], $item[1], $item[2], $item[3], $item[4]);
+                                        }
+                                        unset($_SESSION['giohang']);
                                    }
-                                   unset($_SESSION['giohang']);
-                              }
 
-                              // Bao gồm hoadon.php
-                              include "cart/hoadon.php";
+                                   // Bao gồm hoadon.php
+                                   include "cart/hoadon.php";
+                              }
                          }
                     }
                }

@@ -4,7 +4,6 @@ session_start();
 if (!isset($_SESSION['username']) || $_SESSION['username']['phanquyen'] == "2") {
      header('location:../view/index.php');
 }
-
 include "header.php";
 include "../model/pdo.php";
 include "../model/danhmuc.php";
@@ -14,6 +13,7 @@ include "../model/thongke.php";
 include "../model/binhluan.php";
 include "../model/bienthe.php";
 include "../model/donhang.php";
+
 $dsthongke = load_thongke_sanpham_danhmuc();
 $tatcatrangthai = [
      ['code' => 'choxuly', 'name' => 'Đang chờ xử lý '],
@@ -27,10 +27,7 @@ $tatcatrangthai = [
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
-          case "home":
-               $listdanhmuc = loadall_danhmuc();
-               include "home.php";
-               break;
+
           case "add-dm":
                if (isset($_POST['themmoi'])) {
                     $tendm = $_POST['tendm'];
@@ -76,33 +73,38 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
                if (isset($_POST['themmoi'])) {
                     $iddm = $_POST['iddm'];
-                    $tensp = $_POST['tensp'];
+                    $tensp = htmlspecialchars($_POST['tensp']);
                     $giasp = $_POST['giasp'];
-                    $mota = $_POST['mota'];
+                    $mota = htmlspecialchars($_POST['mota']);
                     $hinh = $_FILES['hinh']['name'];
                     $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                     $uploadOk = 1;
 
-                    // Kiểm tra xem tệp tải lên có phải là hình ảnh không
-                    $check = getimagesize($_FILES["hinh"]["tmp_name"]);
-                    if ($check === false) {
-                         echo '<script>alert("Tệp không phải là hình ảnh.");</script>';
-                         $uploadOk = 0;
-                    }
-
-                    // Cho phép chỉ định định dạng tệp hình ảnh
-                    $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
-                    $uploaded_extension = strtolower(pathinfo($hinh, PATHINFO_EXTENSION));
-                    if (!in_array($uploaded_extension, $allowed_extensions)) {
-                         echo '<script>alert("Định dạng tệp không hợp lệ. Vui lòng tải lên một tệp hình ảnh hợp lệ.");</script>';
-                         $uploadOk = 0;
-                    }
-
-                    if ($uploadOk == 0) {
-                         echo '<script>alert("Xin lỗi, tệp của bạn không được tải lên.");</script>';
+                    // Check if a category is selected
+                    if (empty($iddm)) {
+                         echo '<script>alert("Lỗi: Vui lòng chọn danh mục sản phẩm.");</script>';
                     } else {
-                         // Check if the product price is greater than 0
+                         // Check if the file is an image
+                         $check = getimagesize($_FILES["hinh"]["tmp_name"]);
+                         if ($check === false) {
+                              echo '<script>alert("Lỗi: Tệp không phải là hình ảnh.");</script>';
+                              $uploadOk = 0;
+                         }
+
+                         // Allow only certain file formats
+                         $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
+                         $uploaded_extension = strtolower(pathinfo($hinh, PATHINFO_EXTENSION));
+                         if (!in_array($uploaded_extension, $allowed_extensions)) {
+                              echo '<script>alert("Lỗi: Định dạng tệp không hợp lệ. Vui lòng tải lên một tệp hình ảnh hợp lệ.");</script>';
+                              $uploadOk = 0;
+                         }
+
+                         // Check if the file size is less than 5MB
+                         if ($_FILES["hinh"]["size"] > 5 * 1024 * 1024) {
+                              echo '<script>alert("Lỗi: Kích thước tệp quá lớn. Vui lòng tải lên tệp nhỏ hơn 5MB.");</script>';
+                              $uploadOk = 0;
+                         }
                          if ($giasp > 0) {
                               // Di chuyển tệp đã tải lên vào thư mục đích
                               if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
@@ -179,10 +181,21 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $id_sanpham = $_POST['id_sanpham'];
                     $tenkthuoc = $_POST['tenkthuoc'];
                     $slkthuoc = $_POST['slkthuoc'];
-                    insert_kthuoc($id_sanpham, $tenkthuoc, $slkthuoc);
-                    echo '<script>alert("Bạn đã thêm bien the kich thuoc thành công.");</script>';
-                    // echo "<script>window.location.href='index.php?act=list-dm';</script>";
+
+                    // Check if the size already exists for the specified product
+                    if (checkten($id_sanpham, $tenkthuoc)) {
+                         echo '<script>alert("Lỗi: Kích thước đã tồn tại cho sản phẩm này.");</script>';
+                    } else if (empty($tenkthuoc)) {
+                         echo '<script>alert("Lỗi: Vui lòng nhập tên kích thước.");</script>';
+                    } else if (empty($id_sanpham)) {
+                         echo '<script>alert("Lỗi: Vui lòng nhập sản phẩm.");</script>';
+                    } else {
+                         // Proceed with the insertion
+                         insert_kthuoc($id_sanpham, $tenkthuoc, $slkthuoc);
+                         echo '<script>alert("Bạn đã thêm biến thể kích thước thành công.");</script>';
+                    }
                }
+
                $listsanpham = loadall_sanpham();
                include "bienthe/add-kthuoc.php";
                break;
@@ -294,11 +307,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                $dsthongke = load_thongke_sanpham_danhmuc();
                include "thongke/chart.php";
                break;
-               print_r($dsthongke);
-               die;
-               // case 'list-kthuoc':
-               //      include "kichthuoc/list-kthuoc.php";
-               //      break;
+          case "home":
+               $dsthongke = doanhthu();
+               include "home.php";
+               break;
           default:
                include "shared/cauhoi.php";
                break;

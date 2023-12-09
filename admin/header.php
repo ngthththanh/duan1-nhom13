@@ -19,7 +19,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.php">Admin</a>
+        <a class="navbar-brand ps-3" href="index.php?act=home">Admin</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -97,9 +97,10 @@
                         </a>
                         <div class="collapse" id="collapseLayoutsThongKe" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="?act=chart">Biểu đồ</a>
-                                <a class="nav-link" href="?act=thongke">Danh sách</a>
+                                <!-- <a class="nav-link" href="?act=chart">Biểu đồ</a> -->
+                                <a class="nav-link" href="?act=thongke">Thống kê theo sản phẩm</a>
                                 <a class="nav-link" href="?act=thongkesp">Thống kê sản phẩm bán chạy</a>
+                         
                             </nav>
                         </div>  
                         <div class="sb-sidenav-menu-heading">Addons</div>

@@ -1,12 +1,9 @@
-
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Danh sách tài khoản</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-            
+         
+
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
@@ -41,21 +38,25 @@
                         <tbody>
                             <?php foreach ($listtaikhoan as $taikhoan) {
                                 extract($taikhoan);
-                                $suatk="index.php?act=suatk&id=".$id_tk;
-                                $xoatk="index.php?act=xoatk&id=".$id_tk;
-                         
-                                echo
-                                    '<tr>
-                                        <td> <input type="checkbox" name="" id=""></td>
-                                        <td>'.$id_tk.'</td>
-                                        <td>'.$user.' </td>                  
-                                        <td>'.$email.' </td>
-                                        <td>'.$pass.' </td>
-                                        <td>'.$diachi.' </td>
-                                        <td>'.$phanquyen.' </td>
-                                        <td> <a href="'.$xoatk.' "><button type="button" class="btn">Xóa</button></a></td>
-                                    </tr>';
-                            }?>   
+                                $suatk = "index.php?act=suatk&id=" . $id_tk;
+                                $xoatk = "index.php?act=xoatk&id=" . $id_tk;
+                            ?>
+                                <tr>
+                                    <td> <input type="checkbox" name="" id=""></td>
+                                    <td><?= $id_tk  ?></td>
+                                    <td><?= $user   ?></td>
+                                    <td><?= $email ?></td>
+                                    <td><?= $pass ?></td>
+                                    <td><?= $diachi  ?></td>
+                                    <td><?= $phanquyen  ?> </td>
+                                    <?php if ($phanquyen == 1) { ?>
+                                        <td></td>
+                                    <?php } else { ?>
+                                        <td> <a href="<?= $xoatk ?> "><button type="button" class="btn">Xóa</button></a></td>';
+                                    <?php }?>
+                                </tr>
+                            <?php } ?>
+
                         </tbody>
                     </table>
                 </div>

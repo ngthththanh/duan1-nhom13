@@ -1,10 +1,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Danh sách đơn hàng</h1>
-            <div class="card mb-4">
+            <div class="card nb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>Danh sách đơn hàng
                 </div>
@@ -15,7 +14,7 @@
                                 <tr>
                                     <th></th>
                                     <th>ID</th>
-                                    <th>Khach hang</th>
+                                    <th>Khách hàng</th>
                                     <th>Sản phẩm</th>
                                     <th>Ngày đặt hàng</th>
                                     <th>Phương thức thanh toán</th>
@@ -27,7 +26,7 @@
                                 <tr>
                                     <th></th>
                                     <th>ID</th>
-                                    <th>Khach hang</th>
+                                    <th>Khách hàng</th>
                                     <th>Sản phẩm</th>
                                     <th>Ngày đặt hàng</th>
                                     <th>Phương thức thanh toán</th>
@@ -45,11 +44,11 @@
                                         <td><?= $bill['hoten'] ?></td>
                                         <td>
                                             <?php foreach ($bill['products'] as $product) { ?>
-                                                <p><?= $product['tensp'] ?></p>
-                                                <p><?= $product['soluong'] ?></p>
-                                                <p><?= $product['dongia'] ?></p>
+                                                <p>Tên sản phẩm: <?= $product['tensp'] ?></p>
+                                                <p>Số lượng: <?= $product['soluong'] ?></p>
+                                                <p>Giá: <?= $product['dongia'] ?></p>
                                                
-                                                <p><img src="../uploads/<?= $product['img'] ?>" alt="" width="80"></p>
+                                                <p>HÌnh ảnh: <img src="../uploads/<?= $product['img'] ?>" alt="" width="80"></p>
                                             <?php } ?>
                                         </td>
                                         <td>
@@ -77,6 +76,7 @@
             </div>
         </div>
     </main>
+</div>
     <script>
         $(document.body).on('change',".select-trangthai",function (e) {
    

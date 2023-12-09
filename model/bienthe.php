@@ -21,7 +21,7 @@ function loadall_kichthuoc()
                  kich_thuoc.ten IS NOT NULL AND kich_thuoc.ten != '' AND 
                  kich_thuoc.so_luong IS NOT NULL AND kich_thuoc.so_luong != ''
              GROUP BY kich_thuoc.id
-             ORDER BY sanpham.ten_sp ASC"; // Add ORDER BY clause
+             ORDER BY sanpham.id_sp DESC, kich_thuoc.ten ASC"; 
     $listkichthuoc = pdo_query($sql);
 
     return $listkichthuoc;
@@ -42,6 +42,12 @@ function loadone_kichthuoc($id)
 }
 function update_kichthuoc($id, $idsp, $ten, $so_luong)
 {
-    $sql = "UPDATE kich_thuoc SET id_sanpham ='".$idsp."', ten = '" . $ten . "', so_luong = '" . $so_luong . "' WHERE id = " . $id;
+    $sql = "UPDATE kich_thuoc SET id_sanpham ='" . $idsp . "', ten = '" . $ten . "', so_luong = '" . $so_luong . "' WHERE id = " . $id;
     pdo_execute($sql);
+}
+function checkten( $id_spham, $ten)
+{
+    $sql = "SELECT * FROM kich_thuoc WHERE id_sanpham = '$id_spham ' AND ten = '$ten'";
+    $kichthuoc = pdo_query($sql);
+    return $kichthuoc;
 }

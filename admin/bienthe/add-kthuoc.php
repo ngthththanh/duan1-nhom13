@@ -12,6 +12,7 @@
                               <div class="mb-3">
                                    <label for="exampleInputText" class="form-label">Chọn sản phẩm</label>
                                    <select id="id_sanpham" name="id_sanpham">
+                                   <option value="0">Danh mục sản phẩm</option>
                                         <?php foreach ($listsanpham as $sanpham) {
                                              extract($sanpham);
                                              echo '<option value="' . $id_sp . '">' . $ten_sp . '</option>';
@@ -21,6 +22,7 @@
                               <div class="mb-3">
                                    <label for="sizeSelect" class="form-label">Size</label>
                                    <select class="form-select" id="kthuoc" name="tenkthuoc" required>
+                                        <option value="0">Chọn kích thước</option>
                                         <option value="37">37</option>
                                         <option value="38">38</option>
                                         <option value="39">39</option>
@@ -30,7 +32,7 @@
 
                               <div class="mb-3">
                                    <label for="exampleInputText" class="form-label">Số lượng</label>
-                                   <input type="text" class="form-control" id="exampleInputText" name="slkthuoc" required min="1">
+                                   <input type="number" class="form-control" id="exampleInputText" name="slkthuoc" required min="1">
                               </div>
                               <button type="submit" class="btn btn-primary" name="themmoi">Submit</button>
                          </form>
