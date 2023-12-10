@@ -122,16 +122,16 @@
                                                                       <input type="hidden" name="tongdonhang" value="<?= $tong ?>">
                                                                       <table>
                                                                            <tr>
-                                                                                <td><input type="text" name="hoten" value="" placeholder="Nhập họ tên" required></td>
+                                                                                <td><input type="text" name="hoten"value="<?= $hoten ?>" required></td>
                                                                            </tr>
                                                                            <tr>
-                                                                                <td><input type="text" name="address" placeholder="Nhập địa chỉ" required></td>
+                                                                                <td><input type="text" name="address" value="<?= $diachi ?>" required></td>
                                                                            </tr>
                                                                            <tr>
-                                                                                <td><input type="text" name="email" placeholder="Nhập email" required></td>
+                                                                                <td><input type="text" name="email" value="<?= $email ?>" required></td>
                                                                            </tr>
                                                                            <tr>
-                                                                                <td><input type="text" name="tel" placeholder="Nhập số điện thoại" required></td>
+                                                                                <td><input type="text" name="tel" value="<?= $sdt ?>" required></td>
                                                                            </tr>
                                                                            <!-- <input name="amount" type="text" value="10000"> -->
                                                                            <tr>
