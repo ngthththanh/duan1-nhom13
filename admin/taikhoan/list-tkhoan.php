@@ -16,6 +16,7 @@
                                 <th></th>
                                 <th>ID Tài Khoản</th>
                                 <th>Tên Tài Khoản</th>
+                                <th>Số điện thoại</th>
                                 <th>Email</th>
                                 <th>Pass</th>
                                 <th>Địa Chỉ</th>
@@ -28,6 +29,7 @@
                                 <th></th>
                                 <th>ID Tài Khoản</th>
                                 <th>Tên Tài Khoản</th>
+                                <th>Số điện thoại</th>
                                 <th>Email</th>
                                 <th>Pass</th>
                                 <th>Địa Chỉ</th>
@@ -45,6 +47,7 @@
                                     <td> <input type="checkbox" name="" id=""></td>
                                     <td><?= $id_tk  ?></td>
                                     <td><?= $user   ?></td>
+                                    <td><?= $sdt ?></td>
                                     <td><?= $email ?></td>
                                     <td><?= $pass ?></td>
                                     <td><?= $diachi  ?></td>
@@ -52,7 +55,7 @@
                                     <?php if ($phanquyen == 1) { ?>
                                         <td></td>
                                     <?php } else { ?>
-                                        <td> <a href="<?= $xoatk ?> "><button type="button" class="btn">Xóa</button></a></td>';
+                                        <td> <a href=" <?php $xoatk ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')";><button type="button" class="btn">Xóa</button></a></td>';
                                     <?php }?>
                                 </tr>
                             <?php } ?>
@@ -63,4 +66,4 @@
             </div>
         </div>
     </main>
-    <
+</div>

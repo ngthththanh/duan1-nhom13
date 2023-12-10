@@ -78,7 +78,7 @@
                                     <!-- .additional-info -->
                                     <p class="price">
                                         <span class="woocommerce-Price-amount amount">
-                                            <span class="woocommerce-Price-currencySymbol"></span><?php echo "$gia_sp" ?>VND</span>
+                                            <span class="woocommerce-Price-currencySymbol"></span><?php echo number_format($gia_sp) ?>VND</span>
                                     </p>
                                     <!-- .price -->
                                     <form class="variations_form cart" action="index.php?act=addcart" method="post">

@@ -30,9 +30,13 @@ function checkuser($user, $pass)
     return $taikhoan;
 }
 
-function update_taikhoan($id, $user, $hoten, $email, $pass, $sdt, $diachi)
+function update_taikhoan($id, $hoten, $email, $pass, $sdt, $diachi)
 {
-    $sql = "UPDATE taikhoan SET user='" . $user . "', hoten = '" . $hoten . "', pass='" . $pass . "', email='" . $email . "', sdt='" . $sdt . "', diachi='" . $diachi . "' WHERE  id_tk=" . $id;
+    
+  
+        $sql = "UPDATE taikhoan SET hoten = '" . $hoten . "', pass='" . $pass . "', email='" . $email . "', sdt='" . $sdt . "', diachi='" . $diachi . "' WHERE  id_tk= ".$id;
+
+    
     pdo_execute($sql);
 }
 

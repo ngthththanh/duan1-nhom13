@@ -25,13 +25,13 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th></th>
-                                            <th>ID</th>
-                                            <th>Khach hang</th>
+                               
+                                            <th style="width: 50px;">ID</th>
+                                            <th style="width: 250px;">Khách hàng</th>
                                             <th>Sản phẩm</th>
-                                            <th>Phương thức thanh toán</th>
-                                            <th>Trạng Thái</th>
-                                            <th>Hủy đơn hàng</th>
+                                            <th style="width: 300px;">Phương thức thanh toán</th>
+                                            <th style="width: 150px;">Trạng Thái</th>
+                                            <!-- <th>Hủy đơn hàng</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,12 +40,11 @@
                                             $xoadh = "index.php?act=xoa-dh&id=" . $bill['id'];
                                         ?>
                                             <tr>
-                                                <td></td>
                                                 <td><?= $bill['id'] ?></td>
                                                 <td><?= $bill['hoten'] ?></td>
                                                 <td>
                                                     <?php foreach ($bill['products'] as $product) { ?>
-                                                        <p><?= $product['tensp'] ?></p>
+                                                        <p style="display: flex; gap:10px ;"><img src="../uploads/<?= $product['img'] ?>" alt="" width="60"><?= $product['tensp'] . 'x' . $product['soluong'] ?></p>
                                                     <?php } ?>
                                                 </td>
                                                 <td>
@@ -55,11 +54,11 @@
                                                     <p><?= $bill['trangthai'] ?></p>
 
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <a href="<?= $xoadn ?>" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng không')">
                                                         <button type="button" class="btn">Hủy Đơn Hàng</button>
                                                     </a>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                         <?php } ?>
                                     </tbody>

@@ -5,7 +5,7 @@
                 <a href="index.php">Home</a>
                 <span class="delimiter">
                     <i class="tm tm-breadcrumbs-arrow-right"></i>
-                </span>Thông tin tin tài khoản
+                </span>Thông tin tài khoản
             </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
@@ -18,52 +18,56 @@
                                         <!-- .col-1 -->
                                         <div class="u-column2 col-2">
                                             <h2>Thông tin tài khoản</h2>
-                                            <?php 
-                                                if(isset($_SESSION['username'])&&(is_array($_SESSION['username']))){
+                                            <form class="register" method="post" action="index.php?act=updatetk&id=<?php echo $id_tk ?>">
+                                                <?php
+                                                /*  if(isset($_SESSION['username'])&&(is_array($_SESSION['username']))){
+                                                    extract($_SESSION['username']);
+                                                } */
+                                                if (!empty($_SESSION['username'])) {
                                                     extract($_SESSION['username']);
                                                 }
-                                                ?> 
-                                            <form class="register" method="post" action="index.php?act=updatetk">
+                                                ?>
+
                                                 <p class="form-row form-row-wide">
-                                                    <label for="reg_username">Username
+                                                    <label for="reg_password">Username
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="text"  value="<?=$user?>"  id="reg_username" name="username" class="woocommerce-Input woocommerce-Input--text input-text" disabled>
+                                                    <input type="text" value="<?= $user ?>" id="reg_password" name="password" class="woocommerce-Input woocommerce-Input--text input-text" disabled>
                                                 </p>
                                                 <p class="form-row form-row-wide">
                                                     <label for="reg_password">Password
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="password"  value="<?=$pass?>"  id="reg_password" name="password" class="woocommerce-Input woocommerce-Input--text input-text" required>
+                                                    <input type="password" value="<?= $pass ?>" id="reg_password" name="password" class="woocommerce-Input woocommerce-Input--text input-text" required>
                                                 </p>
                                                 <p class="form-row form-row-wide">
                                                     <label for="reg_username">Fullname
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="text"  value="<?=$hoten?>"  id="reg_username" name="hoten" class="woocommerce-Input woocommerce-Input--text input-text" required>
+                                                    <input type="text" value="<?= $hoten ?>" id="reg_username" name="hoten" class="woocommerce-Input woocommerce-Input--text input-text" required>
                                                 </p>
                                                 <p class="form-row form-row-wide">
                                                     <label for="reg_email">Email address
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="email"  value="<?=$email?>"  id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text">
-                                                </p>     
+                                                    <input type="email" value="<?= $email ?>" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text">
+                                                </p>
                                                 <p class="form-row form-row-wide">
                                                     <label for="reg_username">Phone
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="text"  value="<?=$sdt?>"  id="reg_username" name="sdt" class="woocommerce-Input woocommerce-Input--text input-text">
+                                                    <input type="text" value="<?php echo $sdt ?>" id="reg_username" name="sdt" class="woocommerce-Input woocommerce-Input--text input-text">
                                                 </p>
                                                 <p class="form-row form-row-wide">
                                                     <label for="reg_username">Address
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="text"  value="<?=$diachi?>"  id="reg_username" name="diachi" class="woocommerce-Input woocommerce-Input--text input-text">
+                                                    <input type="text" value="<?php echo $diachi ?>" id="reg_username" name="diachi" class="woocommerce-Input woocommerce-Input--text input-text">
                                                 </p>
-                                          
-                                            
+
+
                                                 <p class="form-row">
-                                                <input type="hidden" name="id"value="<?php if(isset($id_tk)&&($id_tk>0)) echo $id_tk; ?>">
+                                                    <input type="hidden" name="id" value="<?php if (isset($id_tk) && ($id_tk > 0)) echo $id_tk; ?>">
 
                                                     <input type="submit" class="woocommerce-Button button" name="capnhat" value="Cập nhật" />
                                                 </p>

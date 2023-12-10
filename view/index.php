@@ -75,37 +75,29 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $pass = $_POST['password'];
                     $email = $_POST['email'];
 
-                    // Check if the email is valid
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                         echo '<script>alert("Lỗi: Email không hợp lệ!");</script>';
+                 
+                    if (checkusermail($user, $email)) {
+                         echo '<script>alert("Lỗi: Tài khoản hoặc tên người dùng đã tồn tại!");</script>';
+                         echo "<script>window.location.href='index.php?act=login';</script>";
+                    }
+        
+                    if (strlen($user) > 20) {
+                         echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
+                    }else if (strpos($user, ' ') !== false) {
+                         echo '<script>alert("Lỗi: Tên người dùng không được chứa khoảng trắng!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                          exit();
                     }
-
-                    // Check if the password contains both letters and numbers and is at least 6 characters long
+                    if (strlen($hoten) > 50) {
+                         echo '<script>alert("Lỗi: Họ tên quá dài, vui lòng nhập tên ngắn hơn!");</script>';
+                    }
                     if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/', $pass)) {
                          echo '<script>alert("Lỗi: Mật khẩu phải chứa ít nhất một chữ và một số, và dài ít nhất 6 ký tự!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                          exit();
                     }
-                    if (strlen($user) > 20) {
-                         echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
-                    }
-                    if (strlen($hoten) > 50) {
-                         echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
-                    }
-                    if (checkusermail($user, $email)) {
-                         echo '<script>alert("Lỗi: Tài khoản hoặc tên người dùng đã tồn tại!");</script>';
-                         echo "<script>window.location.href='index.php?act=login';</script>";
-                    } else {
-                         // Check if the username contains whitespace
-                         if (strpos($user, ' ') !== false) {
-                              echo '<script>alert("Lỗi: Tên người dùng không được chứa khoảng trắng!");</script>';
-                              echo "<script>window.location.href='index.php?act=login';</script>";
-                              exit();
-                         }
-
-                         // Continue with the registration logic
+                    else {
+                       
                          insert_taikhoan($user, $hoten, $pass, $email);
                          echo '<script>alert("Đăng ký thành công");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
@@ -127,7 +119,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          // header('Location:index.php?act=home');
                          echo "<script>window.location.href='index.php?act=home';</script>";
                     } else {
-                         echo '<script>alert("Tài khoản không tồn tại");</script>';
+                        $thongbao = "Tài khoản không tồn tại";
                     }
                }
                include "login/login-and-register.php";
@@ -139,37 +131,19 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                }
                include "login/login-and-register.php";
                break;
+           
           case 'updatetk':
-
-               if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
-                    $id = $_POST['id'];
-                    $user = $_POST['username'];
+               if (isset($_POST['capnhat'])) {
                     $hoten = $_POST['hoten'];
                     $pass = $_POST['password'];
                     $email = $_POST['email'];
                     $sdt = $_POST['sdt'];
                     $diachi = $_POST['diachi'];
-
-                    // Kiểm tra xem email có hợp lệ không
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                         echo '<script>alert("Lỗi: Email không hợp lệ!");</script>';
-                         // Có thể thêm chuyển hướng hoặc các xử lý khác tùy thuộc vào yêu cầu của bạn
-                    }
-
-                    // Kiểm tra xem số điện thoại có đúng định dạng không
-                    if (!preg_match('/^0[0-9]{9}$/', $sdt)) {
-                         echo '<script>alert("Lỗi: Số điện thoại không hợp lệ!");</script>';
-                         // Có thể thêm chuyển hướng hoặc các xử lý khác tùy thuộc vào yêu cầu của bạn
-                    }
-                    if (strlen($hoten) > 20) {
-                         echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
-                    }
-
-                    // Tiếp tục với logic cập nhật tài khoản nếu không có lỗi
-                    $taikhoan = update_taikhoan($id, $user, $hoten, $email, $pass, $sdt, $diachi);
-                    echo '<script>alert("Cập nhật thành công, vui lòng đăng nhập lại!");</script>';
-                    // unset($_SESSION['username']);
-                    // echo "<script>window.location.href='index.php?act=login';</script>";
+                    $id = $_POST['id'];
+                    $checkuser = checkuser($user, $pass);
+                    $_SESSION['username'] = $checkuser;
+                    $taikhoan = update_taikhoan($_POST['id'], $_POST['hoten'], $_POST['email'],$_POST['password'],$_POST['sdt'], $_POST['diachi']);
+                    echo '<script>alert("Cập nhật thành công");</script>';      
                }
 
                include "login/updatetk.php";
@@ -250,7 +224,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          echo '<script>alert("Lỗi: Họ tên quá dài, vui lòng nhập họ tên ngắn hơn!");</script>';
                          include "cart/giohang.php";
                     } else {
-                         $tell = $_POST['tell'];
+                         $tell = $_POST['tel'];
 
                          // Kiểm tra định dạng số điện thoại
                          if (!preg_match('/^\d{10}$/', $tell)) {

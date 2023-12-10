@@ -81,7 +81,8 @@ function loadall_hoadon(){
     $listorder = pdo_query($sql);
     foreach ($listorder as $key => $item) {
         // Sắp xếp sản phẩm theo thời gian thêm mới nhất
-        $sql = "SELECT * FROM tbl_cart WHERE iddh = " . $item['id'] . " ORDER BY ngaybinhdathang DESC";
+        $sql = "SELECT * FROM tbl_cart WHERE iddh = ".$item['id']." 
+        ORDER BY ngaybinhdathang ASC";
         $listproduct = pdo_query($sql);
         $listorder[$key]['products'] = $listproduct;
     }

@@ -15,7 +15,7 @@
                             <div class="woocommerce">
                                 <div class="customer-login-form">
                                     <div id="customer_login" class="u-columns col2-set">
-
+                                   
                                         <div class="u-column1 col-1">
                                             <?php if (isset($_GET['act']) && $_GET['act'] === 'login') { ?>
                                                 <h2>Đăng nhập</h2>
@@ -35,6 +35,9 @@
                                                         </label>
                                                         <input class="input-text" type="password" name="password" id="password" required />
                                                     </p>
+                                                    <p> <?php if (isset($thongbao) && $thongbao != '') {
+                                                            echo $thongbao;
+                                                        } ?></p>
                                                     <p class="form-row">
                                                         <input class="woocommerce-Button button" type="submit" value="Đăng nhập" name="login">
                                                         <label for="rememberme" class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
@@ -75,7 +78,7 @@
                                         <!-- .col-1 -->
                                         <div class="u-column2 col-2">
                                             <h2>Đăng kí</h2>
-                                            <form class="register" method="post" action="index.php?act=dangki">
+                                            <form class="register" method="post" action="index.php?act=dangki" class="woocomerce-form woocommerce-form-login login">
                                                 <p class="before-register-text">
                                                     Create a new account today to reap the benefits of a personalized shopping experience. Praesent placerat, est sed aliquet finibus.
                                                 </p>
@@ -83,7 +86,7 @@
                                                     <label for="reg_email">Email address
                                                         <span class="required">*</span>
                                                     </label>
-                                                    <input type="text" value="" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text" required>
+                                                    <input type="email" value="" id="reg_email" name="email" class="woocommerce-Input woocommerce-Input--text input-text" required>
                                                 </p>
                                                 <p class="form-row form-row-wide">
                                                     <label for="reg_username">Fullname
@@ -104,10 +107,12 @@
                                                     </label>
                                                     <input type="password" id="reg_password" name="password" class="woocommerce-Input woocommerce-Input--text input-text" required>
                                                 </p>
+                                                
                                                 <p class="form-row">
                                                     <input type="submit" class="woocommerce-Button button" name="register" value="Đăng kí" />
-                                                    
+
                                                 </p>
+                                         
                                                 <div class="register-benefits">
                                                     <h3>Đăng ký ngay hôm nay và bạn sẽ có thể:</h3>
                                                     <ul>
@@ -117,6 +122,7 @@
                                                     </ul>
                                                 </div>
                                             </form>
+                                            
                                             <!-- .register -->
                                         </div>
                                         <!-- .col-2 -->

@@ -239,28 +239,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     delete_taikhoan($_GET['id']);
                }
-               $listkhachhang = loadall_taikhoan("", 0);
+               $listtaikhoan = loadall_taikhoan("", 0);
                include "taikhoan/list-tkhoan.php";
-               break;
-          case 'suatk':
-               if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $khachhang = loadone_khachhang($_GET['id']);
-               }
-               include "khachhang/update.php";
-               break;
-          case 'updatetk':
-               if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
-                    $user_name = $_POST['user'];
-                    $pass = $_POST['pass'];
-                    $email = $_POST['email'];
-                    $tel = $_POST['tel'];
-                    $address = $_POST['address'];
-                    $id = $_POST['id'];
-                    $role = $_POST['role'];
-                    // $tk = update_tk($id,$user_name,$email,$tel,$pass, $address,$role);
-                    header("Location:index.php?act=updatetk");
-               }
-               include "khachhang/list.php";
                break;
           case "binhluan":
                $listbinhluan = load_binhluan(0);
@@ -277,12 +257,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
                break;
-          case 'suatk':
-               if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $khachhang = loadone_khachhang($_GET['id']);
-               }
-               include "khachhang/update.php";
-               break;
+
           case 'xoabl';
                if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                     delete_binhluan($_GET['id']);

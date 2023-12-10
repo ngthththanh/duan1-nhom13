@@ -139,6 +139,7 @@
                                                                                      <input type="radio" name="pttt" value="1"> Thanh toán khi nhận hàng <br>
                                                                                 </td>
                                                                            </tr>
+                                                                           
                                                                            <tr>
                                                                                 <td><input type="submit" value="Thanh toán" name="thanhtoan"></td>
                                                                            </tr>

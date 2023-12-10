@@ -50,7 +50,7 @@
                                                                     <span class="woocommerce-Price-amount amount"><img src="../uploads/<?= $item['img'] ?>" alt="" width="80px"></span>  
                                                                 </td>
                                                                 <td class="woocommerce-table__product-total product-total">
-                                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND </span><?= $tt ?></span>  
+                                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND </span><?= number_format($tt) ?></span>  
                                                                 </td>
 
                                                             </tr>
@@ -63,11 +63,11 @@
                                                 <tfoot>
                                                         <tr>
                                                             <th scope="row">Phí :</th>
-                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span>35000</span>&nbsp;<small class="shipped_via">via Normal Delivery</small></td>
+                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span><?=number_format(35000)?></span>VND &nbsp;<small class="shipped_via">via Normal Delivery</small></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">Tổng:</th>
-                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND</span><?=  $tong ?></span></td>
+                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span><?=  number_format($tong) ?></span>VND</td>
                                                         </tr>
                                                     </tfoot>
                                                 <?php }
