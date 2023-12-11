@@ -1,13 +1,21 @@
 <?php
 
-function taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell){
-
+function taodonhang($madh, $tongdonhang, $pttt, $hoten, $email)
+{
     $conn = pdo_get_connection();
     
-    $sql="INSERT INTO tbl_order(madh,tongdonhang,pttt,hoten,address,email,tell)  
-    VALUES (:madh,:tongdonhang,:pttt,:hoten,:address,:email,:tell)";
+    // Lấy giá trị mặc định từ cơ sở dữ liệu
+    $defaultAddress = "Trịnh Văn Bô "; // Thay đổi giá trị mặc định nếu cần
+    $defaultTell = "0396189342"; // Thay đổi giá trị mặc định nếu cần
+
+    $sql = "INSERT INTO tbl_order(madh, tongdonhang, pttt, hoten, address, email, tell)  
+            VALUES (:madh, :tongdonhang, :pttt, :hoten, :address, :email, :tell)";
 
     $stmt = $conn->prepare($sql);
+
+    // Sử dụng giá trị mặc định nếu giá trị không được truyền vào
+    $address = isset($address) ? $address : $defaultAddress;
+    $tell = isset($tell) ? $tell : $defaultTell;
 
     $stmt->bindParam(':madh', $madh);
     $stmt->bindParam(':tongdonhang', $tongdonhang);
@@ -16,7 +24,6 @@ function taodonhang($madh,$tongdonhang,$pttt,$hoten,$address,$email,$tell){
     $stmt->bindParam(':address', $address);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':tell', $tell);
-    
     $stmt->execute();
     
     $last_id = $conn->lastInsertId();

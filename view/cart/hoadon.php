@@ -104,14 +104,8 @@
                                                         <tr>
                                                             <td> Phương thức thanh toán:
                                                                 <?php switch ($getorderinfor[0]['pttt']) {
-                                                                    case '1':
+                                                                    case 'thanhtoankhinhanhang':
                                                                         $txtmess = "Thanh toán khi nhận hàng ";
-                                                                    case '2':
-                                                                        $txtmess = "Thanh toán chuyển khoản";
-                                                                    case '3':
-                                                                        $txtmess = "Thanh toán ví MoMo";
-                                                                    case '4':
-                                                                        $txtmess = "Thanh toán online";
                                                                         break;
 
                                                                     default:

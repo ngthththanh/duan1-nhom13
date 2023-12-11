@@ -5,8 +5,7 @@
             <h2 class="section-title">Sản phẩm mới năm 2023</h2>
             <ul role="tablist" class="nav justify-content-center">
                 <li class="nav-item"><a class="nav-link active" href="#tab-59f89f0ac71c90" data-toggle="tab">Tất cả</a></li>
-                <li class="nav-item"><a class="nav-link " href="#tab-59f89f0ac71c91" data-toggle="tab">Nam</a></li>
-                <li class="nav-item"><a class="nav-link " href="#tab-59f89f0ac71c92" data-toggle="tab">Nữ</a></li>
+                
             </ul>
         </header>
         <div class="tab-content">
@@ -42,7 +41,7 @@
                                         <input type="hidden" name="img" value="' . $sp['hinh'] . '">
                                         <input type="hidden" name="price" value="' . $sp['gia_sp'] . '">
                                         <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
-                                        <a class="add-to-compare-link" href="compare.html">So sánh</a>
+                                       
                                     </div>
                                     </div>
                                     </form>

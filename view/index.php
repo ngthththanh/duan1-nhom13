@@ -17,14 +17,7 @@ $dmft2 = loadall_danhmuc_footer2();
 $allsp = loadall_sanpham();
 $dstop10 = loadall_sanpham_top10();
 $listhoadon = loadall_hoadon();
-$tatcatrangthai = [
-     ['code' => 'choxuly', 'name' => 'Đang chờ xử lý '],
-     ['code' => 'daxacnhan', 'name' => 'Đã xác nhận'],
-     ['code' => 'dangvanchuyen', 'name' => 'Đang vận chuyển'],
-     ['code' => 'hoanthanhdonhang', 'name' => 'Hoàn thành đơn hàng'],
-     ['code' => 'huydonhang', 'name' => 'Hủy đơn hàng']
 
-];
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
      $act = $_GET['act'];
      switch ($act) {
@@ -156,6 +149,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                break;
           case "addcart":
                if (isset($_SESSION['username'])) {
+                 
                     if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
                          $id_sp = $_POST['id'];
                          $ten_sp = $_POST['name'];

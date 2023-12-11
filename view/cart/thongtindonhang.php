@@ -29,7 +29,8 @@
                                             <th style="width: 50px;">ID</th>
                                             <th style="width: 250px;">Khách hàng</th>
                                             <th>Sản phẩm</th>
-                                            <th style="width: 300px;">Phương thức thanh toán</th>
+                                            <th style="width: 200px;">Phương thức thanh toán</th>
+                                            <th style="width: 300px;">Ngày Đặt</th>
                                             <th style="width: 150px;">Trạng Thái</th>
                                             <!-- <th>Hủy đơn hàng</th> -->
                                         </tr>
@@ -49,6 +50,11 @@
                                                 </td>
                                                 <td>
                                                     <p><?= $bill['pttt'] ?></p>
+                                                </td>
+                                                <td>
+                                              
+                                                        <p style="display: flex; gap:10px ;"><?= $product['ngaybinhdathang'] ?></p>
+                                                  
                                                 </td>
                                                 <td>
                                                     <p><?= $bill['trangthai'] ?></p>

@@ -88,8 +88,7 @@
                                                         <input type="hidden" name="name" value="' . $ten_sp . '">
                                                         <input type="hidden" name="img" value="' . $hinhpath . '">
                                                         <input type="hidden" name="price" value="' . $gia_sp . '">
-                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">Thêm vào giỏ hàng</a>
-                                                        <a class="add-to-compare-link" href="compare.html">So sánh</a>
+                                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
                                                             </div>
                                                         <!-- .hover-area -->
                                                     </div>   ';

@@ -80,7 +80,7 @@
                                                        </td>
                                                        <td data-title="Total" class="product-subtotal">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . number_format($tong) . '</span>VND
+                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . number_format($tt) . '</span>VND
                                                             </span>
                                                             <a title="Remove this item" class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
                                                        </td>
@@ -136,7 +136,7 @@
                                                                            <!-- <input name="amount" type="text" value="10000"> -->
                                                                            <tr>
                                                                                 <td>Phương thức thanh toán <br>
-                                                                                     <input type="radio" name="pttt" value="1"> Thanh toán khi nhận hàng <br>
+                                                                                     <input type="radio" name="pttt" value="thanhtoankhinhanhang"> Thanh toán khi nhận hàng <br>
                                                                                 </td>
                                                                            </tr>
                                                                            
