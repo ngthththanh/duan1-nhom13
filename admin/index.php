@@ -99,7 +99,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                               $uploadOk = 0;
                          }
 
-                         // Check if the file size is less than 5MB
+                         
                          if ($_FILES["hinh"]["size"] > 5 * 1024 * 1024) {
                               echo '<script>alert("Lỗi: Kích thước tệp quá lớn. Vui lòng tải lên tệp nhỏ hơn 5MB.");</script>';
                               $uploadOk = 0;

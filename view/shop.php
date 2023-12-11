@@ -68,30 +68,32 @@
                                             $hinhpath = "../uploads/" . $hinh;
                                             $linksp = "index.php?act=chitietsp&idsp=" . $id_sp;
                                             echo '
-                                                        <div class="product first">
-                                                        <form action="index.php?act=addcart" method="post">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                                                        </div>
-                                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="' . $linksp . '">
-                                                            <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="' . $hinhpath . '">
+                                            <div class="product first">
+                                                <form action="index.php?act=addcart" method="post">
+                                                    <div class="yith-wcwl-add-to-wishlist">
+                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
+                                                    </div>
+                                                     <!-- .yith-wcwl-add-to-wishlist -->
+                                                    <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="' . $linksp . '">
+                                                        <img width="224" height="197" alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="' . $hinhpath . '">
                                                             <span class="price">
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-currencySymbol"></span>' . number_format($gia_sp) . 'VND</span>
+                                                                <span class="woocommerce-Price-currencySymbol"></span>' . number_format($gia_sp) . 'VND</span>
                                                             </span>
-                                                            <h2 class="woocommerce-loop-product__title">' . $ten_sp . '</h2>
+                                                        <h2 class="woocommerce-loop-product__title">' . $ten_sp . '</h2>
                                                         </a>
-                                                        <!-- .woocommerce-LoopProduct-link -->
-                                                        <div class="hover-area">
-                                                        <input type="hidden" name="id" value="' . $id_sp . '">
-                                                        <input type="hidden" name="name" value="' . $ten_sp . '">
-                                                        <input type="hidden" name="img" value="' . $hinhpath . '">
-                                                        <input type="hidden" name="price" value="' . $gia_sp . '">
-                                                        <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
-                                                            </div>
-                                                        <!-- .hover-area -->
-                                                    </div>   ';
+                                                <!-- .woocommerce-LoopProduct-link -->
+                                                        
+                                                <div class="hover-area">
+                                                    <input type="hidden" name="id" value="' . $id_sp . '">
+                                                    <input type="hidden" name="name" value="' . $ten_sp . '">
+                                                    <input type="hidden" name="img" value="' . $hinhpath . '">
+                                                    <input type="hidden" name="price" value="' . $gia_sp . '">
+                                                    <input type="submit" value="Thêm vào giỏ hàng" name="addtocart">
+                                                </div>
+                                                <!-- .hover-area --> 
+                                            </form>
+                                        </div>   ';
                                             $i += 1;
                                         } ?>
 

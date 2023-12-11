@@ -50,7 +50,7 @@
                                                                     <span class="woocommerce-Price-amount amount"><img src="../uploads/<?= $item['img'] ?>" alt="" width="80px"></span>  
                                                                 </td>
                                                                 <td class="woocommerce-table__product-total product-total">
-                                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">VND </span><?= number_format($tt) ?></span>  
+                                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span><?= number_format($tt) ?>VND</span>  
                                                                 </td>
 
                                                             </tr>
@@ -96,7 +96,7 @@
                                                             <td> Địa chỉ giao hàng : <?= $getorderinfor[0]['address'] ?> <br></td>
                                                         </tr>
                                                         <tr>
-                                                            <td> Email người nhận <?= $getorderinfor[0]['email'] ?> <br></td>
+                                                            <td> Địa chỉ người nhận <?= $getorderinfor[0]['email'] ?> <br></td>
                                                         </tr>
                                                         <tr>
                                                             <td> Số điện thoại người nhận: <?= $getorderinfor[0]['tell'] ?> <br></td>

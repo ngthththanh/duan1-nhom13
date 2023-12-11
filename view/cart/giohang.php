@@ -2,7 +2,7 @@
      <div class="col-full">
           <div class="row">
                <nav class="woocommerce-breadcrumb">
-                    <a href="home-v1.html">Home</a>
+                    <a href="index.php">Home</a>
                     <span class="delimiter">
                          <i class="tm tm-breadcrumbs-arrow-right"></i>Giỏ hàng
                     </span>
@@ -46,52 +46,41 @@
                                                                                 foreach ($_SESSION['giohang'] as $item) {
                                                                                      $tt = $item[3] * $item[4];
                                                                                      $tong += $tt;
-                                                                                     echo ' 
-                                                  <tr>
-                                                  <td>' . ($i + 1) . '</td>
-                                                  <td>   <img src="../uploads/' . $item[2] . '" alt="" width="80"></td>
+                                                                           echo ' <tr>
+                                                                                     <td>' . ($i + 1) . '</td>
+                                                                                     <td>   <img src="../uploads/' . $item[2] . '" alt="" width="80"></td>
 
-                                                       <td class="product-remove">
-                                                            <a class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
-                                                       </td>
-                                                       <td class="product-thumbnail">
-                                                       </td>
-                                                       <td data-title="Product" class="product-name">
-                                                            <div class="media cart-item-product-detail">
-                                                                 <a href="single-product-fullwidth.html">
-                                                                 
-                                                                 </a>
-                                                                 <div class="media-body align-self-center">
-                                                                      <a href="single-product-fullwidth.html">' . $item[1] . '</a>
-                                                                      
-                                                                 </div>
-                                                            </div>
-                                                       </td>
-                                                       <td data-title="Price" class="product-price">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbol">' . number_format($item[3])  . '</span>VND
-                                                            </span>
-                                                       </td>
-                                                       <td class="product-quantity" data-title="Quantity">
-                                                            <div class="quantity">
-                                                                 <label for="quantity-input-1">Quantity</label>
-                                                                 <input id="quantity-input-1" type="number" data-id="' . $i . '" data-unit-price="' . $item[3] . '" data-name="' . $item[1] . '" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="' . $item[4] . '" title="Qty" class="input-text qty text input-quantity" size="4">
-                                                            </div>
-                                                       </td>
-                                                       <td data-title="Total" class="product-subtotal">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                 <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . number_format($tt) . '</span>VND
-                                                            </span>
-                                                            <a title="Remove this item" class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
-                                                       </td>
-                                                  </tr>';
-                                                                                     $i++;
+                                                                                     <td class="product-remove">
+                                                                                          <a class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
+                                                                                     </td>
+                                                                                     <td class="product-thumbnail"></td>
+                                                                                     <td data-title="Product" class="product-name">
+                                                                                          <div class="media cart-item-product-detail">
+                                                                                               <a href="single-product-fullwidth.html"></a>
+                                                                                               <div class="media-body align-self-center">
+                                                                                                    <a href="single-product-fullwidth.html">' . $item[1] . '</a>
+                                                                                               </div>
+                                                                                          </div>
+                                                                                     </td>
+                                                                                     <td data-title="Price" class="product-price">
+                                                                                          <span class="woocommerce-Price-amount amount">
+                                                                                          <span class="woocommerce-Price-currencySymbol">' . number_format($item[3])  . '</span>VND</span>
+                                                                                     </td>
+                                                                                     <td class="product-quantity" data-title="Quantity">
+                                                                                          <div class="quantity">
+                                                                                               <label for="quantity-input-1">Quantity</label>
+                                                                                               <input id="quantity-input-1" type="number" data-id="' . $i . '" data-unit-price="' . $item[3] . '" data-name="' . $item[1] . '" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="' . $item[4] . '" title="Qty" class="input-text qty text input-quantity" size="4">
+                                                                                          </div>
+                                                                                     </td>
+                                                                                     <td data-title="Total" class="product-subtotal">
+                                                                                          <span class="woocommerce-Price-amount amount">
+                                                                                          <span class="woocommerce-Price-currencySymbo total-product-' . $i . '">' . number_format($tt) .'</span>VND</span>
+                                                                                          <a title="Remove this item" class="remove" href="index.php?act=delcart&i=' . $i . '">×</a>
+                                                                                     </td>
+                                                                                </tr>';
+                                                                                $i++;
                                                                                 }
-                                                                           } else {
-                                                                                echo '<script>alert("Giỏ hàng có gì đâu mà vào");</script>';
-                                                                                header('location:index.php');
-                                                                           }
-                                                                           ?>
+                                                                           }?>
                                                                       </tbody>
                                                                  </table>
                                                                  <tr>
@@ -136,7 +125,7 @@
                                                                            <!-- <input name="amount" type="text" value="10000"> -->
                                                                            <tr>
                                                                                 <td>Phương thức thanh toán <br>
-                                                                                     <input type="radio" name="pttt" value="thanhtoankhinhanhang"> Thanh toán khi nhận hàng <br>
+                                                                                     <input type="radio" name="pttt" value="thanhtoankhinhanhang" required> Thanh toán khi nhận hàng <br>
                                                                                 </td>
                                                                            </tr>
                                                                            
