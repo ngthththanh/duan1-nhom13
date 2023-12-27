@@ -68,15 +68,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $pass = $_POST['password'];
                     $email = $_POST['email'];
 
-                 
+
                     if (checkusermail($user, $email)) {
                          echo '<script>alert("Lỗi: Tài khoản hoặc tên người dùng đã tồn tại!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                     }
-        
+
                     if (strlen($user) > 20) {
                          echo '<script>alert("Lỗi: Tên đăng nhập quá dài, vui lòng nhập tên ngắn hơn!");</script>';
-                    }else if (strpos($user, ' ') !== false) {
+                    } else if (strpos($user, ' ') !== false) {
                          echo '<script>alert("Lỗi: Tên người dùng không được chứa khoảng trắng!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                          exit();
@@ -88,9 +88,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          echo '<script>alert("Lỗi: Mật khẩu phải chứa ít nhất một chữ và một số, và dài ít nhất 6 ký tự!");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
                          exit();
-                    }
-                    else {
-                       
+                    } else {
+
                          insert_taikhoan($user, $hoten, $pass, $email);
                          echo '<script>alert("Đăng ký thành công");</script>';
                          echo "<script>window.location.href='index.php?act=login';</script>";
@@ -112,7 +111,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                          // header('Location:index.php?act=home');
                          echo "<script>window.location.href='index.php?act=home';</script>";
                     } else {
-                        $thongbao = "Tài khoản không tồn tại";
+                         $thongbao = "Tài khoản không tồn tại";
                     }
                }
                include "login/login-and-register.php";
@@ -124,7 +123,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                }
                include "login/login-and-register.php";
                break;
-           
+
           case 'updatetk':
                if (isset($_POST['capnhat'])) {
                     $hoten = $_POST['hoten'];
@@ -135,8 +134,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $id = $_POST['id'];
                     $checkuser = checkuser($user, $pass);
                     $_SESSION['username'] = $checkuser;
-                    $taikhoan = update_taikhoan($_POST['id'], $_POST['hoten'], $_POST['email'],$_POST['password'],$_POST['sdt'], $_POST['diachi']);
-                    echo '<script>alert("Cập nhật thành công");</script>';      
+                    $taikhoan = update_taikhoan($_POST['id'], $_POST['hoten'], $_POST['email'], $_POST['password'], $_POST['sdt'], $_POST['diachi']);
+                    echo '<script>alert("Cập nhật thành công");</script>';
                }
 
                include "login/updatetk.php";
@@ -149,7 +148,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                break;
           case "addcart":
                if (isset($_SESSION['username'])) {
-                 
+
                     if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
                          $id_sp = $_POST['id'];
                          $ten_sp = $_POST['name'];

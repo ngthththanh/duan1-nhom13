@@ -32,17 +32,19 @@
                                                                                 <th class="product-thumbnail">&nbsp;</th>
                                                                                 <th class="product-name">STT</th>
                                                                                 <th class="product-name">Hình</th>
-                                                                                <th class="product-name">Product</th>
-                                                                                <th class="product-price">Price</th>
-                                                                                <th class="product-quantity">Quantity</th>
-                                                                                <th class="product-subtotal">Total</th>
+                                                                                <th class="product-name">Sản phẩm</th>
+                                                                                <th class="product-price">Giá sản phẩm</th>
+                                                                                <th class="product-quantity">Số lượng</th>
+                                                                                <th class="product-subtotal">Tổng</th>
                                                                            </tr>
                                                                       </thead>
                                                                       <tbody>
                                                                            <?php
+                                                                   
                                                                            if ((isset($_SESSION['giohang'])) && (count($_SESSION['giohang']) > 0)) {
                                                                                 $i = 0;
                                                                                 $tong = 0;
+                                                                               
                                                                                 foreach ($_SESSION['giohang'] as $item) {
                                                                                      $tt = $item[3] * $item[4];
                                                                                      $tong += $tt;
@@ -56,12 +58,13 @@
                                                                                      <td class="product-thumbnail"></td>
                                                                                      <td data-title="Product" class="product-name">
                                                                                           <div class="media cart-item-product-detail">
-                                                                                               <a href="single-product-fullwidth.html"></a>
+                                                                                               <a href=""></a>
                                                                                                <div class="media-body align-self-center">
-                                                                                                    <a href="single-product-fullwidth.html">' . $item[1] . '</a>
+                                                                                                    <a href="">' . $item[1] . '</a>
                                                                                                </div>
                                                                                           </div>
                                                                                      </td>
+                                                                                     
                                                                                      <td data-title="Price" class="product-price">
                                                                                           <span class="woocommerce-Price-amount amount">
                                                                                           <span class="woocommerce-Price-currencySymbol">' . number_format($item[3])  . '</span>VND</span>
@@ -86,7 +89,7 @@
                                                                  <tr>
                                                                       <td class="actions" colspan="6">
                                                                            <div class="coupon">
-                                                                                <label for="coupon_code">Coupon:</label>
+                                                                                <label for="coupon_code">Mã giảm giá</label>
                                                                                 <input type="text" placeholder="Coupon code" value="" id="coupon_code" class="input-text" name="coupon_code">
                                                                                 <input type="submit" value="Apply coupon" name="apply_coupon" class="button">
                                                                                 <input type="submit" value="Update cart" name="update_cart" class="button">

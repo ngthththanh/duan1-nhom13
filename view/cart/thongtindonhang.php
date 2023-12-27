@@ -38,32 +38,38 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($listhoadon as $bill) {
-                                                        extract($bill);
-                                                        $xoadh = "index.php?act=xoa-dh&id=" . $bill['id'];
-                                                    ?>
-                                                        <tr>
-                                                            <td><?= $bill['id'] ?></td>
-                                                            <td><?= $bill['hoten'] ?></td>
-                                                            <td>
-                                                                <?php foreach ($bill['products'] as $product) { ?>
-                                                                    <p style="display: flex; gap:10px ;"><img src="../uploads/<?= $product['img'] ?>" alt="" width="60"><?= $product['tensp'] . 'x' . $product['soluong'] ?></p>
-                                                                <?php } ?>
-                                                            </td>
-                                                            <td>
-                                                                <p><?= $bill['pttt'] ?></p>
-                                                            </td>
-                                                            <td>
-
-                                                                <p style="display: flex; gap:10px ;"><?= $product['ngaybinhdathang'] ?></p>
-
-                                                            </td>
-                                                            <td>
-                                                                <p><?= $bill['trangthai'] ?></p>
-
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
+                                                   <?php 
+                                                    if (isset($_SESSION['username']) ) { 
+                                                               ?>
+                                                                    <?php foreach ($listhoadon as $bill) {
+                                                                        extract($bill);
+                                                                        $xoadh = "index.php?act=xoa-dh&id=" . $bill['id'];
+                                                                    ?>
+                                                                        <tr>
+                                                                            <td><?= $bill['id'] ?></td>
+                                                                            <td><?= $bill['hoten'] ?></td>
+                                                                            <td>
+                                                                                <?php foreach ($bill['products'] as $product) { ?>
+                                                                                    <p style="display: flex; gap:10px ;"><img src="../uploads/<?= $product['img'] ?>" alt="" width="60"><?= $product['tensp'] . 'x' . $product['soluong'] ?></p>
+                                                                                <?php } ?>
+                                                                            </td>
+                                                                            <td>
+                                                                                <p><?= $bill['pttt'] ?></p>
+                                                                            </td>
+                                                                            <td>
+                
+                                                                                <p style="display: flex; gap:10px ;"><?= $product['ngaybinhdathang'] ?></p>
+                
+                                                                            </td>
+                                                                            <td>
+                                                                                <p><?= $bill['trangthai'] ?></p>
+                
+                                                                            </td>
+                                                                        </tr>
+                                                                    <?php } ?>
+                                                               <?php }
+                                                
+                                                   ?>
                                                 </tbody>
                                             </table>
                                             <!-- .track_order -->

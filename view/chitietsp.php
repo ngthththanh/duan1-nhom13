@@ -82,11 +82,11 @@
                                     </p>
                                     <!-- .price -->
                                     <form class="variations_form cart" action="index.php?act=addcart" method="post">
-                                        <select onchange="soLuong1()" id="kichThuoc" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="attribute_pa_screen-size" class="" id="pa_screen-size">
+                                        <select onchange="soLuong1()" id="kichThuoc" data-show_option_none="yes" data-attribute_name="attribute_pa_screen-size" name="kichthuoc" class="" id="pa_screen-size">
                                             <option value="">Chọn kích thước</option>
                                             <?php foreach ($listkthuoc as $kthuoc) {
                                                 extract($kthuoc);
-                                                echo '<option value="' . $so_luong . '" class="attached enabled">Size' . $ten . '</option>';
+                                                echo '<option name="kichthuoc" value="' . $so_luong . '" class="attached enabled">Size' . $ten . '</option>';
                                             } ?>
                                         </select>
                                   
